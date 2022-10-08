@@ -1,15 +1,9 @@
 import express from "express";
+import { email_send_post } from "../../controllers/email.js";
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
-  /**
-   * #route   GET /email/v1/
-   * #desc    
-   */
-
-
-  // TODO: ADD Validation + controller
-});
+//POST request to send an email
+router.post("/", email_send_post);
 
 export { router };
