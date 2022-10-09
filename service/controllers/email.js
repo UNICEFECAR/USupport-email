@@ -14,7 +14,10 @@ dotenv.config();
  *
  *  */
 export const email_send_post = async (req, res) => {
-  const { from, to, subject, plainText, html, details } = req.body;
+  const { to, subject, plainText, html, details } = req.body;
+
+  //Compute from who the email should be
+  const from = `IT department 🤙🏻 <${process.env.EMAIL_SENDER}>`;
 
   let computedHTML = emailTemplateV1(html, details);
   try {
