@@ -1,45 +1,44 @@
-import dotenv from "dotenv";
 import nodemailer from "nodemailer";
 import _ from "lodash";
+
 import { emailTemplateV1 } from "../utils/templates.js";
 
-// This file will contain all the controllers for the /email/v1 routes
-
-dotenv.config();
+const EMAIL_SENDER = process.env.EMAIL_SENDER
+const EMAIL_SENDER_PASSWORD = process.env.EMAIL_SENDER_PASSWORD
+const EMAIL_HOST = process.env.EMAIL_HOST
+const EMAIL_PORT = process.env.EMAIL_PORT
 
 /**
- *
- * #controller   email_send_post
- * #desc This is the email controller that will be used to send emails
- *
+ * This is the email controller that will be used to send emails
+ * @params {}
+ * @returns void
  *  */
-export const email_send_post = async (req, res) => {
-  const { to, subject, plainText, html, details } = req.body;
+export const sendEmail = async (props) => {
+  const { to, subject, plainText, html, details } = props;
 
-  //Compute from who the email should be
-  const from = `IT department 🤙🏻 <${process.env.EMAIL_SENDER}>`;
+  const from = `IT department 🤙🏻 <${EMAIL_SENDER}>`;
 
   let computedHTML = emailTemplateV1(html, details);
-  try {
-    let transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST,
-      port: process.env.EMAIL_PORT,
-      secure: true,
-      auth: {
-        user: process.env.EMAIL_SENDER,
-        pass: process.env.EMAIL_SENDER_PASSWORD,
-      },
-    });
-    await transporter.sendMail({
-      from: from, // sender addresss
-      to: _.join(to, ", "), // list of receivers
-      subject: subject, // Subject line
-      text: plainText, // plain text body
-      html: computedHTML, // html body
-    });
-    res.status(204).send();
-  } catch (error) {
-    console.log(error);
-    res.status(500).send(error.message);
-  }
+
+  let transporter = nodemailer.createTransport({
+    host: EMAIL_HOST,
+    port: EMAIL_PORT,
+    secure: true,
+    auth: {
+      user: EMAIL_SENDER,
+      pass: EMAIL_SENDER_PASSWORD,
+    },
+  })
+    .catch(err => { throw err })
+
+  await transporter.sendMail({
+    from: from,
+    to: _.join(to, ", "),
+    subject: subject,
+    text: plainText,
+    html: computedHTML,
+  })
+    .catch(err => { throw err })
+
+  return;
 };
