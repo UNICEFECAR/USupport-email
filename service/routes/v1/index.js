@@ -1,1 +1,1 @@
-export { router as EmailRouter } from "./EmailRouter.js";
+export { router as AdminRouter } from "./AdminRouter.js";

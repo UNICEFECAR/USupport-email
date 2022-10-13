@@ -21,7 +21,7 @@ app.use(cors());
 /*------------- Email Service Endpoints -------------*/
 
 // Example router
-app.use("/email/v1/", v1.EmailRouter);
+app.use("/email/v1/admin", v1.AdminRouter);
 
 /*------------- Error middleware -------------*/
 
