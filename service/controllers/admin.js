@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-catch */
 import nodemailer from "nodemailer";
 
 import { AdminTemplate } from "../utils/templates.js";
@@ -11,7 +12,7 @@ const RECIEVERS = process.env.RECIEVERS;
 /**
  * This is the email controller that will be used to send emails
  * @params {}
- * @returns void
+ * @returns Object | Error
  *  */
 export const sendAdminEmail = async (props) => {
   const { subject, title, text } = props;
@@ -41,5 +42,5 @@ export const sendAdminEmail = async (props) => {
     throw err;
   }
 
-  return { "success": true };
+  return { success: true };
 };

@@ -1,5 +1,7 @@
 // This File should store all the templates for the emails
 
+const AMAZON_S3_BUCKET = process.env.AMAZON_S3_BUCKET;
+
 /**
  *
  * @param {string} title - the title of the email.
@@ -15,17 +17,24 @@ export const AdminTemplate = (title, text) => {
     />
     <style>
       body {
-        max-width: 600px;
-        margin: 0 auto;
+        background-image: linear-gradient(#FFFFFF,#FFFFFF) !important;
+        width: 100%;
+        height: 100%;
         font-family: "Nunito", sans-serif;
         font-size: 16px;
         line-height: 24px;
         font-weight: 400;
       }
+
+      .logo-horizontal {
+        width: 176px;
+      }
+
       .email-container {
+        background-image: linear-gradient(#F4F7FE,#F4F7FE) !important;
+        max-width: 600px;
+        margin: auto;
         border-radius: 32px;
-        width: 100%;
-        background-color: #f4f7fe;
         padding: 32px 42px;
         display: flex;
         flex-direction: column;
@@ -45,7 +54,6 @@ export const AdminTemplate = (title, text) => {
 
       .mascot-image {
         width: 157px;
-        height: 123px;
         margin-top: 32px;
       }
     </style>
@@ -53,12 +61,12 @@ export const AdminTemplate = (title, text) => {
 
   <body>
     <div class="email-container">
-      <img src="./assets/logo.png" class="logo-image" />
+      <img src="${AMAZON_S3_BUCKET}/logo-horizontal.png" class="logo-horizontal" />
       <h1 class="heading-text">${title}</h1>
       <p class="content-text">
         ${text}
       </p>
-      <img src="./assets/mascot.png" class="mascot-image" />
+      <img src="${AMAZON_S3_BUCKET}/mascot-happy-blue.png" class="mascot-image" />
     </div>
   </body>
 </html>`;
