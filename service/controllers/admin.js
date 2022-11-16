@@ -1,46 +1,27 @@
-/* eslint-disable no-useless-catch */
-import nodemailer from "nodemailer";
+import { GeneralTemplate } from "#utils/templates";
 
-import { AdminTemplate } from "../utils/templates.js";
+import { getMailTransporter } from "#utils/helperFunctions";
 
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
-const EMAIL_SENDER_PASSWORD = process.env.EMAIL_SENDER_PASSWORD;
-const EMAIL_HOST = process.env.EMAIL_HOST;
-const EMAIL_PORT = process.env.EMAIL_PORT;
 const RECIEVERS = process.env.RECIEVERS;
 
-/**
- * This is the email controller that will be used to send emails
- * @params {}
- * @returns Object | Error
- *  */
-export const sendAdminEmail = async (props) => {
-  const { subject, title, text } = props;
-
+export const sendAdminEmail = async ({ subject, title, text }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
-  let computedHTML = AdminTemplate(title, text);
+  let computedHTML = GeneralTemplate(title, text);
 
-  try {
-    let transporter = nodemailer.createTransport({
-      host: EMAIL_HOST,
-      port: EMAIL_PORT,
-      secure: true,
-      auth: {
-        user: EMAIL_SENDER,
-        pass: EMAIL_SENDER_PASSWORD,
-      },
-    });
+  const transporter = getMailTransporter();
 
-    await transporter.sendMail({
+  await transporter
+    .sendMail({
       from: from,
       to: RECIEVERS,
       subject: subject,
       html: computedHTML,
+    })
+    .catch((err) => {
+      throw err;
     });
-  } catch (err) {
-    throw err;
-  }
 
   return { success: true };
 };

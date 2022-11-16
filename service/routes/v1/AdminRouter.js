@@ -2,7 +2,7 @@ import express from "express";
 
 import { sendAdminEmail } from "#controllers/admin";
 
-import { sendAdminEmailSchema } from "#schemas/AdminSchema";
+import { sendAdminEmailSchema } from "#schemas/adminSchemas";
 
 const router = express.Router();
 
