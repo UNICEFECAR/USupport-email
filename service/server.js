@@ -22,6 +22,7 @@ app.use(cors());
 
 // Example router
 app.use("/email/v1/admin", v1.AdminRouter);
+app.use("/email/v1/system", v1.SystemRouter);
 
 /*------------- Error middleware -------------*/
 

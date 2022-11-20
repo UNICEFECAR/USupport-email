@@ -8,7 +8,7 @@ const AMAZON_S3_BUCKET = process.env.AMAZON_S3_BUCKET;
  * @param {string} text - the text of the email.
  * @returns {string} - HTML string for the email.
  */
-export const AdminTemplate = (title, text) => {
+export const GeneralTemplate = (title, text) => {
   let computedHTML = `<html>
   <head>
     <link
