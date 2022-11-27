@@ -21,6 +21,8 @@ app.use(helmet());
 // Example router
 app.use("/email/v1/admin", v1.AdminRouter);
 app.use("/email/v1/system", v1.SystemRouter);
+app.use("/email/v1/client", v1.ClientRouter);
+app.use("/email/v1/provider", v1.ProviderRouter);
 
 /*------------- Error middleware -------------*/
 

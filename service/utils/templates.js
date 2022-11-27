@@ -50,6 +50,7 @@ export const GeneralTemplate = (title, text) => {
 
       .content-text {
         margin-top: 32px;
+        text-align: center;
       }
 
       .mascot-image {

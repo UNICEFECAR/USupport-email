@@ -15,11 +15,11 @@ export const sendForgotPasswordEmail = async ({
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
-  const subject = t("email_forgot_password_subject", language);
-  const title = t("email_forgot_password_title", language);
+  const subject = t("system_forgot_password_subject", language);
+  const title = t("system_forgot_password_title", language);
   const forgotPasswordLink = `${FRONTEND_URL}/${platform}/reset-password?rp=${forgotPasswordToken}`;
   const forgotPasswordLinkAnchor = `<a href=${forgotPasswordLink}>${forgotPasswordLink}</a>`;
-  const text = t("email_forgot_password_text", language, [
+  const text = t("system_forgot_password_text", language, [
     forgotPasswordLinkAnchor,
   ]);
 
@@ -44,11 +44,11 @@ export const sendForgotPasswordEmail = async ({
 export const sendWelcomeEmail = async ({ language, platform }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
-  const subject = t("email_welcome_subject", language);
-  const title = t("email_welcome_title", language);
+  const subject = t("system_welcome_subject", language);
+  const title = t("system_welcome_title", language);
   const loginLink = `${FRONTEND_URL}/${platform}`;
   const loginLinkAnchor = `<a href=${loginLink}>${loginLink}</a>`;
-  const text = t("email_welcome_text", language, [loginLinkAnchor]);
+  const text = t("system_welcome_text", language, [loginLinkAnchor]);
 
   let computedHTML = GeneralTemplate(title, text);
 
