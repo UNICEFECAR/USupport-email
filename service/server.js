@@ -1,7 +1,6 @@
 import express from "express";
 import helmet from "helmet";
 import dotenv from "dotenv";
-import cors from "cors";
 
 import v1 from "#routes/index";
 import middleware from "#middlewares/index";
@@ -16,7 +15,6 @@ const PORT = process.env.PORT || 3008;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(helmet());
-app.use(cors());
 
 /*------------- Email Service Endpoints -------------*/
 
