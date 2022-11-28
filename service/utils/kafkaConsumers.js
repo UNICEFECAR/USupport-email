@@ -7,9 +7,9 @@ const kafka = new Kafka({
   brokers: ["kafka:9092"],
 });
 
-export const consumeEmailMessages = async () => {
-  const consumer = kafka.consumer({ groupId: "send-email" });
+const consumer = kafka.consumer({ groupId: "email-service-group" });
 
+export const consumeEmailMessages = async () => {
   await consumer.connect();
   await consumer.subscribe({ topic: "send-email", fromBeginning: true });
 
