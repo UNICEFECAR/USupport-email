@@ -31,6 +31,7 @@ app.use(middleware.errorMiddleware.errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Email Server listening on port ${PORT}`);
+
   consumeEmailMessages()
     .then(() => console.log("Kafka Consumer Running..."))
     .catch(console.log);
