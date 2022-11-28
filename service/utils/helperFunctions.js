@@ -16,3 +16,7 @@ export function getMailTransporter() {
     },
   });
 }
+
+export const handleEmailConsumerMessage = async ({ message }) => {
+  console.log(JSON.parse(message.value.toString()));
+};

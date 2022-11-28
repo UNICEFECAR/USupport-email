@@ -5,6 +5,8 @@ import dotenv from "dotenv";
 import v1 from "#routes/index";
 import middleware from "#middlewares/index";
 
+import { consumeEmailMessages } from "#utils/kafkaConsumers";
+
 dotenv.config();
 
 const app = express();
@@ -29,4 +31,7 @@ app.use(middleware.errorMiddleware.errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Email Server listening on port ${PORT}`);
+  consumeEmailMessages()
+    .then(() => console.log("Kafka Consumer Running..."))
+    .catch(console.log);
 });
