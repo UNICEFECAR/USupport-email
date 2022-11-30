@@ -9,7 +9,7 @@ const FRONTEND_URL = process.env.FRONTEND_URL;
 
 export const sendConsultationConfirmBookingEmail = async ({
   language,
-  clientEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -28,7 +28,7 @@ export const sendConsultationConfirmBookingEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: clientEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
@@ -41,7 +41,7 @@ export const sendConsultationConfirmBookingEmail = async ({
 
 export const sendConsultationConfirmRescheduleEmail = async ({
   language,
-  clientEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -60,7 +60,7 @@ export const sendConsultationConfirmRescheduleEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: clientEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
@@ -73,7 +73,7 @@ export const sendConsultationConfirmRescheduleEmail = async ({
 
 export const sendConsultationConfirmCancellationEmail = async ({
   language,
-  clientEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -95,7 +95,7 @@ export const sendConsultationConfirmCancellationEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: clientEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
@@ -108,7 +108,7 @@ export const sendConsultationConfirmCancellationEmail = async ({
 
 export const sendConsultationNotifyCancellationEmail = async ({
   language,
-  clientEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -130,7 +130,7 @@ export const sendConsultationNotifyCancellationEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: clientEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
@@ -143,7 +143,7 @@ export const sendConsultationNotifyCancellationEmail = async ({
 
 export const sendConsultationRemindStartEmail = async ({
   language,
-  clientEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -162,7 +162,7 @@ export const sendConsultationRemindStartEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: clientEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
@@ -175,7 +175,7 @@ export const sendConsultationRemindStartEmail = async ({
 
 export const sendConsultationNotifySuggestionEmail = async ({
   language,
-  clientEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -194,7 +194,7 @@ export const sendConsultationNotifySuggestionEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: clientEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
@@ -207,7 +207,7 @@ export const sendConsultationNotifySuggestionEmail = async ({
 
 export const sendConsultationConfirmSuggestionBookingEmail = async ({
   language,
-  clientEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -234,7 +234,7 @@ export const sendConsultationConfirmSuggestionBookingEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: clientEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
@@ -247,7 +247,7 @@ export const sendConsultationConfirmSuggestionBookingEmail = async ({
 
 export const sendConsultationConfirmSuggestionCancellationEmail = async ({
   language,
-  clientEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -274,7 +274,7 @@ export const sendConsultationConfirmSuggestionCancellationEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: clientEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })

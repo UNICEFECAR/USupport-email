@@ -11,7 +11,7 @@ const consumer = kafka.consumer({ groupId: "email-service-group" });
 
 export const consumeEmailMessages = async () => {
   await consumer.connect();
-  await consumer.subscribe({ topic: "send-email", fromBeginning: true });
+  await consumer.subscribe({ topic: "send-email", fromBeginning: false });
 
   await consumer.run({
     eachMessage: handleEmailConsumerMessage,
