@@ -7,6 +7,7 @@ export const sendForgotPasswordEmailSchema = yup.object().shape({
     .oneOf(["client", "provider", "global-admin", "country-admin"])
     .required(),
   forgotPasswordToken: yup.string().required(),
+  recipientEmail: yup.string().email().required(),
 });
 
 export const sendWelcomeEmailSchema = yup.object().shape({
@@ -15,4 +16,5 @@ export const sendWelcomeEmailSchema = yup.object().shape({
     .string()
     .oneOf(["client", "provider", "global-admin", "country-admin"])
     .required(),
+  recipientEmail: yup.string().email().required(),
 });
