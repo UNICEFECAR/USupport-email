@@ -36,21 +36,18 @@ export const GeneralTemplate = (title, text) => {
         margin: auto;
         border-radius: 32px;
         padding: 32px 42px;
-        display: flex;
-        flex-direction: column;
+        text-align: center;
         align-items: center;
       }
 
       .heading-text {
         font-size: 20px;
         font-weight: 600;
-        text-align: center;
         margin-top: 64px;
       }
 
       .content-text {
         margin-top: 32px;
-        text-align: center;
       }
 
       .mascot-image {
