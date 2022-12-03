@@ -20,7 +20,7 @@ export const sendAdminEmail = async ({ subject, title, text }) => {
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };

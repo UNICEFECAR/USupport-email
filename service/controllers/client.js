@@ -33,7 +33,7 @@ export const sendConsultationConfirmBookingEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -65,7 +65,7 @@ export const sendConsultationConfirmRescheduleEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -100,7 +100,7 @@ export const sendConsultationConfirmCancellationEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -135,7 +135,7 @@ export const sendConsultationNotifyCancellationEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -144,6 +144,7 @@ export const sendConsultationNotifyCancellationEmail = async ({
 export const sendConsultationRemindStartEmail = async ({
   language,
   recipientEmail,
+  minToConsultation,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -153,6 +154,7 @@ export const sendConsultationRemindStartEmail = async ({
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("client_consultation_remind_start_text", language, [
     platformLinkAnchor,
+    minToConsultation,
   ]);
 
   let computedHTML = GeneralTemplate(title, text);
@@ -167,7 +169,7 @@ export const sendConsultationRemindStartEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -199,7 +201,7 @@ export const sendConsultationNotifySuggestionEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -239,7 +241,7 @@ export const sendConsultationConfirmSuggestionBookingEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -279,7 +281,7 @@ export const sendConsultationConfirmSuggestionCancellationEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };

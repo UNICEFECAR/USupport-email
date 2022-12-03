@@ -35,7 +35,7 @@ export const sendForgotPasswordEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -66,7 +66,7 @@ export const sendWelcomeEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };

@@ -33,7 +33,7 @@ export const sendConsultationNotifyBookingEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -68,7 +68,7 @@ export const sendConsultationNotifyRescheduleEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -103,7 +103,7 @@ export const sendConsultationNotifyCancellationEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -138,7 +138,7 @@ export const sendConsultationConfirmCancellationEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -147,6 +147,7 @@ export const sendConsultationConfirmCancellationEmail = async ({
 export const sendConsultationRemindStartEmail = async ({
   language,
   recipientEmail,
+  minToConsultation,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -156,6 +157,7 @@ export const sendConsultationRemindStartEmail = async ({
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("provider_consultation_remind_start_text", language, [
     platformLinkAnchor,
+    minToConsultation,
   ]);
 
   let computedHTML = GeneralTemplate(title, text);
@@ -170,7 +172,7 @@ export const sendConsultationRemindStartEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -205,7 +207,7 @@ export const sendConsultationConfirmSuggestionEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -245,7 +247,7 @@ export const sendConsultationNotifySuggestionBookingEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -285,7 +287,7 @@ export const sendConsultationNotifySuggestionCancellationEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -323,7 +325,7 @@ export const sendAvailabilityRemindAddMoreSlotsEmail = async ({
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -350,7 +352,7 @@ export const sendReportWeeklyEmail = async ({ language, recipientEmail }) => {
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -379,7 +381,7 @@ export const sendReportMonthlyEmail = async ({ language, recipientEmail }) => {
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };

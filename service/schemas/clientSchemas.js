@@ -27,6 +27,7 @@ export const sendConsultationNotifyCancellationEmailSchema = yup
 export const sendConsultationRemindStartEmailSchema = yup.object().shape({
   language: yup.string().required(),
   recipientEmail: yup.string().email().required(),
+  minToConsultation: yup.number().required(),
 });
 
 export const sendConsultationNotifySuggestionEmailSchema = yup.object().shape({

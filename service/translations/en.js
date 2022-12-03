@@ -36,7 +36,7 @@ export default {
   client_consultation_remind_start_subject: "Consultation reminder",
   client_consultation_remind_start_title: "Consultation reminder",
   client_consultation_remind_start_text:
-    "Your consultation is about to start. Please visit {1} to join it.",
+    "Your consultation starts in {2} minutes. Please visit {1} to join it.",
 
   client_consultation_notify_suggestion_subject: "Consultation suggestion",
   client_consultation_notify_suggestion_title: "New consultation suggestion",
@@ -83,7 +83,7 @@ export default {
   provider_consultation_remind_start_subject: "Consultation reminder",
   provider_consultation_remind_start_title: "Consultation reminder",
   provider_consultation_remind_start_text:
-    "Your consultation is about to start. Please visit {1} to join it.",
+    "Your consultation starts in {2} minutes. Please visit {1} to join it.",
 
   provider_consultation_confirm_suggestion_subject: "Consultation suggestion",
   provider_consultation_confirm_suggestion_title:
@@ -109,7 +109,7 @@ export default {
   provider_availability_remind_add_more_slots_title:
     "Add more availability slots",
   provider_availability_remind_add_more_slots_text:
-    "Please visit {1} to add more availability slots to your schedule.",
+    "Your last availability slot is in less than a week. Please visit {1} to add more availability slots to your schedule.",
 
   provider_report_weekly_subject: "Weekly report",
   provider_report_weekly_title: "Weekly report of activities",
