@@ -9,7 +9,7 @@ const FRONTEND_URL = process.env.FRONTEND_URL;
 
 export const sendConsultationNotifyBookingEmail = async ({
   language,
-  providerEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -28,12 +28,12 @@ export const sendConsultationNotifyBookingEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: providerEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -41,7 +41,7 @@ export const sendConsultationNotifyBookingEmail = async ({
 
 export const sendConsultationNotifyRescheduleEmail = async ({
   language,
-  providerEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -63,12 +63,12 @@ export const sendConsultationNotifyRescheduleEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: providerEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -76,7 +76,7 @@ export const sendConsultationNotifyRescheduleEmail = async ({
 
 export const sendConsultationNotifyCancellationEmail = async ({
   language,
-  providerEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -98,12 +98,12 @@ export const sendConsultationNotifyCancellationEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: providerEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -111,7 +111,7 @@ export const sendConsultationNotifyCancellationEmail = async ({
 
 export const sendConsultationConfirmCancellationEmail = async ({
   language,
-  providerEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -133,12 +133,12 @@ export const sendConsultationConfirmCancellationEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: providerEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -146,7 +146,8 @@ export const sendConsultationConfirmCancellationEmail = async ({
 
 export const sendConsultationRemindStartEmail = async ({
   language,
-  providerEmail,
+  recipientEmail,
+  minToConsultation,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -156,6 +157,7 @@ export const sendConsultationRemindStartEmail = async ({
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("provider_consultation_remind_start_text", language, [
     platformLinkAnchor,
+    minToConsultation,
   ]);
 
   let computedHTML = GeneralTemplate(title, text);
@@ -165,12 +167,12 @@ export const sendConsultationRemindStartEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: providerEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -178,7 +180,7 @@ export const sendConsultationRemindStartEmail = async ({
 
 export const sendConsultationConfirmSuggestionEmail = async ({
   language,
-  providerEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -200,12 +202,12 @@ export const sendConsultationConfirmSuggestionEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: providerEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -213,7 +215,7 @@ export const sendConsultationConfirmSuggestionEmail = async ({
 
 export const sendConsultationNotifySuggestionBookingEmail = async ({
   language,
-  providerEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -240,12 +242,12 @@ export const sendConsultationNotifySuggestionBookingEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: providerEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -253,7 +255,7 @@ export const sendConsultationNotifySuggestionBookingEmail = async ({
 
 export const sendConsultationNotifySuggestionCancellationEmail = async ({
   language,
-  providerEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -280,12 +282,12 @@ export const sendConsultationNotifySuggestionCancellationEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: providerEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
@@ -293,7 +295,7 @@ export const sendConsultationNotifySuggestionCancellationEmail = async ({
 
 export const sendAvailabilityRemindAddMoreSlotsEmail = async ({
   language,
-  providerEmail,
+  recipientEmail,
 }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
@@ -318,18 +320,18 @@ export const sendAvailabilityRemindAddMoreSlotsEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: providerEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
 };
 
-export const sendReportWeeklyEmail = async ({ language, providerEmail }) => {
+export const sendReportWeeklyEmail = async ({ language, recipientEmail }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
   const subject = t("provider_report_weekly_subject", language);
@@ -345,18 +347,18 @@ export const sendReportWeeklyEmail = async ({ language, providerEmail }) => {
   await transporter
     .sendMail({
       from: from,
-      to: providerEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
 };
 
-export const sendReportMonthlyEmail = async ({ language, providerEmail }) => {
+export const sendReportMonthlyEmail = async ({ language, recipientEmail }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
   const subject = t("provider_report_monthly_subject", language);
@@ -374,12 +376,12 @@ export const sendReportMonthlyEmail = async ({ language, providerEmail }) => {
   await transporter
     .sendMail({
       from: from,
-      to: providerEmail,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };

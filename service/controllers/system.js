@@ -5,10 +5,10 @@ import { GeneralTemplate } from "#utils/templates";
 import { getMailTransporter } from "#utils/helperFunctions";
 
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
-const RECIEVERS = process.env.RECIEVERS;
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
 export const sendForgotPasswordEmail = async ({
+  recipientEmail,
   language,
   platform,
   forgotPasswordToken,
@@ -30,18 +30,22 @@ export const sendForgotPasswordEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      to: RECIEVERS,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
 };
 
-export const sendWelcomeEmail = async ({ language, platform }) => {
+export const sendWelcomeEmail = async ({
+  recipientEmail,
+  language,
+  platform,
+}) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
   const subject = t("system_welcome_subject", language);
@@ -57,12 +61,12 @@ export const sendWelcomeEmail = async ({ language, platform }) => {
   await transporter
     .sendMail({
       from: from,
-      to: RECIEVERS,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 
   return { success: true };
