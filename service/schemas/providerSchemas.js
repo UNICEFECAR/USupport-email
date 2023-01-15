@@ -65,3 +65,9 @@ export const sendReportMonthlyEmailSchema = yup.object().shape({
   language: yup.string().required(),
   recipientSchema: yup.string().email().required(),
 });
+
+export const sendRegistrationNotifySchema = yup.object().shape({
+  language: yup.string().required(),
+  recipientSchema: yup.string().email().required(),
+  password: yup.string().required(),
+});
