@@ -386,3 +386,37 @@ export const sendReportMonthlyEmail = async ({ language, recipientEmail }) => {
 
   return { success: true };
 };
+
+export const sendRegistrationNotify = async ({
+  language,
+  recipientEmail,
+  password,
+}) => {
+  const from = `USupport <${EMAIL_SENDER}>`;
+
+  const subject = t("provider_registration_notify_subject", language);
+  const title = t("provider_registration_notify_title", language);
+  const platformLink = `${FRONTEND_URL}/provider/login`;
+  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
+  const text = t("provider_registration_notify_text", language, [
+    platformLinkAnchor,
+    password,
+  ]);
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: recipientEmail,
+      subject: subject,
+      html: computedHTML,
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};

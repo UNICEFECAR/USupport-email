@@ -25,6 +25,7 @@ import {
   sendAvailabilityRemindAddMoreSlotsEmail as sendAvailabilityRemindAddMoreSlotsEmailProvider,
   sendReportWeeklyEmail as sendReportWeeklyEmailProvider,
   sendReportMonthlyEmail as sendReportMonthlyEmailProvider,
+  sendRegistrationNotify as sendRegistrationNotifyProvider,
 } from "#controllers/provider";
 
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
@@ -136,6 +137,10 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     }
     case "provider-reportMonthly": {
       sendReportMonthlyEmailProvider(payload);
+      break;
+    }
+    case "provider-registration": {
+      sendRegistrationNotifyProvider(payload);
       break;
     }
     default:
