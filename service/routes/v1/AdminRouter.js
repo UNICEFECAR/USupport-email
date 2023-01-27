@@ -11,12 +11,13 @@ router.route("/").post(async (req, res, next) => {
    * #route   POST /email/v1/admin/
    * #desc    Request to send an email
    */
+  const country = req.header("x-country-alpha-2");
   const payload = req.body;
 
   return await sendAdminEmailSchema
     .noUnknown(true)
     .strict()
-    .validate(payload)
+    .validate({ country, ...payload })
     .then(sendAdminEmail)
     .then((result) => res.json(result).status(204))
     .catch(next);
