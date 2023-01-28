@@ -1,6 +1,10 @@
 import nodemailer from "nodemailer";
 
-import { sendForgotPasswordEmail, sendWelcomeEmail } from "#controllers/system";
+import {
+  sendForgotPasswordEmail,
+  sendWelcomeEmail,
+  sendLogin2FARequest,
+} from "#controllers/system";
 
 import {
   sendConsultationConfirmBookingEmail as sendConsultationConfirmBookingEmailClient,
@@ -141,6 +145,10 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     }
     case "provider-registration": {
       sendRegistrationNotifyProvider(payload);
+      break;
+    }
+    case "login-2fa-request": {
+      sendLogin2FARequest(payload);
       break;
     }
     default:

@@ -9,6 +9,11 @@ export default {
   system_welcome_text:
     "Please visit the following link to access your account: {1}",
 
+  system_login_2fa_request_subject: "Login OTP",
+  system_login_2fa_request_title: "Login 2FA One Time Password",
+  system_login_2fa_request_text:
+    "Please use this code to login into your account: {1}",
+
   client_consultation_confirm_booking_subject: "Consultation booking",
   client_consultation_confirm_booking_title:
     "Confirmation of consultation booking",
