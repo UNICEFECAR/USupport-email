@@ -1,7 +1,6 @@
 import { t } from "#translations/index";
 
 import { GeneralTemplate } from "#utils/templates";
-
 import { getMailTransporter } from "#utils/helperFunctions";
 
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
