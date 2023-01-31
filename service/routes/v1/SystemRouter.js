@@ -15,13 +15,12 @@ router.route("/forgot-password").post(async (req, res, next) => {
    * #desc    Request to send an email for forgot password
    */
   const language = req.header("x-language-alpha-2");
-
   const payload = req.body;
 
   return await sendForgotPasswordEmailSchema
     .noUnknown(true)
     .strict()
-    .validate({ language, ...payload })
+    .validate({ ...payload, language })
     .then(sendForgotPasswordEmail)
     .then((result) => res.json(result).status(204))
     .catch(next);
@@ -33,13 +32,12 @@ router.route("/welcome").post(async (req, res, next) => {
    * #desc    Request to send a welcome email
    */
   const language = req.header("x-language-alpha-2");
-
   const payload = req.body;
 
   return await sendWelcomeEmailSchema
     .noUnknown(true)
     .strict()
-    .validate({ language, ...payload })
+    .validate({ ...payload, language })
     .then(sendWelcomeEmail)
     .then((result) => res.json(result).status(204))
     .catch(next);
