@@ -12,14 +12,8 @@ import {
 } from "#controllers/client";
 
 import {
-  sendConsultationConfirmBookingEmailSchema,
-  sendConsultationConfirmRescheduleEmailSchema,
-  sendConsultationConfirmCancellationEmailSchema,
-  sendConsultationNotifyCancellationEmailSchema,
+  sendEmailSchema,
   sendConsultationRemindStartEmailSchema,
-  sendConsultationNotifySuggestionEmailSchema,
-  sendConsultationConfirmSuggestionBookingEmailSchema,
-  sendConsultationConfirmSuggestionCancellationEmailSchema,
 } from "#schemas/clientSchemas";
 
 const router = express.Router();
@@ -30,13 +24,12 @@ router.route("/consultation/confirm/booking").post(async (req, res, next) => {
    * #desc    Send email to client to confirm consultation booking
    */
   const language = req.header("x-language-alpha-2");
-
   const payload = req.body;
 
-  return await sendConsultationConfirmBookingEmailSchema
+  return await sendEmailSchema
     .noUnknown(true)
     .strict()
-    .validate({ language, ...payload })
+    .validate({ ...payload, language })
     .then(sendConsultationConfirmBookingEmail)
     .then((result) => res.json(result).status(204))
     .catch(next);
@@ -50,13 +43,12 @@ router
      * #desc    Send email to client to confirm consultation reschedule
      */
     const language = req.header("x-language-alpha-2");
-
     const payload = req.body;
 
-    return await sendConsultationConfirmRescheduleEmailSchema
+    return await sendEmailSchema
       .noUnknown(true)
       .strict()
-      .validate({ language, ...payload })
+      .validate({ ...payload, language })
       .then(sendConsultationConfirmRescheduleEmail)
       .then((result) => res.json(result).status(204))
       .catch(next);
@@ -70,13 +62,12 @@ router
      * #desc    Send email to client to confirm consultation cancellation
      */
     const language = req.header("x-language-alpha-2");
-
     const payload = req.body;
 
-    return await sendConsultationConfirmCancellationEmailSchema
+    return await sendEmailSchema
       .noUnknown(true)
       .strict()
-      .validate({ language, ...payload })
+      .validate({ ...payload, language })
       .then(sendConsultationConfirmCancellationEmail)
       .then((result) => res.json(result).status(204))
       .catch(next);
@@ -90,13 +81,12 @@ router
      * #desc    Send email to client to notify about consultation cancellation
      */
     const language = req.header("x-language-alpha-2");
-
     const payload = req.body;
 
-    return await sendConsultationNotifyCancellationEmailSchema
+    return await sendEmailSchema
       .noUnknown(true)
       .strict()
-      .validate({ language, ...payload })
+      .validate({ ...payload, language })
       .then(sendConsultationNotifyCancellationEmail)
       .then((result) => res.json(result).status(204))
       .catch(next);
@@ -108,13 +98,12 @@ router.route("/consultation/remind/start").post(async (req, res, next) => {
    * #desc    Send email to client to remind about consultation start
    */
   const language = req.header("x-language-alpha-2");
-
   const payload = req.body;
 
   return await sendConsultationRemindStartEmailSchema
     .noUnknown(true)
     .strict()
-    .validate({ language, ...payload })
+    .validate({ ...payload, language })
     .then(sendConsultationRemindStartEmail)
     .then((result) => res.json(result).status(204))
     .catch(next);
@@ -126,13 +115,12 @@ router.route("/consultation/notify/suggestion").post(async (req, res, next) => {
    * #desc    Send email to client to notify about consultation suggestion
    */
   const language = req.header("x-language-alpha-2");
-
   const payload = req.body;
 
-  return await sendConsultationNotifySuggestionEmailSchema
+  return await sendEmailSchema
     .noUnknown(true)
     .strict()
-    .validate({ language, ...payload })
+    .validate({ ...payload, language })
     .then(sendConsultationNotifySuggestionEmail)
     .then((result) => res.json(result).status(204))
     .catch(next);
@@ -146,13 +134,12 @@ router
      * #desc    Send email to client to confirm consultation suggestion booking
      */
     const language = req.header("x-language-alpha-2");
-
     const payload = req.body;
 
-    return await sendConsultationConfirmSuggestionBookingEmailSchema
+    return await sendEmailSchema
       .noUnknown(true)
       .strict()
-      .validate({ language, ...payload })
+      .validate({ ...payload, language })
       .then(sendConsultationConfirmSuggestionBookingEmail)
       .then((result) => res.json(result).status(204))
       .catch(next);
@@ -166,13 +153,12 @@ router
      * #desc    Send email to client to confirm consultation suggestion cancellation
      */
     const language = req.header("x-language-alpha-2");
-
     const payload = req.body;
 
-    return await sendConsultationConfirmSuggestionCancellationEmailSchema
+    return await sendEmailSchema
       .noUnknown(true)
       .strict()
-      .validate({ language, ...payload })
+      .validate({ ...payload, language })
       .then(sendConsultationConfirmSuggestionCancellationEmail)
       .then((result) => res.json(result).status(204))
       .catch(next);
