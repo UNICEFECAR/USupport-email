@@ -71,3 +71,32 @@ export const sendWelcomeEmail = async ({
 
   return { success: true };
 };
+
+export const sendLogin2FARequest = async ({
+  language,
+  recipientEmail,
+  otp,
+}) => {
+  const from = `USupport <${EMAIL_SENDER}>`;
+
+  const subject = t("system_login_2fa_request_subject", language);
+  const title = t("system_login_2fa_request_title", language);
+  const text = t("system_login_2fa_request_text", language, [otp]);
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: recipientEmail,
+      subject: subject,
+      html: computedHTML,
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};
