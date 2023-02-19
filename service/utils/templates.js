@@ -59,12 +59,12 @@ export const GeneralTemplate = (title, text) => {
 
   <body>
     <div class="email-container">
-      <img src="${AMAZON_S3_BUCKET}/logo-horizontal.png" class="logo-horizontal" />
+      <img src="${AMAZON_S3_BUCKET}/logo-horizontal" class="logo-horizontal" />
       <h1 class="heading-text">${title}</h1>
       <p class="content-text">
         ${text}
       </p>
-      <img src="${AMAZON_S3_BUCKET}/mascot-happy-blue.png" class="mascot-image" />
+      <img src="${AMAZON_S3_BUCKET}/mascot-happy-blue" class="mascot-image" />
     </div>
   </body>
 </html>`;
