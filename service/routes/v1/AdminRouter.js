@@ -17,7 +17,7 @@ router.route("/").post(async (req, res, next) => {
   return await sendAdminEmailSchema
     .noUnknown(true)
     .strict()
-    .validate({ country, ...payload })
+    .validate({ ...payload, country })
     .then(sendAdminEmail)
     .then((result) => res.json(result).status(204))
     .catch(next);
