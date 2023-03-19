@@ -4,12 +4,12 @@ metadata:
   name: email-config
 data:
   NODE_ENV: production
-  PORT: 3008
+  PORT: "3008"
 
   FRONTEND_URL: https://staging.usupport.online
   EMAIL_SENDER: usupport@7digit.io
   EMAIL_HOST: teo.superhosting.bg
-  EMAIL_PORT: 465
+  EMAIL_PORT: "465"
   RECIEVERS: usupport@7digit.io
 
-  KAFKAJS_NO_PARTITIONER_WARNING: 1
+  KAFKAJS_NO_PARTITIONER_WARNING: "1"

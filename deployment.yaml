@@ -17,11 +17,11 @@ spec:
     spec:
       containers:
       - name: email
-        image: {TODO: CHANGE}
+        image: 482053628475.dkr.ecr.eu-central-1.amazonaws.com/usupport-email-api
         imagePullPolicy: Always
         envFrom:
         - secretRef:
-          name: email-secrets
+            name: email-secrets
         - configMapRef:
             name: email-config
         ports:
