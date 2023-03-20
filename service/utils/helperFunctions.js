@@ -155,3 +155,40 @@ export const handleEmailConsumerMessage = async ({ message }) => {
       console.log("EMAIL TYPE NOT RECOGNIZED"); // Maybe you can throw an error, or just keep it as a log
   }
 };
+
+export function getDateView(date) {
+  const newDate = new Date(date);
+  const day = newDate.getDate();
+  const month = newDate.getMonth() + 1;
+  const fullYear = newDate.getFullYear();
+  const year = fullYear.toString().slice(-2);
+
+  return `${day < 10 ? `0${day}` : day}.${
+    month < 10 ? `0${month}` : month
+  }.${year}`;
+}
+
+/**
+ * Get the starting and ending day of the week
+ *
+ * @param {Date} day
+ * @returns {{ start, end }} the start and end day of the week in format "DD.MM - DD.MM"
+ */
+export function getStartAndEndOfWeek(day) {
+  const weekMap = [6, 0, 1, 2, 3, 4, 5];
+  const now = new Date(day);
+  now.setHours(0, 0, 0, 0);
+  const firstDayOfWeek = new Date(now);
+  firstDayOfWeek.setDate(
+    firstDayOfWeek.getDate() - weekMap[firstDayOfWeek.getDay()]
+  );
+  const lastDayOfWeek = new Date(now);
+  lastDayOfWeek.setDate(
+    lastDayOfWeek.getDate() - weekMap[lastDayOfWeek.getDay()] + 6
+  );
+  lastDayOfWeek.setHours(23, 59, 59, 999);
+
+  const firstDayFormatted = getDateView(firstDayOfWeek).slice(0, 5);
+  const lastDayFormatted = getDateView(lastDayOfWeek).slice(0, 5);
+  return `${firstDayFormatted} - ${lastDayFormatted}`;
+}
