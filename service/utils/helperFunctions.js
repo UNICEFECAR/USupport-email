@@ -32,6 +32,8 @@ import {
   sendRegistrationNotify as sendRegistrationNotifyProvider,
 } from "#controllers/provider";
 
+import { checkIfUserAllowedEmailNotifications } from "#queries/user";
+
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
 const EMAIL_SENDER_PASSWORD = process.env.EMAIL_SENDER_PASSWORD;
 const EMAIL_HOST = process.env.EMAIL_HOST;
@@ -51,12 +53,53 @@ export function getMailTransporter() {
 
 export const handleEmailConsumerMessage = async ({ message }) => {
   const messageJSON = JSON.parse(message.value.toString());
-  const { emailType, data, recipientEmail, language } = messageJSON;
+
+  const {
+    emailType,
+    data,
+    recipientEmail,
+    language,
+    recipientUserType,
+    country,
+  } = messageJSON;
   const payload = {
     language,
     recipientEmail,
     ...data,
   };
+
+  // If the email type is in the alwaysSendEmails array
+  // then we dont perform the check for allowed email notifications
+  const alwaysSendEmails = [
+    "signupWelcome",
+    "forgotPassword",
+    "provider-registration",
+    "login-2fa-request",
+  ];
+
+  let hasUserAllowedEmailNotifications = true;
+  if (!alwaysSendEmails.includes(emailType)) {
+    hasUserAllowedEmailNotifications =
+      await checkIfUserAllowedEmailNotifications({
+        poolCountry: country,
+        userType: recipientUserType,
+        email: recipientEmail,
+      })
+        .then((res) => {
+          if (res.rowCount === 0) {
+            return false;
+          } else {
+            return res.rows[0].enabled;
+          }
+        })
+        .catch((err) => {
+          throw err;
+        });
+  }
+
+  if (!hasUserAllowedEmailNotifications) {
+    return;
+  }
 
   switch (emailType) {
     case "signupWelcome": {
