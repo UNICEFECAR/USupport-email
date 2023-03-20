@@ -128,4 +128,16 @@ export default {
   provider_registration_notify_title: "Registered as provider at USupport",
   provider_registration_notify_text:
     "You have been registered as a provider at USupport.<br/> Your automatically generated password is: {2} <br/>You can change it anytime from your profile settings.<br/> Please visit {1} to login to your profile.",
+  month_1: "January",
+  month_2: "February",
+  month_3: "March",
+  month_4: "April",
+  month_5: "May",
+  month_6: "June",
+  month_7: "July",
+  month_8: "August",
+  month_9: "September",
+  month_10: "October",
+  month_11: "November",
+  month_12: "December",
 };
