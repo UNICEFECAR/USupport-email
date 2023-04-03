@@ -72,14 +72,12 @@ export default {
   provider_consultation_notify_reschedule_text:
     "Консультация перенесена. Посетите {1}, чтобы просмотреть дополнительные сведения.",
 
-  provider_consultation_notify_cancellation_subject:
-    "Отмена консультации",
+  provider_consultation_notify_cancellation_subject: "Отмена консультации",
   provider_consultation_notify_cancellation_title: "Отмена консультации",
   provider_consultation_notify_cancellation_text:
     "Консультация отменена клиентом. Посетите {1}, чтобы просмотреть дополнительные сведения.",
 
-  provider_consultation_confirm_cancellation_subject:
-    "Отмена консультации",
+  provider_consultation_confirm_cancellation_subject: "Отмена консультации",
   provider_consultation_confirm_cancellation_title:
     "Подтверждение отмены консультации",
   provider_consultation_confirm_cancellation_text:
@@ -110,7 +108,8 @@ export default {
   provider_consultation_notify_suggestion_cancellation_text:
     "Ваше предложение о консультации отклонено клиентом.",
 
-  provider_availability_remind_add_more_slots_subject: "Напоминание о доступности",
+  provider_availability_remind_add_more_slots_subject:
+    "Напоминание о доступности",
   provider_availability_remind_add_more_slots_title:
     "Добавить больше слотов доступности",
   provider_availability_remind_add_more_slots_text:
@@ -118,14 +117,17 @@ export default {
 
   provider_report_weekly_subject: "Еженедельный отчет",
   provider_report_weekly_title: "Еженедельный отчет о деятельности",
-  provider_report_weekly_text: "Посетите {1}, чтобы просмотреть еженедельный отчет.",
+  provider_report_weekly_text:
+    "Посетите {1}, чтобы просмотреть еженедельный отчет.",
 
   provider_report_monthly_subject: "Ежемесячный отчет",
   provider_report_monthly_title: "Ежемесячный отчет о деятельности",
-  provider_report_monthly_text: "Посетите {1}, чтобы просмотреть ежемесячный отчет.",
+  provider_report_monthly_text:
+    "Посетите {1}, чтобы просмотреть ежемесячный отчет.",
 
   provider_registration_notify_subject: "Регистрация аккаунта",
-  provider_registration_notify_title: "Зарегистрирован как консультант на Usupport",
+  provider_registration_notify_title:
+    "Зарегистрирован как консультант на Usupport",
   provider_registration_notify_text:
     "Вы зарегистрированы в качестве консультанта на Usupport.<br/> Ваш автоматически сгенерированный пароль: {2} <br/>Вы можете изменить его в любое время в настройках своего профиля.<br/> Посетите {1}, чтобы войти в свой профиль.",
   month_1: "January",
@@ -140,4 +142,8 @@ export default {
   month_10: "October",
   month_11: "November",
   month_12: "December",
+  consultation_started_remind_title: "Consultation startedRU",
+  consultation_started_remind_subject: "Consultation startedRU",
+  consultation_started_remind_text:
+    "Your consultation has started. Please visit {1} to join it.RU",
 };

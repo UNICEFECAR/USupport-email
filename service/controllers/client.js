@@ -175,6 +175,38 @@ export const sendConsultationRemindStartEmail = async ({
   return { success: true };
 };
 
+export const sendConsultationHasStartedReminderEmail = async ({
+  language,
+  recipientEmail,
+}) => {
+  const from = `USupport <${EMAIL_SENDER}>`;
+
+  const subject = t("consultation_started_remind_subject", language);
+  const title = t("consultation_started_remind_title", language);
+  const platformLink = `${FRONTEND_URL}/client`;
+  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
+  const text = t("consultation_started_remind_text", language, [
+    platformLinkAnchor,
+  ]);
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: recipientEmail,
+      subject: subject,
+      html: computedHTML,
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};
+
 export const sendConsultationNotifySuggestionEmail = async ({
   language,
   recipientEmail,
