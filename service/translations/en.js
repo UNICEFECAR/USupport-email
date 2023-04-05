@@ -140,4 +140,9 @@ export default {
   month_10: "October",
   month_11: "November",
   month_12: "December",
+
+  consultation_started_remind_title: "Consultation started",
+  consultation_started_remind_subject: "Consultation started",
+  consultation_started_remind_text:
+    "Your consultation has started. Please visit {1} to join it.",
 };

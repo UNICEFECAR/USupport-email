@@ -15,6 +15,7 @@ import {
   sendConsultationNotifySuggestionEmail as sendConsultationNotifySuggestionEmailClient,
   sendConsultationConfirmSuggestionBookingEmail as sendConsultationConfirmSuggestionBookingEmailClient,
   sendConsultationConfirmSuggestionCancellationEmail as sendConsultationConfirmSuggestionCancellationEmailClient,
+  sendConsultationHasStartedReminderEmail as sendConsultationHasStartedReminderEmailClient,
 } from "#controllers/client";
 
 import {
@@ -30,6 +31,7 @@ import {
   sendReportWeeklyEmail as sendReportWeeklyEmailProvider,
   sendReportMonthlyEmail as sendReportMonthlyEmailProvider,
   sendRegistrationNotify as sendRegistrationNotifyProvider,
+  sendConsultationHasStartedReminderEmail as sendConsultationHasStartedReminderEmailProvider,
 } from "#controllers/provider";
 
 import { checkIfUserAllowedEmailNotifications } from "#queries/user";
@@ -130,6 +132,10 @@ export const handleEmailConsumerMessage = async ({ message }) => {
       sendConsultationRemindStartEmailClient(payload);
       break;
     }
+    case "client-consultationStart": {
+      sendConsultationHasStartedReminderEmailClient(payload);
+      break;
+    }
     case "client-consultationNotifySuggestion": {
       sendConsultationNotifySuggestionEmailClient(payload);
       break;
@@ -160,6 +166,10 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     }
     case "provider-consultationRemindStart": {
       sendConsultationRemindStartEmailProvider(payload);
+      break;
+    }
+    case "provider-consultationStart": {
+      sendConsultationHasStartedReminderEmailProvider(payload);
       break;
     }
     case "provider-consultationConfirmSuggestion": {

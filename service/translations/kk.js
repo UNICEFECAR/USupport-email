@@ -6,8 +6,7 @@ export default {
 
   system_welcome_subject: "Usupport платформасына қош келдіңіз",
   system_welcome_title: "Usupport платформасына қош келдіңіз",
-  system_welcome_text:
-    "Аккаунтыңызға кіру үшін келесі сілтемеге еріңіз: {1}",
+  system_welcome_text: "Аккаунтыңызға кіру үшін келесі сілтемеге еріңіз: {1}",
 
   system_login_2fa_request_subject: "Login OTP",
   system_login_2fa_request_title: "Login 2FA One Time Password",
@@ -15,12 +14,12 @@ export default {
     "Please use this code to login into your account: {1}",
 
   client_consultation_confirm_booking_subject: "Консультацияға жазылу",
-  client_consultation_confirm_booking_title:
-    "Консультацияға жазылуды растау",
+  client_consultation_confirm_booking_title: "Консультацияға жазылуды растау",
   client_consultation_confirm_booking_text:
     "Сіз консультацияға сәтті жазылдыңыз. Консультация мәліметтерін көру үшін {1} кіріңіз.",
 
-  client_consultation_confirm_reschedule_subject: "Консультацияны басқа уақытқа ауыстыру",
+  client_consultation_confirm_reschedule_subject:
+    "Консультацияны басқа уақытқа ауыстыру",
   client_consultation_confirm_reschedule_title:
     "Консультацияны басқа уақытқа ауыстыруды растау",
   client_consultation_confirm_reschedule_text:
@@ -43,8 +42,10 @@ export default {
   client_consultation_remind_start_text:
     "Сіздің консультацияңыз {2} минуттан кейін басталады. Консультацияға қосылу үшін {1} сайтына кіріңіз.",
 
-  client_consultation_notify_suggestion_subject: "Консультация туралы ұсыныс беру",
-  client_consultation_notify_suggestion_title: "Жаңа консультация туралы ұсыныс беру",
+  client_consultation_notify_suggestion_subject:
+    "Консультация туралы ұсыныс беру",
+  client_consultation_notify_suggestion_title:
+    "Жаңа консультация туралы ұсыныс беру",
   client_consultation_notify_suggestion_text:
     "Сізде жаңа консультация туралы ұсыныс бар. Қосымша ақпарат алу үшін {1} кіріңіз.",
 
@@ -67,8 +68,10 @@ export default {
   provider_consultation_notify_booking_text:
     "Сіз жаңа консультацияға жазылдыңыз. Қосымша ақпарат алу үшін {1} кіріңіз.",
 
-  provider_consultation_notify_reschedule_subject: "Консультацияны басқа уақытқа ауыстыру",
-  provider_consultation_notify_reschedule_title: "Консультацияны басқа уақытқа ауыстыру",
+  provider_consultation_notify_reschedule_subject:
+    "Консультацияны басқа уақытқа ауыстыру",
+  provider_consultation_notify_reschedule_title:
+    "Консультацияны басқа уақытқа ауыстыру",
   provider_consultation_notify_reschedule_text:
     "Консультация басқа уақытқа ауыстырылды. Қосымша ақпарат алу үшін {1} кіріңіз.",
 
@@ -90,7 +93,8 @@ export default {
   provider_consultation_remind_start_text:
     "Сіздің консультацияңыз {2} минуттан кейін басталады. Консультацияға қосылу үшін {1} кіріңіз.",
 
-  provider_consultation_confirm_suggestion_subject: "Консультация туралы ұсыныс",
+  provider_consultation_confirm_suggestion_subject:
+    "Консультация туралы ұсыныс",
   provider_consultation_confirm_suggestion_title:
     "Ұсынылған консультацияны растау",
   provider_consultation_confirm_suggestion_text:
@@ -110,9 +114,9 @@ export default {
   provider_consultation_notify_suggestion_cancellation_text:
     "Клиент Сіздің консультация туралы ұсынысыңызды қабылдамады.",
 
-  provider_availability_remind_add_more_slots_subject: "Қолжетімділік туралы еске салу",
-  provider_availability_remind_add_more_slots_title:
-    "Көбірек бос уақыт қосу",
+  provider_availability_remind_add_more_slots_subject:
+    "Қолжетімділік туралы еске салу",
+  provider_availability_remind_add_more_slots_title: "Көбірек бос уақыт қосу",
   provider_availability_remind_add_more_slots_text:
     "Сіздің соңғы бос уақытыңызға бір аптадан аз уақыт қалды. Кестеңізге қосымша бос уақыт қосу үшін {1} кіріңіз.",
 
@@ -125,7 +129,8 @@ export default {
   provider_report_monthly_text: "Ай сайынғы есепті көру үшін {1} кіріңіз.",
 
   provider_registration_notify_subject: "Аккаунтты тіркеу",
-  provider_registration_notify_title: "Usupport платформасында консультант ретінде тіркелген",
+  provider_registration_notify_title:
+    "Usupport платформасында консультант ретінде тіркелген",
   provider_registration_notify_text:
     "Сіз Usupport платформасында консультант ретінде тіркелгенсізіз.<br/> Автоматты түрде жасалған кілтсөзіңіз: {2} <br/>Оны парақша баптауларында кез келген уақытта өзгерте аласыз.<br/> Парақшаңызға өту үшін {1} кіріңіз. ",
   month_1: "January",
@@ -140,4 +145,8 @@ export default {
   month_10: "October",
   month_11: "November",
   month_12: "December",
+  consultation_started_remind_title: "Consultation startedKK",
+  consultation_started_remind_subject: "Consultation startedKK",
+  consultation_started_remind_text:
+    "Your consultation has started. Please visit {1} to join it.KK",
 };
