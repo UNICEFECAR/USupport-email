@@ -2,7 +2,10 @@ import { t } from "#translations/index";
 
 import { GeneralTemplate } from "#utils/templates";
 
-import { getMailTransporter } from "#utils/helperFunctions";
+import {
+  getMailTransporter,
+  getStartAndEndOfWeek,
+} from "#utils/helperFunctions";
 
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
 const FRONTEND_URL = process.env.FRONTEND_URL;
@@ -178,6 +181,38 @@ export const sendConsultationRemindStartEmail = async ({
   return { success: true };
 };
 
+export const sendConsultationHasStartedReminderEmail = async ({
+  language,
+  recipientEmail,
+}) => {
+  const from = `USupport <${EMAIL_SENDER}>`;
+
+  const subject = t("consultation_started_remind_subject", language);
+  const title = t("consultation_started_remind_title", language);
+  const platformLink = `${FRONTEND_URL}/provider`;
+  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
+  const text = t("consultation_started_remind_text", language, [
+    platformLinkAnchor,
+  ]);
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: recipientEmail,
+      subject: subject,
+      html: computedHTML,
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};
+
 export const sendConsultationConfirmSuggestionEmail = async ({
   language,
   recipientEmail,
@@ -331,7 +366,11 @@ export const sendAvailabilityRemindAddMoreSlotsEmail = async ({
   return { success: true };
 };
 
-export const sendReportWeeklyEmail = async ({ language, recipientEmail }) => {
+export const sendReportWeeklyEmail = async ({
+  language,
+  recipientEmail,
+  csvData,
+}) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
   const subject = t("provider_report_weekly_subject", language);
@@ -339,6 +378,11 @@ export const sendReportWeeklyEmail = async ({ language, recipientEmail }) => {
   const platformLink = `${FRONTEND_URL}/provider`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("provider_report_weekly_text", language, [platformLinkAnchor]);
+
+  const csvFileName =
+    t("provider_report_weekly_subject") +
+    "-" +
+    getStartAndEndOfWeek(new Date());
 
   let computedHTML = GeneralTemplate(title, text);
 
@@ -350,6 +394,12 @@ export const sendReportWeeklyEmail = async ({ language, recipientEmail }) => {
       to: recipientEmail,
       subject: subject,
       html: computedHTML,
+      attachments: [
+        {
+          filename: `${csvFileName}.csv`,
+          content: csvData, // attaching csv in the content
+        },
+      ],
     })
     .catch((err) => {
       console.log(err);
@@ -358,7 +408,11 @@ export const sendReportWeeklyEmail = async ({ language, recipientEmail }) => {
   return { success: true };
 };
 
-export const sendReportMonthlyEmail = async ({ language, recipientEmail }) => {
+export const sendReportMonthlyEmail = async ({
+  language,
+  recipientEmail,
+  csvData,
+}) => {
   const from = `USupport <${EMAIL_SENDER}>`;
 
   const subject = t("provider_report_monthly_subject", language);
@@ -369,6 +423,12 @@ export const sendReportMonthlyEmail = async ({ language, recipientEmail }) => {
     platformLinkAnchor,
   ]);
 
+  const csvFileName =
+    t("provider_report_monthly_subject") +
+    "-" +
+    t(`month_${new Date().getMonth() + 1}`) +
+    `-${new Date().getFullYear()}`;
+
   let computedHTML = GeneralTemplate(title, text);
 
   const transporter = getMailTransporter();
@@ -379,6 +439,12 @@ export const sendReportMonthlyEmail = async ({ language, recipientEmail }) => {
       to: recipientEmail,
       subject: subject,
       html: computedHTML,
+      attachments: [
+        {
+          filename: `${csvFileName}.csv`,
+          content: csvData, // attaching csv in the content
+        },
+      ],
     })
     .catch((err) => {
       console.log(err);
