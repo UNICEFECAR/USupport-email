@@ -34,6 +34,8 @@ import {
   sendConsultationHasStartedReminderEmail as sendConsultationHasStartedReminderEmailProvider,
 } from "#controllers/provider";
 
+import { sendRegistrationNotify as sendRegistrationNotifyAdmin } from "#controllers/admin";
+
 import { checkIfUserAllowedEmailNotifications } from "#queries/user";
 
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
@@ -77,8 +79,9 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     "forgotPassword",
     "provider-registration",
     "login-2fa-request",
+    "admin-registration",
   ];
-
+  console.log(messageJSON);
   let hasUserAllowedEmailNotifications = true;
   if (!alwaysSendEmails.includes(emailType)) {
     hasUserAllowedEmailNotifications =
@@ -202,6 +205,10 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     }
     case "login-2fa-request": {
       sendLogin2FARequest(payload);
+      break;
+    }
+    case "admin-registration": {
+      sendRegistrationNotifyAdmin(payload);
       break;
     }
     default:

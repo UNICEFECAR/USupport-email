@@ -5,8 +5,10 @@ import { getMailTransporter } from "#utils/helperFunctions";
 import { getCountryIdByAlpha2CodeQuery } from "#queries/countries";
 
 import { getCountryAdminEmails } from "#queries/admins";
+import { t } from "#translations/index";
 
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
+const FRONTEND_URL = process.env.FRONTEND_URL;
 
 export const sendAdminEmail = async ({ country, subject, title, text }) => {
   const from = `USupport <${EMAIL_SENDER}>`;
@@ -45,6 +47,41 @@ export const sendAdminEmail = async ({ country, subject, title, text }) => {
     .sendMail({
       from: from,
       to: emails,
+      subject: subject,
+      html: computedHTML,
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};
+
+export const sendRegistrationNotify = async ({
+  language,
+  recipientEmail,
+  password,
+  adminRole,
+}) => {
+  const from = `USupport <${EMAIL_SENDER}>`;
+
+  const subject = t("admin_registration_notify_subject", language);
+  const title = t("admin_registration_notify_title", language);
+  const platformLink = `${FRONTEND_URL}/${adminRole}-admin/login`;
+  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
+  const text = t("admin_registration_notify_text", language, [
+    platformLinkAnchor,
+    password,
+  ]);
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: recipientEmail,
       subject: subject,
       html: computedHTML,
     })
