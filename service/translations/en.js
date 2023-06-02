@@ -2,7 +2,7 @@ export default {
   system_forgot_password_subject: "Forgot password",
   system_forgot_password_title: "Forgot password",
   system_forgot_password_text:
-    "Please visit the following link to reset your password: {1}",
+    "Please visit the following link to reset your password: {1} .<br/> The link will be active for 24 hours.<br/> If you have not requested a password reset, please ignore this email!",
 
   system_welcome_subject: "Welcome to USupport",
   system_welcome_title: "Welcome to USupport",
