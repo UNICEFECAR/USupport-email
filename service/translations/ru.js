@@ -9,10 +9,12 @@ export default {
   system_welcome_text:
     "Перейдите по следующей ссылке, чтобы получить доступ к своему аккаунту: {1}",
 
-  system_login_2fa_request_subject: "Login OTP",
-  system_login_2fa_request_title: "Login 2FA One Time Password",
+  system_login_2fa_request_subject:
+    "Войти в систему с одноразовым паролем (OTP)",
+  system_login_2fa_request_title:
+    "Войти с двухфакторным аутентификационным (2FA) одноразовым паролем (OTP)",
   system_login_2fa_request_text:
-    "Please use this code to login into your account: {1}",
+    "Используйте этот код для входа в свой аккаунт: {1}",
 
   client_consultation_confirm_booking_subject: "Запись на консультацию",
   client_consultation_confirm_booking_title:
@@ -130,22 +132,22 @@ export default {
     "Зарегистрирован как консультант на Usupport",
   provider_registration_notify_text:
     "Вы зарегистрированы в качестве консультанта на Usupport.<br/> Ваш автоматически сгенерированный пароль: {2} <br/>Вы можете изменить его в любое время в настройках своего профиля.<br/> Посетите {1}, чтобы войти в свой профиль.",
-  month_1: "January",
-  month_2: "February",
-  month_3: "March",
-  month_4: "April",
-  month_5: "May",
-  month_6: "June",
-  month_7: "July",
-  month_8: "August",
-  month_9: "September",
-  month_10: "October",
-  month_11: "November",
-  month_12: "December",
-  consultation_started_remind_title: "Consultation startedRU",
-  consultation_started_remind_subject: "Consultation startedRU",
+  month_1: "январь",
+  month_2: "февраль",
+  month_3: "март",
+  month_4: "апрель",
+  month_5: "май",
+  month_6: "июнь",
+  month_7: "июль",
+  month_8: "август",
+  month_9: "сентябрь",
+  month_10: "октябрь",
+  month_11: "ноябрь",
+  month_12: "декабрь",
+  consultation_started_remind_title: "Консультация началась",
+  consultation_started_remind_subject: "Консультация началась",
   consultation_started_remind_text:
-    "Your consultation has started. Please visit {1} to join it.RU",
+    "Ваша консультация началась. Посетите {1}, чтобы присоединиться к ней.",
   admin_registration_notify_subject: "Account registraionRU",
   admin_registration_notify_title: "Registered as admin at USupportRU",
   admin_registration_notify_text:
