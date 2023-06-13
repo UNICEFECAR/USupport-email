@@ -150,4 +150,8 @@ export default {
   admin_registration_notify_title: "Registered as admin at USupport",
   admin_registration_notify_text:
     "You have been registered as an admin at USupport.<br/> Your automatically generated password is: {2} <br/>You can change it anytime from your profile settings.<br/> Please visit {1} to login to your profile.",
+  client_registration_otp_subject: "USupport registration",
+  client_registration_otp_title: "USupport registration",
+  client_registration_otp_text:
+    "The verification code for for you account registration at USupport is: {1}",
 };
