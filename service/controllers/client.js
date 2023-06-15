@@ -318,3 +318,35 @@ export const sendConsultationConfirmSuggestionCancellationEmail = async ({
 
   return { success: true };
 };
+
+export const sendRegistrationOtpToUsersEmail = async ({
+  language,
+  recipientEmail,
+  otp,
+}) => {
+  const from = `USupport <${EMAIL_SENDER}>`;
+
+  const subject = t("client_registration_otp_subject", language);
+  const title = t("client_registration_otp_title", language);
+  const text = t("client_registration_otp_text", language, [otp]);
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: recipientEmail,
+      subject: subject,
+      html: computedHTML,
+    })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};
