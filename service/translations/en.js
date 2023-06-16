@@ -146,7 +146,7 @@ export default {
   consultation_started_remind_text:
     "Your consultation has started. Please visit {1} to join it.",
 
-  admin_registration_notify_subject: "Account registraion",
+  admin_registration_notify_subject: "Account registration",
   admin_registration_notify_title: "Registered as admin at USupport",
   admin_registration_notify_text:
     "You have been registered as an admin at USupport.<br/> Your automatically generated password is: {2} <br/>You can change it anytime from your profile settings.<br/> Please visit {1} to login to your profile.",
