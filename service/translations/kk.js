@@ -1,8 +1,8 @@
 export default {
-  system_forgot_password_subject: "Кілтсөзіңізді ұмыттыңыз ",
-  system_forgot_password_title: "Кілтсөзіңізді ұмыттыңыз ",
+  system_forgot_password_subject: "Құпия сөзіңізді ұмыттыңыз",
+  system_forgot_password_title: "Құпия сөзіңізді ұмыттыңыз",
   system_forgot_password_text:
-    "Кілтсөзді өзгерту үшін келесі сілтемеге еріңіз: {1}",
+    "Құпия сөзді қалпына келтіру үшін келесі сілтемені басыңыз: {1} .<br/> Сілтеме 24 сағат бойы белсенді.<br/> Егер Сіз Құпия сөзді қалпына келтіруді сұрамасаңыз, бұл хатты елеусіз қалдырыңыз!",
 
   system_welcome_subject: "Usupport платформасына қош келдіңіз",
   system_welcome_title: "Usupport платформасына қош келдіңіз",
@@ -133,7 +133,7 @@ export default {
   provider_registration_notify_title:
     "Usupport платформасында консультант ретінде тіркелген",
   provider_registration_notify_text:
-    "Сіз Usupport платформасында консультант ретінде тіркелгенсізіз.<br/> Автоматты түрде жасалған кілтсөзіңіз: {2} <br/>Оны парақша баптауларында кез келген уақытта өзгерте аласыз.<br/> Парақшаңызға өту үшін {1} кіріңіз. ",
+    "Сіз Usupport платформасында консультант ретінде тіркелгенсізіз.<br/> Автоматты түрде жасалған құпия сөзіңіз: {2} <br/>Оны парақша баптауларында кез келген уақытта өзгерте аласыз.<br/> Парақшаңызға өту үшін {1} кіріңіз. ",
   month_1: "қаңтар",
   month_2: "ақпан",
   month_3: "наурыз",
@@ -150,10 +150,10 @@ export default {
   consultation_started_remind_subject: "Консультация басталды",
   consultation_started_remind_text:
     "Сіздің консультациңыз басталды. Оған қосылу үшін {1} кіріңіз.",
-  admin_registration_notify_subject: "Account registraionKK",
-  admin_registration_notify_title: "Registered as admin at USupportKK",
+  admin_registration_notify_subject: "Аккаунтты тіркеу",
+  admin_registration_notify_title: "Usupport админ ретінде тіркелді",
   admin_registration_notify_text:
-    "You have been registered as an admin at USupport.<br/> Your automatically generated password is: {2} <br/>You can change it anytime from your profile settings.<br/> Please visit {1} to login to your profile.KK",
+    "Сіз USupport қызметінде әкімші ретінде тіркелдіңіз.<br/> Автоматты түрде жасалған құпия сөз: {2} <br/>Оны өз профиліңіздің параметрлерінен кез келген уақытта өзгертуге болады.<br/> Профиліңізге кіру үшін {1}  кіріңіз.",
   client_registration_otp_subject: "USupport registrationKK",
   client_registration_otp_title: "USupport registrationKK",
   client_registration_otp_text:

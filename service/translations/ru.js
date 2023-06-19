@@ -2,7 +2,7 @@ export default {
   system_forgot_password_subject: "Забыли пароль",
   system_forgot_password_title: "Забыли пароль",
   system_forgot_password_text:
-    "Перейдите по следующей ссылке, чтобы сбросить пароль: {1}",
+    "Перейдите по следующей ссылке, чтобы сбросить пароль: {1} .<br/> Ссылка будет активна в течение 24 часов.<br/> Если Вы не запрашивали сброс пароля, проигнорируйте это письмо!",
 
   system_welcome_subject: "Добро пожаловать в Usupport",
   system_welcome_title: "Добро пожаловать в Usupport",
@@ -148,10 +148,10 @@ export default {
   consultation_started_remind_subject: "Консультация началась",
   consultation_started_remind_text:
     "Ваша консультация началась. Посетите {1}, чтобы присоединиться к ней.",
-  admin_registration_notify_subject: "Account registraionRU",
-  admin_registration_notify_title: "Registered as admin at USupportRU",
+  admin_registration_notify_subject: "Регистрация аккаунта",
+  admin_registration_notify_title: "Зарегистрирован как админ на Usupport",
   admin_registration_notify_text:
-    "You have been registered as an admin at USupport.<br/> Your automatically generated password is: {2} <br/>You can change it anytime from your profile settings.<br/> Please visit {1} to login to your profile.RU",
+    "Вы зарегистрированы в качестве администратора в USupport.<br/> Ваш автоматически сгенерированный пароль: {2} <br/>Вы можете изменить его в любое время в настройках своего профиля.<br/> Посетите {1}, чтобы войти в свой профиль.",
   client_registration_otp_subject: "USupport registrationRU",
   client_registration_otp_title: "USupport registrationRU",
   client_registration_otp_text:
