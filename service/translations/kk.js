@@ -154,8 +154,8 @@ export default {
   admin_registration_notify_title: "Usupport админ ретінде тіркелді",
   admin_registration_notify_text:
     "Сіз USupport қызметінде әкімші ретінде тіркелдіңіз.<br/> Автоматты түрде жасалған құпия сөз: {2} <br/>Оны өз профиліңіздің параметрлерінен кез келген уақытта өзгертуге болады.<br/> Профиліңізге кіру үшін {1}  кіріңіз.",
-  client_registration_otp_subject: "USupport registrationKK",
-  client_registration_otp_title: "USupport registrationKK",
+  client_registration_otp_subject: "USupport-ке тіркелу",
+  client_registration_otp_title: "USupport-ке тіркелу",
   client_registration_otp_text:
-    "The verification code for for you account registration at USupport is: {1} KK",
+    "USupport тіркелгісін тіркеуге арналған растау коды: {1}",
 };

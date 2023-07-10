@@ -152,8 +152,8 @@ export default {
   admin_registration_notify_title: "Зарегистрирован как админ на Usupport",
   admin_registration_notify_text:
     "Вы зарегистрированы в качестве администратора в USupport.<br/> Ваш автоматически сгенерированный пароль: {2} <br/>Вы можете изменить его в любое время в настройках своего профиля.<br/> Посетите {1}, чтобы войти в свой профиль.",
-  client_registration_otp_subject: "USupport registrationRU",
-  client_registration_otp_title: "USupport registrationRU",
+  client_registration_otp_subject: "Регистрация на USupport",
+  client_registration_otp_title: "Регистрация на USupport",
   client_registration_otp_text:
-    "The verification code for for you account registration at USupport is: {1} RU",
+    "Код подтверждения для регистрации Вашей учетной записи в USupport: {1}",
 };
