@@ -246,11 +246,11 @@ export function getStartAndEndOfWeek(day) {
   now.setHours(0, 0, 0, 0);
   const firstDayOfWeek = new Date(now);
   firstDayOfWeek.setDate(
-    firstDayOfWeek.getDate() - weekMap[firstDayOfWeek.getDay()]
+    firstDayOfWeek.getDate() - weekMap[firstDayOfWeek.getDay()],
   );
   const lastDayOfWeek = new Date(now);
   lastDayOfWeek.setDate(
-    lastDayOfWeek.getDate() - weekMap[lastDayOfWeek.getDay()] + 6
+    lastDayOfWeek.getDate() - weekMap[lastDayOfWeek.getDay()] + 6,
   );
   lastDayOfWeek.setHours(23, 59, 59, 999);
 
