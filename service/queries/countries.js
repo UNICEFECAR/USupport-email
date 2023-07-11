@@ -8,5 +8,5 @@ export const getCountryIdByAlpha2CodeQuery = async ({ alpha2 }) =>
       WHERE alpha2 = $1
       LIMIT 1;
     `,
-    [alpha2]
+    [alpha2],
   );
