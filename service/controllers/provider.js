@@ -50,7 +50,7 @@ export const sendConsultationNotifyRescheduleEmail = async ({
 
   const subject = t(
     "provider_consultation_notify_reschedule_subject",
-    language
+    language,
   );
   const title = t("provider_consultation_notify_reschedule_title", language);
   const platformLink = `${FRONTEND_URL}/provider`;
@@ -85,7 +85,7 @@ export const sendConsultationNotifyCancellationEmail = async ({
 
   const subject = t(
     "provider_consultation_notify_cancellation_subject",
-    language
+    language,
   );
   const title = t("provider_consultation_notify_cancellation_title", language);
   const platformLink = `${FRONTEND_URL}/provider`;
@@ -120,7 +120,7 @@ export const sendConsultationConfirmCancellationEmail = async ({
 
   const subject = t(
     "provider_consultation_confirm_cancellation_subject",
-    language
+    language,
   );
   const title = t("provider_consultation_confirm_cancellation_title", language);
   const platformLink = `${FRONTEND_URL}/provider`;
@@ -221,7 +221,7 @@ export const sendConsultationConfirmSuggestionEmail = async ({
 
   const subject = t(
     "provider_consultation_confirm_suggestion_subject",
-    language
+    language,
   );
   const title = t("provider_consultation_confirm_suggestion_title", language);
   const platformLink = `${FRONTEND_URL}/provider`;
@@ -256,18 +256,18 @@ export const sendConsultationNotifySuggestionBookingEmail = async ({
 
   const subject = t(
     "provider_consultation_notify_suggestion_booking_subject",
-    language
+    language,
   );
   const title = t(
     "provider_consultation_notify_suggestion_booking_title",
-    language
+    language,
   );
   const platformLink = `${FRONTEND_URL}/provider`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t(
     "provider_consultation_notify_suggestion_booking_text",
     language,
-    [platformLinkAnchor]
+    [platformLinkAnchor],
   );
 
   let computedHTML = GeneralTemplate(title, text);
@@ -296,18 +296,18 @@ export const sendConsultationNotifySuggestionCancellationEmail = async ({
 
   const subject = t(
     "provider_consultation_notify_suggestion_cancellation_subject",
-    language
+    language,
   );
   const title = t(
     "provider_consultation_notify_suggestion_cancellation_title",
-    language
+    language,
   );
   const platformLink = `${FRONTEND_URL}/provider`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t(
     "provider_consultation_notify_suggestion_cancellation_text",
     language,
-    [platformLinkAnchor]
+    [platformLinkAnchor],
   );
 
   let computedHTML = GeneralTemplate(title, text);
@@ -336,11 +336,11 @@ export const sendAvailabilityRemindAddMoreSlotsEmail = async ({
 
   const subject = t(
     "provider_availability_remind_add_more_slots_subject",
-    language
+    language,
   );
   const title = t(
     "provider_availability_remind_add_more_slots_title",
-    language
+    language,
   );
   const platformLink = `${FRONTEND_URL}/provider`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;

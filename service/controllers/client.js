@@ -79,7 +79,7 @@ export const sendConsultationConfirmCancellationEmail = async ({
 
   const subject = t(
     "client_consultation_confirm_cancellation_subject",
-    language
+    language,
   );
   const title = t("client_consultation_confirm_cancellation_title", language);
   const platformLink = `${FRONTEND_URL}/client`;
@@ -114,7 +114,7 @@ export const sendConsultationNotifyCancellationEmail = async ({
 
   const subject = t(
     "client_consultation_notify_cancellation_subject",
-    language
+    language,
   );
   const title = t("client_consultation_notify_cancellation_title", language);
   const platformLink = `${FRONTEND_URL}/client`;
@@ -247,18 +247,18 @@ export const sendConsultationConfirmSuggestionBookingEmail = async ({
 
   const subject = t(
     "client_consultation_confirm_suggestion_booking_subject",
-    language
+    language,
   );
   const title = t(
     "client_consultation_confirm_suggestion_booking_title",
-    language
+    language,
   );
   const platformLink = `${FRONTEND_URL}/client`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t(
     "client_consultation_confirm_suggestion_booking_text",
     language,
-    [platformLinkAnchor]
+    [platformLinkAnchor],
   );
 
   let computedHTML = GeneralTemplate(title, text);
@@ -287,18 +287,18 @@ export const sendConsultationConfirmSuggestionCancellationEmail = async ({
 
   const subject = t(
     "client_consultation_confirm_suggestion_cancellation_subject",
-    language
+    language,
   );
   const title = t(
     "client_consultation_confirm_suggestion_cancellation_title",
-    language
+    language,
   );
   const platformLink = `${FRONTEND_URL}/client`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t(
     "client_consultation_confirm_suggestion_cancellation_text",
     language,
-    [platformLinkAnchor]
+    [platformLinkAnchor],
   );
 
   let computedHTML = GeneralTemplate(title, text);
