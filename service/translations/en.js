@@ -124,7 +124,7 @@ export default {
   provider_report_monthly_title: "Monthly report of activities",
   provider_report_monthly_text: "Please visit {1} to view your monthly report.",
 
-  provider_registration_notify_subject: "Account registraion",
+  provider_registration_notify_subject: "Account registration",
   provider_registration_notify_title: "Registered as provider at USupport",
   provider_registration_notify_text:
     "You have been registered as a provider at USupport.<br/> Your automatically generated password is: {2} <br/>You can change it anytime from your profile settings.<br/> Please visit {1} to login to your profile.",
