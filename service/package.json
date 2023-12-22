@@ -2,7 +2,7 @@
   "type": "module",
   "name": "email",
   "version": "1.0.0",
-  "description": "Express.js app for the USupport email API service",
+  "description": "Express.js app for the uSupport email API service",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
