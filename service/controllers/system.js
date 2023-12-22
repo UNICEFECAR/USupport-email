@@ -13,7 +13,7 @@ export const sendForgotPasswordEmail = async ({
   platform,
   forgotPasswordToken,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("system_forgot_password_subject", language);
   const title = t("system_forgot_password_title", language);
@@ -46,7 +46,7 @@ export const sendWelcomeEmail = async ({
   language,
   platform,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("system_welcome_subject", language);
   const title = t("system_welcome_title", language);
@@ -77,7 +77,7 @@ export const sendLogin2FARequest = async ({
   recipientEmail,
   otp,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("system_login_2fa_request_subject", language);
   const title = t("system_login_2fa_request_title", language);
