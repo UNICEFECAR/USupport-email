@@ -14,7 +14,7 @@ export const sendConsultationNotifyBookingEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("provider_consultation_notify_booking_subject", language);
   const title = t("provider_consultation_notify_booking_title", language);
@@ -46,11 +46,11 @@ export const sendConsultationNotifyRescheduleEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t(
     "provider_consultation_notify_reschedule_subject",
-    language,
+    language
   );
   const title = t("provider_consultation_notify_reschedule_title", language);
   const platformLink = `${FRONTEND_URL}/provider`;
@@ -81,11 +81,11 @@ export const sendConsultationNotifyCancellationEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t(
     "provider_consultation_notify_cancellation_subject",
-    language,
+    language
   );
   const title = t("provider_consultation_notify_cancellation_title", language);
   const platformLink = `${FRONTEND_URL}/provider`;
@@ -116,11 +116,11 @@ export const sendConsultationConfirmCancellationEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t(
     "provider_consultation_confirm_cancellation_subject",
-    language,
+    language
   );
   const title = t("provider_consultation_confirm_cancellation_title", language);
   const platformLink = `${FRONTEND_URL}/provider`;
@@ -152,7 +152,7 @@ export const sendConsultationRemindStartEmail = async ({
   recipientEmail,
   minToConsultation,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("provider_consultation_remind_start_subject", language);
   const title = t("provider_consultation_remind_start_title", language);
@@ -185,7 +185,7 @@ export const sendConsultationHasStartedReminderEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("consultation_started_remind_subject", language);
   const title = t("consultation_started_remind_title", language);
@@ -217,11 +217,11 @@ export const sendConsultationConfirmSuggestionEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t(
     "provider_consultation_confirm_suggestion_subject",
-    language,
+    language
   );
   const title = t("provider_consultation_confirm_suggestion_title", language);
   const platformLink = `${FRONTEND_URL}/provider`;
@@ -252,22 +252,22 @@ export const sendConsultationNotifySuggestionBookingEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t(
     "provider_consultation_notify_suggestion_booking_subject",
-    language,
+    language
   );
   const title = t(
     "provider_consultation_notify_suggestion_booking_title",
-    language,
+    language
   );
   const platformLink = `${FRONTEND_URL}/provider`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t(
     "provider_consultation_notify_suggestion_booking_text",
     language,
-    [platformLinkAnchor],
+    [platformLinkAnchor]
   );
 
   let computedHTML = GeneralTemplate(title, text);
@@ -292,22 +292,22 @@ export const sendConsultationNotifySuggestionCancellationEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t(
     "provider_consultation_notify_suggestion_cancellation_subject",
-    language,
+    language
   );
   const title = t(
     "provider_consultation_notify_suggestion_cancellation_title",
-    language,
+    language
   );
   const platformLink = `${FRONTEND_URL}/provider`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t(
     "provider_consultation_notify_suggestion_cancellation_text",
     language,
-    [platformLinkAnchor],
+    [platformLinkAnchor]
   );
 
   let computedHTML = GeneralTemplate(title, text);
@@ -332,15 +332,15 @@ export const sendAvailabilityRemindAddMoreSlotsEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t(
     "provider_availability_remind_add_more_slots_subject",
-    language,
+    language
   );
   const title = t(
     "provider_availability_remind_add_more_slots_title",
-    language,
+    language
   );
   const platformLink = `${FRONTEND_URL}/provider`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
@@ -371,7 +371,7 @@ export const sendReportWeeklyEmail = async ({
   recipientEmail,
   csvData,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("provider_report_weekly_subject", language);
   const title = t("provider_report_weekly_title", language);
@@ -413,7 +413,7 @@ export const sendReportMonthlyEmail = async ({
   recipientEmail,
   csvData,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("provider_report_monthly_subject", language);
   const title = t("provider_report_monthly_title", language);
@@ -458,7 +458,7 @@ export const sendRegistrationNotify = async ({
   recipientEmail,
   password,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("provider_registration_notify_subject", language);
   const title = t("provider_registration_notify_title", language);

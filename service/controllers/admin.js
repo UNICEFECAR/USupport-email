@@ -11,7 +11,7 @@ const EMAIL_SENDER = process.env.EMAIL_SENDER;
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
 export const sendAdminEmail = async ({ country, subject, title, text }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const countryId = await getCountryIdByAlpha2CodeQuery({ alpha2: country })
     .then((res) => {
@@ -63,7 +63,7 @@ export const sendRegistrationNotify = async ({
   password,
   adminRole,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("admin_registration_notify_subject", language);
   const title = t("admin_registration_notify_title", language);

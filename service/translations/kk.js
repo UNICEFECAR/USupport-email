@@ -4,8 +4,8 @@ export default {
   system_forgot_password_text:
     "Құпия сөзді қалпына келтіру үшін келесі сілтемені басыңыз: {1} .<br/> Сілтеме 24 сағат бойы белсенді.<br/> Егер Сіз Құпия сөзді қалпына келтіруді сұрамасаңыз, бұл хатты елеусіз қалдырыңыз!",
 
-  system_welcome_subject: "Usupport платформасына қош келдіңіз",
-  system_welcome_title: "Usupport платформасына қош келдіңіз",
+  system_welcome_subject: "uSupport платформасына қош келдіңіз",
+  system_welcome_title: "uSupport платформасына қош келдіңіз",
   system_welcome_text: "Аккаунтыңызға кіру үшін келесі сілтемеге еріңіз: {1}",
 
   system_login_2fa_request_subject: "Жүйеге бір реттік құпия сөзбен (OTP) кіру",
@@ -131,9 +131,9 @@ export default {
 
   provider_registration_notify_subject: "Аккаунтты тіркеу",
   provider_registration_notify_title:
-    "Usupport платформасында консультант ретінде тіркелген",
+    "uSupport платформасында консультант ретінде тіркелген",
   provider_registration_notify_text:
-    "Сіз Usupport платформасында консультант ретінде тіркелгенсізіз.<br/> Автоматты түрде жасалған құпия сөзіңіз: {2} <br/>Оны парақша баптауларында кез келген уақытта өзгерте аласыз.<br/> Парақшаңызға өту үшін {1} кіріңіз. ",
+    "Сіз uSupport платформасында консультант ретінде тіркелгенсізіз.<br/> Автоматты түрде жасалған құпия сөзіңіз: {2} <br/>Оны парақша баптауларында кез келген уақытта өзгерте аласыз.<br/> Парақшаңызға өту үшін {1} кіріңіз. ",
   month_1: "қаңтар",
   month_2: "ақпан",
   month_3: "наурыз",
@@ -151,11 +151,11 @@ export default {
   consultation_started_remind_text:
     "Сіздің консультациңыз басталды. Оған қосылу үшін {1} кіріңіз.",
   admin_registration_notify_subject: "Аккаунтты тіркеу",
-  admin_registration_notify_title: "Usupport админ ретінде тіркелді",
+  admin_registration_notify_title: "uSupport админ ретінде тіркелді",
   admin_registration_notify_text:
-    "Сіз USupport қызметінде әкімші ретінде тіркелдіңіз.<br/> Автоматты түрде жасалған құпия сөз: {2} <br/>Оны өз профиліңіздің параметрлерінен кез келген уақытта өзгертуге болады.<br/> Профиліңізге кіру үшін {1}  кіріңіз.",
-  client_registration_otp_subject: "USupport-ке тіркелу",
-  client_registration_otp_title: "USupport-ке тіркелу",
+    "Сіз uSupport қызметінде әкімші ретінде тіркелдіңіз.<br/> Автоматты түрде жасалған құпия сөз: {2} <br/>Оны өз профиліңіздің параметрлерінен кез келген уақытта өзгертуге болады.<br/> Профиліңізге кіру үшін {1}  кіріңіз.",
+  client_registration_otp_subject: "uSupport-ке тіркелу",
+  client_registration_otp_title: "uSupport-ке тіркелу",
   client_registration_otp_text:
-    "USupport тіркелгісін тіркеуге арналған растау коды: {1}",
+    "uSupport тіркелгісін тіркеуге арналған растау коды: {1}",
 };

@@ -4,8 +4,8 @@ export default {
   system_forgot_password_text:
     "Please visit the following link to reset your password: {1} .<br/> The link will be active for 24 hours.<br/> If you have not requested a password reset, please ignore this email!",
 
-  system_welcome_subject: "Welcome to USupport",
-  system_welcome_title: "Welcome to USupport",
+  system_welcome_subject: "Welcome to uSupport",
+  system_welcome_title: "Welcome to uSupport",
   system_welcome_text:
     "Please visit the following link to access your account: {1}",
 
@@ -125,9 +125,9 @@ export default {
   provider_report_monthly_text: "Please visit {1} to view your monthly report.",
 
   provider_registration_notify_subject: "Account registration",
-  provider_registration_notify_title: "Registered as provider at USupport",
+  provider_registration_notify_title: "Registered as provider at uSupport",
   provider_registration_notify_text:
-    "You have been registered as a provider at USupport.<br/> Your automatically generated password is: {2} <br/>You can change it anytime from your profile settings.<br/> Please visit {1} to login to your profile.",
+    "You have been registered as a provider at uSupport.<br/> Your automatically generated password is: {2} <br/>You can change it anytime from your profile settings.<br/> Please visit {1} to login to your profile.",
   month_1: "January",
   month_2: "February",
   month_3: "March",
@@ -147,11 +147,11 @@ export default {
     "Your consultation has started. Please visit {1} to join it.",
 
   admin_registration_notify_subject: "Account registration",
-  admin_registration_notify_title: "Registered as admin at USupport",
+  admin_registration_notify_title: "Registered as admin at uSupport",
   admin_registration_notify_text:
-    "You have been registered as an admin at USupport.<br/> Your automatically generated password is: {2} <br/>You can change it anytime from your profile settings.<br/> Please visit {1} to login to your profile.",
-  client_registration_otp_subject: "USupport registration",
-  client_registration_otp_title: "USupport registration",
+    "You have been registered as an admin at uSupport.<br/> Your automatically generated password is: {2} <br/>You can change it anytime from your profile settings.<br/> Please visit {1} to login to your profile.",
+  client_registration_otp_subject: "uSupport registration",
+  client_registration_otp_title: "uSupport registration",
   client_registration_otp_text:
-    "The verification code for for you account registration at USupport is: {1}",
+    "The verification code for for you account registration at uSupport is: {1}",
 };
