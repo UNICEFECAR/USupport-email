@@ -4,8 +4,8 @@ export default {
   system_forgot_password_text:
     "Перейдите по следующей ссылке, чтобы сбросить пароль: {1} .<br/> Ссылка будет активна в течение 24 часов.<br/> Если Вы не запрашивали сброс пароля, проигнорируйте это письмо!",
 
-  system_welcome_subject: "Добро пожаловать в Usupport",
-  system_welcome_title: "Добро пожаловать в Usupport",
+  system_welcome_subject: "Добро пожаловать в uSupport",
+  system_welcome_title: "Добро пожаловать в uSupport",
   system_welcome_text:
     "Перейдите по следующей ссылке, чтобы получить доступ к своему аккаунту: {1}",
 
@@ -129,9 +129,9 @@ export default {
 
   provider_registration_notify_subject: "Регистрация аккаунта",
   provider_registration_notify_title:
-    "Зарегистрирован как консультант на Usupport",
+    "Зарегистрирован как консультант на uSupport",
   provider_registration_notify_text:
-    "Вы зарегистрированы в качестве консультанта на Usupport.<br/> Ваш автоматически сгенерированный пароль: {2} <br/>Вы можете изменить его в любое время в настройках своего профиля.<br/> Посетите {1}, чтобы войти в свой профиль.",
+    "Вы зарегистрированы в качестве консультанта на uSupport.<br/> Ваш автоматически сгенерированный пароль: {2} <br/>Вы можете изменить его в любое время в настройках своего профиля.<br/> Посетите {1}, чтобы войти в свой профиль.",
   month_1: "январь",
   month_2: "февраль",
   month_3: "март",
@@ -149,11 +149,11 @@ export default {
   consultation_started_remind_text:
     "Ваша консультация началась. Посетите {1}, чтобы присоединиться к ней.",
   admin_registration_notify_subject: "Регистрация аккаунта",
-  admin_registration_notify_title: "Зарегистрирован как админ на Usupport",
+  admin_registration_notify_title: "Зарегистрирован как админ на uSupport",
   admin_registration_notify_text:
-    "Вы зарегистрированы в качестве администратора в USupport.<br/> Ваш автоматически сгенерированный пароль: {2} <br/>Вы можете изменить его в любое время в настройках своего профиля.<br/> Посетите {1}, чтобы войти в свой профиль.",
-  client_registration_otp_subject: "Регистрация на USupport",
-  client_registration_otp_title: "Регистрация на USupport",
+    "Вы зарегистрированы в качестве администратора в uSupport.<br/> Ваш автоматически сгенерированный пароль: {2} <br/>Вы можете изменить его в любое время в настройках своего профиля.<br/> Посетите {1}, чтобы войти в свой профиль.",
+  client_registration_otp_subject: "Регистрация на uSupport",
+  client_registration_otp_title: "Регистрация на uSupport",
   client_registration_otp_text:
-    "Код подтверждения для регистрации Вашей учетной записи в USupport: {1}",
+    "Код подтверждения для регистрации Вашей учетной записи в uSupport: {1}",
 };

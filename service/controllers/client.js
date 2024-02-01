@@ -11,7 +11,7 @@ export const sendConsultationConfirmBookingEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("client_consultation_confirm_booking_subject", language);
   const title = t("client_consultation_confirm_booking_title", language);
@@ -43,7 +43,7 @@ export const sendConsultationConfirmRescheduleEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("client_consultation_confirm_reschedule_subject", language);
   const title = t("client_consultation_confirm_reschedule_title", language);
@@ -75,11 +75,11 @@ export const sendConsultationConfirmCancellationEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t(
     "client_consultation_confirm_cancellation_subject",
-    language,
+    language
   );
   const title = t("client_consultation_confirm_cancellation_title", language);
   const platformLink = `${FRONTEND_URL}/client`;
@@ -110,11 +110,11 @@ export const sendConsultationNotifyCancellationEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t(
     "client_consultation_notify_cancellation_subject",
-    language,
+    language
   );
   const title = t("client_consultation_notify_cancellation_title", language);
   const platformLink = `${FRONTEND_URL}/client`;
@@ -146,7 +146,7 @@ export const sendConsultationRemindStartEmail = async ({
   recipientEmail,
   minToConsultation,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("client_consultation_remind_start_subject", language);
   const title = t("client_consultation_remind_start_title", language);
@@ -179,7 +179,7 @@ export const sendConsultationHasStartedReminderEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("consultation_started_remind_subject", language);
   const title = t("consultation_started_remind_title", language);
@@ -211,7 +211,7 @@ export const sendConsultationNotifySuggestionEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("client_consultation_notify_suggestion_subject", language);
   const title = t("client_consultation_notify_suggestion_title", language);
@@ -243,22 +243,22 @@ export const sendConsultationConfirmSuggestionBookingEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t(
     "client_consultation_confirm_suggestion_booking_subject",
-    language,
+    language
   );
   const title = t(
     "client_consultation_confirm_suggestion_booking_title",
-    language,
+    language
   );
   const platformLink = `${FRONTEND_URL}/client`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t(
     "client_consultation_confirm_suggestion_booking_text",
     language,
-    [platformLinkAnchor],
+    [platformLinkAnchor]
   );
 
   let computedHTML = GeneralTemplate(title, text);
@@ -283,22 +283,22 @@ export const sendConsultationConfirmSuggestionCancellationEmail = async ({
   language,
   recipientEmail,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t(
     "client_consultation_confirm_suggestion_cancellation_subject",
-    language,
+    language
   );
   const title = t(
     "client_consultation_confirm_suggestion_cancellation_title",
-    language,
+    language
   );
   const platformLink = `${FRONTEND_URL}/client`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t(
     "client_consultation_confirm_suggestion_cancellation_text",
     language,
-    [platformLinkAnchor],
+    [platformLinkAnchor]
   );
 
   let computedHTML = GeneralTemplate(title, text);
@@ -324,7 +324,7 @@ export const sendRegistrationOtpToUsersEmail = async ({
   recipientEmail,
   otp,
 }) => {
-  const from = `USupport <${EMAIL_SENDER}>`;
+  const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("client_registration_otp_subject", language);
   const title = t("client_registration_otp_title", language);
