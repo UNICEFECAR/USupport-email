@@ -350,3 +350,39 @@ export const sendRegistrationOtpToUsersEmail = async ({
 
   return { success: true };
 };
+
+export const sendEmailAlreadyUsedEmail = async ({
+  language,
+  recipientEmail,
+}) => {
+  const from = `uSupport <${EMAIL_SENDER}>`;
+
+  const platformLink = `${FRONTEND_URL}/client/login`;
+
+  const subject = t("client_registration_otp_subject", language);
+  const title = t("client_registration_otp_title", language);
+  const text = t("client_email_already_used_text", language, [
+    platformLink,
+    platformLink,
+  ]);
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: recipientEmail,
+      subject: subject,
+      html: computedHTML,
+    })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};
