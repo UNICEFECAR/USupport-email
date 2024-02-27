@@ -17,6 +17,7 @@ import {
   sendConsultationConfirmSuggestionCancellationEmail as sendConsultationConfirmSuggestionCancellationEmailClient,
   sendConsultationHasStartedReminderEmail as sendConsultationHasStartedReminderEmailClient,
   sendRegistrationOtpToUsersEmail,
+  sendEmailAlreadyUsedEmail,
 } from "#controllers/client";
 
 import {
@@ -82,6 +83,7 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     "login-2fa-request",
     "admin-registration",
     "register-2fa-request",
+    "email-used",
   ];
   console.log(messageJSON);
   let hasUserAllowedEmailNotifications = true;
@@ -215,6 +217,10 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     }
     case "register-2fa-request": {
       sendRegistrationOtpToUsersEmail(payload);
+      break;
+    }
+    case "email-used": {
+      sendEmailAlreadyUsedEmail(payload);
       break;
     }
     default:
