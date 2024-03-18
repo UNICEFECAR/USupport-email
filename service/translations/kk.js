@@ -153,7 +153,7 @@ export default {
   admin_registration_notify_subject: "Аккаунтты тіркеу",
   admin_registration_notify_title: "uSupport админ ретінде тіркелді",
   admin_registration_notify_text:
-    "Сіз uSupport қызметінде әкімші ретінде тіркелдіңіз.<br/> Автоматты түрде жасалған құпия сөз: {2} <br/>Оны өз профиліңіздің параметрлерінен кез келген уақытта өзгертуге болады.<br/> Профиліңізге кіру үшін {1}  кіріңіз.",
+    "Сіз USupport қызметінде әкімші ретінде тіркелдіңіз.<br/> Автоматты түрде жасалған құпия сөз: {2} <br/>Оны өз парақшаңыздың параметрлерінен кез келген уақытта өзгертуге болады.<br/> Профиліңізге кіру үшін {1} кіріңіз.",
   client_registration_otp_subject: "uSupport-ке тіркелу",
   client_registration_otp_title: "uSupport-ке тіркелу",
   client_registration_otp_text:
