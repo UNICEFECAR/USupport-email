@@ -156,4 +156,3 @@ export default {
   client_email_already_used_text:
     'The emal you are trying to register with is already in use. Please use the following link <a href="{1}">{2}</a> to login into your account.If using the mobile application please navigate back to the login page.UK',
 };
-i;
