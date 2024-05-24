@@ -154,5 +154,5 @@ export default {
   client_registration_otp_text:
     "Код підтвердження для реєстрації облікового запису в USupport: {1}",
   client_email_already_used_text:
-    'The emal you are trying to register with is already in use. Please use the following link <a href="{1}">{2}</a> to login into your account.If using the mobile application please navigate back to the login page.UK',
+    'Електронна пошта, за допомогою якої Ви намагаєтесь зареєструватись, вже використовується. Будь ласка, натисність на посилання  <a href="{1}">{2}</a> щоб зайти у Ваш аккаунт. Якщо Ви викристовуєте мобільній застосунок, поверніться на попередню сторінку.',
 };
