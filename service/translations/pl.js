@@ -154,5 +154,5 @@ export default {
   client_registration_otp_text:
     "Kod weryfikacyjny do rejestracji konta w uSupport to: {1}",
   client_email_already_used_text:
-    'Adres email, którego chcesz użyć do rejestracji jest już używany. Użyj następującego linka <a href="{1}">{2}</a> aby zalogować się na swoje konto. Jeśli używasz aplikacji mobilnej wróć do strony logowania.   ',
+    "Adres email, którego chcesz użyć do rejestracji jest już używany. Użyj następującego linka <a href=\"{1}\">{2}</a> aby zalogować się na swoje konto. Jeśli używasz aplikacji mobilnej wróć do strony logowania.   ",
 };
