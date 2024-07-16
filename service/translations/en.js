@@ -155,5 +155,5 @@ export default {
   client_registration_otp_text:
     "The verification code for for you account registration at uSupport is: {1}",
   client_email_already_used_text:
-    'The email you are trying to register with is already in use. Please use the following link <a href="{1}">{2}</a> to login into your account.If using the mobile application please navigate back to the login page.',
+    "The email you are trying to register with is already in use. Please use the following link <a href=\"{1}\">{2}</a> to login into your account.If using the mobile application please navigate back to the login page.",
 };

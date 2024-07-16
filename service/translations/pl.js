@@ -123,9 +123,9 @@ export default {
 
   provider_registration_notify_subject: "Rejestracja konta",
   provider_registration_notify_title:
-    "Zarejestrowany jako konsultant w Usupport",
+    "Zarejestrowany jako konsultant w uSupport",
   provider_registration_notify_text:
-    "Zostałeś zarejestrowany jako konsultant w Usupport.<br/> Twoje automatycznie wygenerowane hasło to: {2} <br/>Możesz je zmienić w dowolnym momencie w ustawieniach profilu.<br/> Odwiedź stronę {1}, aby zalogować się do swojego profilu.",
+    "Zostałeś zarejestrowany jako konsultant w uSupport.<br/> Twoje automatycznie wygenerowane hasło to: {2} <br/>Możesz je zmienić w dowolnym momencie w ustawieniach profilu.<br/> Odwiedź stronę {1}, aby zalogować się do swojego profilu.",
   month_1: "Styczeń",
   month_2: "Luty",
   month_3: "Marzec",
@@ -146,13 +146,13 @@ export default {
 
   admin_registration_notify_subject: "Rejestracja konta",
   admin_registration_notify_title:
-    "Zarejestrowany jako administrator w Usupport",
+    "Zarejestrowany jako administrator w uSupport",
   admin_registration_notify_text:
-    "Zostałeś zarejestrowany jako administrator w USupport.<br/> Twoje automatycznie wygenerowane hasło to: {2} <br/>Możesz je zmienić w dowolnym momencie w ustawieniach profilu.<br/> Odwiedź stronę {1}, aby zalogować się do swojego profilu.",
-  client_registration_otp_subject: "Rejestracja w USupport",
-  client_registration_otp_title: "Rejestracja w USupport",
+    "Zostałeś zarejestrowany jako administrator w uSupport.<br/> Twoje automatycznie wygenerowane hasło to: {2} <br/>Możesz je zmienić w dowolnym momencie w ustawieniach profilu.<br/> Odwiedź stronę {1}, aby zalogować się do swojego profilu.",
+  client_registration_otp_subject: "Rejestracja w uSupport",
+  client_registration_otp_title: "Rejestracja w uSupport",
   client_registration_otp_text:
-    "Kod weryfikacyjny do rejestracji konta w USupport to: {1}",
+    "Kod weryfikacyjny do rejestracji konta w uSupport to: {1}",
   client_email_already_used_text:
-    'Adres email za pomocą którego chcesz się zarejestrować jest już w naszej bazie danych. Użyj poniższego linka <a href="{1}">{2}</a> żeby zalogować się do swojego konta. Jeśli używasz aplikacji mobilnej, powróć do strony logowania.',
+    "Adres email, którego chcesz użyć do rejestracji jest już używany. Użyj następującego linka <a href=\"{1}\">{2}</a> aby zalogować się na swoje konto. Jeśli używasz aplikacji mobilnej wróć do strony logowania.   ",
 };
