@@ -3,8 +3,8 @@ export default {
   system_forgot_password_title: "Nie pamiętam hasła",
   system_forgot_password_text:
     "Odwiedź poniższy link, aby zresetować hasło: {1}.<br/> Link będzie aktywny przez 24 godziny.<br/> Jeśli nie zażądałeś zresetowania hasła, zignoruj tę wiadomość!",
-  system_welcome_subject: "Witamy w Usupport",
-  system_welcome_title: "Witamy w Usupport",
+  system_welcome_subject: "Witamy w uSupport",
+  system_welcome_title: "Witamy w uSupport",
   system_welcome_text:
     "Aby uzyskać dostęp do swojego konta, odwiedź poniższy link: {1}",
   system_login_2fa_request_subject: " OTP logowania",
@@ -154,5 +154,5 @@ export default {
   client_registration_otp_text:
     "Kod weryfikacyjny do rejestracji konta w uSupport to: {1}",
   client_email_already_used_text:
-    "Adres email, którego chcesz użyć do rejestracji jest już używany. Użyj następującego linka <a href=\"{1}\">{2}</a> aby zalogować się na swoje konto. Jeśli używasz aplikacji mobilnej wróć do strony logowania.   ",
+    'Adres email, którego chcesz użyć do rejestracji jest już używany. Użyj następującego linka <a href="{1}">{2}</a> aby zalogować się na swoje konto. Jeśli używasz aplikacji mobilnej wróć do strony logowania.   ',
 };
