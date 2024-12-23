@@ -76,9 +76,8 @@ export default {
   provider_consultation_notify_reschedule_text:
     "Консультация басқа уақытқа ауыстырылды. Қосымша ақпарат алу үшін {1} кіріңіз.",
 
-  provider_consultation_notify_cancellation_subject:
-    "Consultation cancellation",
-  provider_consultation_notify_cancellation_title: "Consultation cancellation",
+  provider_consultation_notify_cancellation_subject: "Кеңесті болдырмау",
+  provider_consultation_notify_cancellation_title: "Кеңесті болдырмау",
   provider_consultation_notify_cancellation_text:
     "A consultation has been canceled by a client. Please visit {1} to view more details.",
 
