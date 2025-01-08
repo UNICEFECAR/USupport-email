@@ -386,3 +386,35 @@ export const sendEmailAlreadyUsedEmail = async ({
 
   return { success: true };
 };
+
+export const sendQuestionAnsweredEmail = async ({
+  language,
+  recipientEmail,
+  providerName,
+}) => {
+  const from = `uSupport <${EMAIL_SENDER}>`;
+
+  const subject = t("question_answered", language);
+  const title = t("question_answered", language);
+  const text = t("question_answered_text", language, [providerName]);
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: recipientEmail,
+      subject: subject,
+      html: computedHTML,
+    })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};
