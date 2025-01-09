@@ -18,6 +18,7 @@ import {
   sendConsultationHasStartedReminderEmail as sendConsultationHasStartedReminderEmailClient,
   sendRegistrationOtpToUsersEmail,
   sendEmailAlreadyUsedEmail,
+  sendQuestionAnsweredEmail,
 } from "#controllers/client";
 
 import {
@@ -223,6 +224,9 @@ export const handleEmailConsumerMessage = async ({ message }) => {
       sendEmailAlreadyUsedEmail(payload);
       break;
     }
+    case "question-answered":
+      sendQuestionAnsweredEmail(payload);
+      break;
     default:
       console.log("EMAIL TYPE NOT RECOGNIZED"); // Maybe you can throw an error, or just keep it as a log
   }
