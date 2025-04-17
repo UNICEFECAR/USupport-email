@@ -9,7 +9,7 @@ export default {
     "Aby uzyskać dostęp do swojego konta, odwiedź poniższy link: {1}",
   system_login_2fa_request_subject: " OTP logowania",
   system_login_2fa_request_title:
-    "Logowanie z Hasłem jednorazowym 2-FAKTOROWYM",
+    "Logowanie z wykorzystaniem hasła jednorazowego 2FA",
   system_login_2fa_request_text:
     "Użyj tego kodu, aby zalogować się na swoje konto: {1}",
   client_consultation_confirm_booking_subject: "Rezerwacja konsultacji",
@@ -154,5 +154,5 @@ export default {
   client_registration_otp_text:
     "Kod weryfikacyjny do rejestracji konta w uSupport to: {1}",
   client_email_already_used_text:
-    "Adres email, którego chcesz użyć do rejestracji jest już używany. Użyj następującego linka <a href=\"{1}\">{2}</a> aby zalogować się na swoje konto. Jeśli używasz aplikacji mobilnej wróć do strony logowania.   ",
+    'Adres email, którego chcesz użyć do rejestracji, jest już zajęty. Użyj następującego linka <a href="{1}">{2}</a> aby zalogować się na swoje konto. Jeśli używasz aplikacji mobilnej wróć do strony logowania.',
 };
