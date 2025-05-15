@@ -12,3 +12,5 @@ data:
   RECIEVERS: usupport@7digit.io
 
   KAFKAJS_NO_PARTITIONER_WARNING: "1"
+
+  GLOBAL_COUNTRY_EMAIL_RECEIVER: ogaskevych@unicef.org
