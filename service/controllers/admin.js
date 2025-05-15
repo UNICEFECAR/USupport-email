@@ -10,34 +10,40 @@ import { t } from "#translations/index";
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
+const GLOBAL_COUNTRY_EMAIL_RECEIVER = process.env.GLOBAL_COUNTRY_EMAIL_RECEIVER;
+
 export const sendAdminEmail = async ({ country, subject, title, text }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
+  let emails = [];
 
-  const countryId = await getCountryIdByAlpha2CodeQuery({ alpha2: country })
-    .then((res) => {
-      if (res.rowCount === 0) {
-        // TODO: Handle the translation of this error
-        throw new Error("Country not found");
-      } else {
-        return res.rows[0].country_id;
-      }
-    })
-    .catch((err) => {
-      throw err;
-    });
-
-  const emails = await getCountryAdminEmails({ countryId })
-    .then((res) => {
-      if (res.rowCount === 0) {
-        // TODO: How to handle the case where there are no admins(if its even possible)
-        return [];
-      } else {
-        return res.rows.map((x) => x.email);
-      }
-    })
-    .catch((err) => {
-      throw err;
-    });
+  if (country === "global") {
+    emails = [GLOBAL_COUNTRY_EMAIL_RECEIVER];
+  } else {
+    const countryId = await getCountryIdByAlpha2CodeQuery({ alpha2: country })
+      .then((res) => {
+        if (res.rowCount === 0) {
+          // TODO: Handle the translation of this error
+          throw new Error("Country not found");
+        } else {
+          return res.rows[0].country_id;
+        }
+      })
+      .catch((err) => {
+        throw err;
+      });
+    emails = await getCountryAdminEmails({ countryId })
+      .then((res) => {
+        if (res.rowCount === 0) {
+          // TODO: How to handle the case where there are no admins(if its even possible)
+          return [];
+        } else {
+          return res.rows.map((x) => x.email);
+        }
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }
 
   let computedHTML = GeneralTemplate(title, text);
 
