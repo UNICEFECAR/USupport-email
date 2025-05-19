@@ -12,12 +12,23 @@ export const sendForgotPasswordEmail = async ({
   language,
   platform,
   forgotPasswordToken,
+  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
+  let PLATFORM_URL = `${FRONTEND_URL}/${platform}`;
+  if (!FRONTEND_URL.includes("staging")) {
+    PLATFORM_URL = FRONTEND_URL.replace("usupport", `${countryLabel}.usupport`);
+  } else {
+    PLATFORM_URL = FRONTEND_URL.replace(
+      "staging.usupport",
+      `${countryLabel}.staging.usupport`
+    );
+  }
+
   const subject = t("system_forgot_password_subject", language);
   const title = t("system_forgot_password_title", language);
-  const forgotPasswordLink = `${FRONTEND_URL}/${platform}/reset-password?rp=${forgotPasswordToken}`;
+  const forgotPasswordLink = `${PLATFORM_URL}/${platform}/${language}/reset-password?rp=${forgotPasswordToken}`;
   const forgotPasswordLinkAnchor = `<a href=${forgotPasswordLink}>${forgotPasswordLink}</a>`;
   const text = t("system_forgot_password_text", language, [
     forgotPasswordLinkAnchor,
@@ -45,8 +56,19 @@ export const sendWelcomeEmail = async ({
   recipientEmail,
   language,
   platform,
+  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
+
+  let PLATFORM_URL = `${FRONTEND_URL}/${platform}`;
+  if (!FRONTEND_URL.includes("staging")) {
+    PLATFORM_URL = FRONTEND_URL.replace("usupport", `${countryLabel}.usupport`);
+  } else {
+    PLATFORM_URL = FRONTEND_URL.replace(
+      "staging.usupport",
+      `${countryLabel}.staging.usupport`
+    );
+  }
 
   const subject = t("system_welcome_subject", language);
   const title = t("system_welcome_title", language);
