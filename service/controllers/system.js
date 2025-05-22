@@ -72,7 +72,7 @@ export const sendWelcomeEmail = async ({
 
   const subject = t("system_welcome_subject", language);
   const title = t("system_welcome_title", language);
-  const loginLink = `${FRONTEND_URL}/${platform}`;
+  const loginLink = `${PLATFORM_URL}/${platform}`;
   const loginLinkAnchor = `<a href=${loginLink}>${loginLink}</a>`;
   const text = t("system_welcome_text", language, [loginLinkAnchor]);
 
