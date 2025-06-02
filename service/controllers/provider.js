@@ -10,8 +10,8 @@ import {
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
-const getPlatformUrl = (countryLabel, platform) => {
-  let PLATFORM_URL = `${FRONTEND_URL}/${platform}`;
+const getPlatformUrl = (countryLabel) => {
+  let PLATFORM_URL = `${FRONTEND_URL}`;
   if (!FRONTEND_URL.includes("staging")) {
     PLATFORM_URL = FRONTEND_URL.replace("usupport", `${countryLabel}.usupport`);
   } else {
@@ -475,11 +475,11 @@ export const sendRegistrationNotify = async ({
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
-  const platformUrl = getPlatformUrl(countryLabel, "provider");
+  const platformUrl = getPlatformUrl(countryLabel);
 
   const subject = t("provider_registration_notify_subject", language);
   const title = t("provider_registration_notify_title", language);
-  const platformLink = `${platformUrl}/provider/login`;
+  const platformLink = `${platformUrl}/provider/${language}/login`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("provider_registration_notify_text", language, [
     platformLinkAnchor,
