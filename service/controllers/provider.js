@@ -12,6 +12,10 @@ const FRONTEND_URL = process.env.FRONTEND_URL;
 
 const getPlatformUrl = (countryLabel) => {
   let PLATFORM_URL = `${FRONTEND_URL}`;
+  if (!countryLabel) {
+    return PLATFORM_URL;
+  }
+
   if (!FRONTEND_URL.includes("staging")) {
     PLATFORM_URL = FRONTEND_URL.replace("usupport", `${countryLabel}.usupport`);
   } else {
@@ -27,12 +31,13 @@ const getPlatformUrl = (countryLabel) => {
 export const sendConsultationNotifyBookingEmail = async ({
   language,
   recipientEmail,
+  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("provider_consultation_notify_booking_subject", language);
   const title = t("provider_consultation_notify_booking_title", language);
-  const platformLink = `${FRONTEND_URL}/provider`;
+  const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("provider_consultation_notify_booking_text", language, [
     platformLinkAnchor,
@@ -59,6 +64,7 @@ export const sendConsultationNotifyBookingEmail = async ({
 export const sendConsultationNotifyRescheduleEmail = async ({
   language,
   recipientEmail,
+  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
@@ -67,7 +73,7 @@ export const sendConsultationNotifyRescheduleEmail = async ({
     language
   );
   const title = t("provider_consultation_notify_reschedule_title", language);
-  const platformLink = `${FRONTEND_URL}/provider`;
+  const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("provider_consultation_notify_reschedule_text", language, [
     platformLinkAnchor,
@@ -94,6 +100,7 @@ export const sendConsultationNotifyRescheduleEmail = async ({
 export const sendConsultationNotifyCancellationEmail = async ({
   language,
   recipientEmail,
+  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
@@ -102,7 +109,7 @@ export const sendConsultationNotifyCancellationEmail = async ({
     language
   );
   const title = t("provider_consultation_notify_cancellation_title", language);
-  const platformLink = `${FRONTEND_URL}/provider`;
+  const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("provider_consultation_notify_cancellation_text", language, [
     platformLinkAnchor,
@@ -129,6 +136,7 @@ export const sendConsultationNotifyCancellationEmail = async ({
 export const sendConsultationConfirmCancellationEmail = async ({
   language,
   recipientEmail,
+  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
@@ -137,7 +145,7 @@ export const sendConsultationConfirmCancellationEmail = async ({
     language
   );
   const title = t("provider_consultation_confirm_cancellation_title", language);
-  const platformLink = `${FRONTEND_URL}/provider`;
+  const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("provider_consultation_confirm_cancellation_text", language, [
     platformLinkAnchor,
@@ -165,12 +173,13 @@ export const sendConsultationRemindStartEmail = async ({
   language,
   recipientEmail,
   minToConsultation,
+  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("provider_consultation_remind_start_subject", language);
   const title = t("provider_consultation_remind_start_title", language);
-  const platformLink = `${FRONTEND_URL}/provider`;
+  const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("provider_consultation_remind_start_text", language, [
     platformLinkAnchor,
@@ -198,12 +207,13 @@ export const sendConsultationRemindStartEmail = async ({
 export const sendConsultationHasStartedReminderEmail = async ({
   language,
   recipientEmail,
+  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("consultation_started_remind_subject", language);
   const title = t("consultation_started_remind_title", language);
-  const platformLink = `${FRONTEND_URL}/provider`;
+  const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("consultation_started_remind_text", language, [
     platformLinkAnchor,
@@ -230,6 +240,7 @@ export const sendConsultationHasStartedReminderEmail = async ({
 export const sendConsultationConfirmSuggestionEmail = async ({
   language,
   recipientEmail,
+  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
@@ -238,7 +249,7 @@ export const sendConsultationConfirmSuggestionEmail = async ({
     language
   );
   const title = t("provider_consultation_confirm_suggestion_title", language);
-  const platformLink = `${FRONTEND_URL}/provider`;
+  const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("provider_consultation_confirm_suggestion_text", language, [
     platformLinkAnchor,
@@ -265,6 +276,7 @@ export const sendConsultationConfirmSuggestionEmail = async ({
 export const sendConsultationNotifySuggestionBookingEmail = async ({
   language,
   recipientEmail,
+  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
@@ -276,7 +288,7 @@ export const sendConsultationNotifySuggestionBookingEmail = async ({
     "provider_consultation_notify_suggestion_booking_title",
     language
   );
-  const platformLink = `${FRONTEND_URL}/provider`;
+  const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t(
     "provider_consultation_notify_suggestion_booking_text",
@@ -305,6 +317,7 @@ export const sendConsultationNotifySuggestionBookingEmail = async ({
 export const sendConsultationNotifySuggestionCancellationEmail = async ({
   language,
   recipientEmail,
+  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
@@ -316,7 +329,7 @@ export const sendConsultationNotifySuggestionCancellationEmail = async ({
     "provider_consultation_notify_suggestion_cancellation_title",
     language
   );
-  const platformLink = `${FRONTEND_URL}/provider`;
+  const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t(
     "provider_consultation_notify_suggestion_cancellation_text",
@@ -345,6 +358,7 @@ export const sendConsultationNotifySuggestionCancellationEmail = async ({
 export const sendAvailabilityRemindAddMoreSlotsEmail = async ({
   language,
   recipientEmail,
+  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
@@ -356,7 +370,7 @@ export const sendAvailabilityRemindAddMoreSlotsEmail = async ({
     "provider_availability_remind_add_more_slots_title",
     language
   );
-  const platformLink = `${FRONTEND_URL}/provider`;
+  const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("provider_availability_remind_add_more_slots_text", language, [
     platformLinkAnchor,
@@ -384,12 +398,13 @@ export const sendReportWeeklyEmail = async ({
   language,
   recipientEmail,
   csvData,
+  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("provider_report_weekly_subject", language);
   const title = t("provider_report_weekly_title", language);
-  const platformLink = `${FRONTEND_URL}/provider`;
+  const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("provider_report_weekly_text", language, [platformLinkAnchor]);
 
@@ -426,12 +441,13 @@ export const sendReportMonthlyEmail = async ({
   language,
   recipientEmail,
   csvData,
+  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("provider_report_monthly_subject", language);
   const title = t("provider_report_monthly_title", language);
-  const platformLink = `${FRONTEND_URL}/provider`;
+  const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("provider_report_monthly_text", language, [
     platformLinkAnchor,
