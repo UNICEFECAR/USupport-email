@@ -7,16 +7,11 @@ import { getMailTransporter } from "#utils/helperFunctions";
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
-export const sendForgotPasswordEmail = async ({
-  recipientEmail,
-  language,
-  platform,
-  forgotPasswordToken,
-  countryLabel,
-}) => {
-  const from = `uSupport <${EMAIL_SENDER}>`;
-
+const getPlatformUrl = (countryLabel) => {
   let PLATFORM_URL = `${FRONTEND_URL}/${platform}`;
+  if (!countryLabel) {
+    return PLATFORM_URL;
+  }
   if (!FRONTEND_URL.includes("staging")) {
     PLATFORM_URL = FRONTEND_URL.replace("usupport", `${countryLabel}.usupport`);
   } else {
@@ -25,6 +20,17 @@ export const sendForgotPasswordEmail = async ({
       `${countryLabel}.staging.usupport`
     );
   }
+};
+
+export const sendForgotPasswordEmail = async ({
+  recipientEmail,
+  language,
+  platform,
+  forgotPasswordToken,
+  countryLabel,
+}) => {
+  const from = `uSupport <${EMAIL_SENDER}>`;
+  const PLATFORM_URL = getPlatformUrl(countryLabel);
 
   const subject = t("system_forgot_password_subject", language);
   const title = t("system_forgot_password_title", language);
@@ -59,20 +65,11 @@ export const sendWelcomeEmail = async ({
   countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
-
-  let PLATFORM_URL = `${FRONTEND_URL}/${platform}`;
-  if (!FRONTEND_URL.includes("staging")) {
-    PLATFORM_URL = FRONTEND_URL.replace("usupport", `${countryLabel}.usupport`);
-  } else {
-    PLATFORM_URL = FRONTEND_URL.replace(
-      "staging.usupport",
-      `${countryLabel}.staging.usupport`
-    );
-  }
+  const PLATFORM_URL = getPlatformUrl(countryLabel);
 
   const subject = t("system_welcome_subject", language);
   const title = t("system_welcome_title", language);
-  const loginLink = `${PLATFORM_URL}/${platform}`;
+  const loginLink = `${PLATFORM_URL}/${platform}/${language}`;
   const loginLinkAnchor = `<a href=${loginLink}>${loginLink}</a>`;
   const text = t("system_welcome_text", language, [loginLinkAnchor]);
 

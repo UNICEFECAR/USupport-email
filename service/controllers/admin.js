@@ -10,6 +10,24 @@ import { t } from "#translations/index";
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
+const getPlatformUrl = (countryLabel) => {
+  let PLATFORM_URL = `${FRONTEND_URL}`;
+  if (!countryLabel) {
+    return PLATFORM_URL;
+  }
+
+  if (!FRONTEND_URL.includes("staging")) {
+    PLATFORM_URL = FRONTEND_URL.replace("usupport", `${countryLabel}.usupport`);
+  } else {
+    PLATFORM_URL = FRONTEND_URL.replace(
+      "staging.usupport",
+      `${countryLabel}.staging.usupport`
+    );
+  }
+
+  return PLATFORM_URL;
+};
+
 const GLOBAL_COUNTRY_EMAIL_RECEIVER = process.env.GLOBAL_COUNTRY_EMAIL_RECEIVER;
 
 export const sendAdminEmail = async ({ country, subject, title, text }) => {
@@ -68,12 +86,15 @@ export const sendRegistrationNotify = async ({
   recipientEmail,
   password,
   adminRole,
+  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("admin_registration_notify_subject", language);
   const title = t("admin_registration_notify_title", language);
-  const platformLink = `${FRONTEND_URL}/${adminRole}-admin/login`;
+  const platformLink = `${getPlatformUrl(
+    countryLabel
+  )}/${adminRole}-admin/${language}/login`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("admin_registration_notify_text", language, [
     platformLinkAnchor,
