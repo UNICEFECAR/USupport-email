@@ -20,6 +20,7 @@ const getPlatformUrl = (countryLabel, platform) => {
       `${countryLabel}.staging.usupport`
     );
   }
+  return PLATFORM_URL;
 };
 
 export const sendForgotPasswordEmail = async ({
