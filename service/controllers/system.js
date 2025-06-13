@@ -7,7 +7,7 @@ import { getMailTransporter } from "#utils/helperFunctions";
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
-const getPlatformUrl = (countryLabel) => {
+const getPlatformUrl = (countryLabel, platform) => {
   let PLATFORM_URL = `${FRONTEND_URL}/${platform}`;
   if (!countryLabel) {
     return PLATFORM_URL;
@@ -20,6 +20,7 @@ const getPlatformUrl = (countryLabel) => {
       `${countryLabel}.staging.usupport`
     );
   }
+  return PLATFORM_URL;
 };
 
 export const sendForgotPasswordEmail = async ({
@@ -30,7 +31,7 @@ export const sendForgotPasswordEmail = async ({
   countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
-  const PLATFORM_URL = getPlatformUrl(countryLabel);
+  const PLATFORM_URL = getPlatformUrl(countryLabel, platform);
 
   const subject = t("system_forgot_password_subject", language);
   const title = t("system_forgot_password_title", language);
@@ -65,7 +66,7 @@ export const sendWelcomeEmail = async ({
   countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
-  const PLATFORM_URL = getPlatformUrl(countryLabel);
+  const PLATFORM_URL = getPlatformUrl(countryLabel, platform);
 
   const subject = t("system_welcome_subject", language);
   const title = t("system_welcome_title", language);
