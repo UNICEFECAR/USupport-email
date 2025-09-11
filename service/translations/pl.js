@@ -52,11 +52,11 @@ export default {
     "Pomyślnie zaakceptowałeś sugerowaną konsultację. Odwiedź stronę {1}, aby wyświetlić szczegóły konsultacji.",
 
   client_consultation_confirm_suggestion_cancellation_subject:
-    "Konsultacje odrzucone",
+    "Konsultacja odrzucona",
   client_consultation_confirm_suggestion_cancellation_title:
     "Potwierdzenie odrzucenia konsultacji",
   client_consultation_confirm_suggestion_cancellation_text:
-    "Pomyślnie odrzuciłeś sugerowaną konsultację. Odwiedź stronę {1}, aby zaplanować nowy.",
+    "Pomyślnie odrzuciłeś/aś sugerowaną konsultację. Odwiedź stronę {1}, aby zaplanować nową.",
 
   provider_consultation_notify_booking_subject: "Rezerwacja konsultacji",
   provider_consultation_notify_booking_title: "Nowa rezerwacja konsultacji",
@@ -71,7 +71,7 @@ export default {
   provider_consultation_notify_cancellation_subject: "Anulowanie konsultacji",
   provider_consultation_notify_cancellation_title: "Anulowanie konsultacji",
   provider_consultation_notify_cancellation_text:
-    "Konsultacja została anulowana przez klienta. Odwiedź stronę {1}, aby wyświetlić więcej szczegółów.",
+    "Konsultacja została anulowana przez klienta/kę. Odwiedź stronę {1}, aby wyświetlić więcej szczegółów.",
 
   provider_consultation_confirm_cancellation_subject: "Anulowanie konsultacji",
   provider_consultation_confirm_cancellation_title:
@@ -112,18 +112,18 @@ export default {
     "Ostatni dostępny przedział czasowy jest za niecały tydzień. Odwiedź stronę {1}, aby dodać więcej wolnych przedziałów czasowych do swojego harmonogramu.",
 
   provider_report_weekly_subject: "Raport tygodniowy",
-  provider_report_weekly_title: "Cotygodniowy raport z działalności",
+  provider_report_weekly_title: "Tygodniowy raport aktywności",
   provider_report_weekly_text:
     "Odwiedź stronę {1}, aby wyświetlić raport tygodniowy.",
 
   provider_report_monthly_subject: "Raport miesięczny",
-  provider_report_monthly_title: "Miesięczny raport z działalności",
+  provider_report_monthly_title: "Miesięczny raport aktywności",
   provider_report_monthly_text:
     "Odwiedź stronę {1}, aby wyświetlić raport miesięczny.",
 
   provider_registration_notify_subject: "Rejestracja konta",
   provider_registration_notify_title:
-    "Zarejestrowany jako konsultant w uSupport",
+    "Zarejestrowany jako konsultant/ka w uSupport",
   provider_registration_notify_text:
     "Zostałeś zarejestrowany jako konsultant w uSupport.<br/> Twoje automatycznie wygenerowane hasło to: {2} <br/>Możesz je zmienić w dowolnym momencie w ustawieniach profilu.<br/> Odwiedź stronę {1}, aby zalogować się do swojego profilu.",
   month_1: "Styczeń",
@@ -155,4 +155,7 @@ export default {
     "Kod weryfikacyjny do rejestracji konta w uSupport to: {1}",
   client_email_already_used_text:
     'Adres email, którego chcesz użyć do rejestracji, jest już zajęty. Użyj następującego linka <a href="{1}">{2}</a> aby zalogować się na swoje konto. Jeśli używasz aplikacji mobilnej wróć do strony logowania.',
+
+  question_answered: "Pytanie z odpowiedzią",
+  question_answered_text: "Na Twoje pytanie odpowiedział/a",
 };
