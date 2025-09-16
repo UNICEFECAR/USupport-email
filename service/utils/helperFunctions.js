@@ -37,7 +37,10 @@ import {
   sendConsultationHasStartedReminderEmail as sendConsultationHasStartedReminderEmailProvider,
 } from "#controllers/provider";
 
-import { sendRegistrationNotify as sendRegistrationNotifyAdmin } from "#controllers/admin";
+import {
+  sendRegistrationNotify as sendRegistrationNotifyAdmin,
+  sendAvailabilityReportEmail,
+} from "#controllers/admin";
 
 import { checkIfUserAllowedEmailNotifications } from "#queries/user";
 
@@ -72,6 +75,7 @@ export const handleEmailConsumerMessage = async ({ message }) => {
   const payload = {
     language,
     recipientEmail,
+    country,
     ...data,
   };
 
@@ -85,6 +89,7 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     "admin-registration",
     "register-2fa-request",
     "email-used",
+    "availabilityReport",
   ];
   console.log(messageJSON);
   let hasUserAllowedEmailNotifications = true;
@@ -226,6 +231,9 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     }
     case "question-answered":
       sendQuestionAnsweredEmail(payload);
+      break;
+    case "availabilityReport":
+      sendAvailabilityReportEmail(payload);
       break;
     default:
       console.log("EMAIL TYPE NOT RECOGNIZED"); // Maybe you can throw an error, or just keep it as a log
