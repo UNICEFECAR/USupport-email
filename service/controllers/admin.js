@@ -1,9 +1,6 @@
 import { GeneralTemplate } from "#utils/templates";
-
 import { getMailTransporter } from "#utils/helperFunctions";
-
 import { getCountryIdByAlpha2CodeQuery } from "#queries/countries";
-
 import { getCountryAdminEmails } from "#queries/admins";
 import { t } from "#translations/index";
 
@@ -114,6 +111,111 @@ export const sendRegistrationNotify = async ({
     })
     .catch((err) => {
       console.log(err);
+    });
+
+  return { success: true };
+};
+
+export const sendAvailabilityReportEmail = async ({
+  language,
+  csvData,
+  fileName,
+  country,
+  startDate,
+  endDate,
+  totalProviders,
+  totalSlots,
+  recipientEmail,
+}) => {
+  const from = `uSupport <${EMAIL_SENDER}>`;
+  let emails = [];
+
+  if (recipientEmail) {
+    emails = [recipientEmail];
+  } else {
+    if (country === "global") {
+      emails = [GLOBAL_COUNTRY_EMAIL_RECEIVER];
+    } else {
+      const countryId = await getCountryIdByAlpha2CodeQuery({ alpha2: country })
+        .then((res) => {
+          if (res.rowCount === 0) {
+            throw new Error("Country not found");
+          } else {
+            return res.rows[0].country_id;
+          }
+        })
+        .catch((err) => {
+          console.error("Error getting country ID:", err);
+          return null;
+        });
+
+      if (countryId) {
+        emails = await getCountryAdminEmails({ countryId })
+          .then((res) => {
+            if (res.rowCount === 0) {
+              console.log(
+                "No country admin emails found, using global admin email"
+              );
+              return [GLOBAL_COUNTRY_EMAIL_RECEIVER];
+            } else {
+              //TODO: remove this
+              return [
+                "georgi.ganchev@7digit.io",
+                "vasilen@7digit.io",
+                "georgi@7digit.io",
+              ];
+              return res.rows.map((x) => x.email);
+            }
+          })
+          .catch((err) => {
+            console.error("Error getting admin emails:", err);
+            return [GLOBAL_COUNTRY_EMAIL_RECEIVER];
+          });
+      } else {
+        emails = [GLOBAL_COUNTRY_EMAIL_RECEIVER];
+      }
+    }
+  }
+
+  const generatedOn = new Date().toISOString();
+
+  const subject = t("availability_report_subject", language, [
+    country.toUpperCase(),
+    startDate,
+    endDate,
+  ]);
+
+  const title = t("availability_report_title", language);
+
+  const text = t("availability_report_text", language, [
+    country.toUpperCase(),
+    startDate,
+    endDate,
+    totalProviders,
+    totalSlots,
+    generatedOn,
+  ]);
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: emails,
+      subject: subject,
+      html: computedHTML,
+      attachments: [
+        {
+          filename: fileName,
+          content: csvData,
+          contentType: "text/csv",
+        },
+      ],
+    })
+    .catch((err) => {
+      console.log("Error sending availability report email:", err);
     });
 
   return { success: true };

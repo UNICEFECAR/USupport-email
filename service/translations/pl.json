@@ -91,5 +91,8 @@
   "client_registration_otp_text": "Kod weryfikacyjny do rejestracji konta w uSupport to: {1}",
   "client_email_already_used_text": "Adres email, którego chcesz użyć do rejestracji, jest już zajęty. Użyj następującego linka <a href=\"{1}\">{2}</a> aby zalogować się na swoje konto. Jeśli używasz aplikacji mobilnej wróć do strony logowania.",
   "question_answered": "Pytanie z odpowiedzią",
-  "question_answered_text": "Na Twoje pytanie odpowiedział/a"
+  "question_answered_text": "Na Twoje pytanie odpowiedział/a",
+  "availability_report_subject": "Raport dostępności dostawców - {1} ({2} - {3})",
+  "availability_report_title": "Raport dostępności dostawców",
+  "availability_report_text": "<p><strong>Kraj:</strong> {1}</p><br/><p><strong>Zakres dat:</strong> {2} - {3}</p><br/><p><strong>Łączna liczba dostawców z dostępnością:</strong> {4}</p><br/><p><strong>Łączna liczba rekordów dostępności:</strong> {5}</p><br/><p><strong>Wygenerowano dnia:</strong> {6}</p><br/><p>Szczegółowy raport dostępności znajduje się w załączonym pliku CSV.</p><br/><p>Z poważaniem,<br>System administracyjny USupport</p>"
 }
