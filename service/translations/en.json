@@ -91,8 +91,5 @@
   "client_registration_otp_text": "The verification code for for you account registration at uSupport is: {1}",
   "client_email_already_used_text": "The email you are trying to register with is already in use. Please use the following link <a href=\"{1}\">{2}</a> to login into your account.If using the mobile application please navigate back to the login page.",
   "question_answered": "Question answered",
-  "question_answered_text": "Your question was answered by provider {1}",
-  "availability_report_subject": "Provider Availability Report - {1} ({2} to {3})",
-  "availability_report_title": "Provider Availability Report",
-  "availability_report_text": "<p><strong>Country:</strong> {1}</p><br/><p><strong>Date Range:</strong> {2} to {3}</p><br/><p><strong>Total Providers with Availability:</strong> {4}</p><br/><p><strong>Total Availability Records:</strong> {5}</p><br/><p><strong>Generated on:</strong> {6}</p><br/><p>Please find the detailed availability report attached as a CSV file.</p><br/><p>Best regards,<br>USupport Admin System</p>"
+  "question_answered_text": "Your question was answered by provider {1}"
 }
