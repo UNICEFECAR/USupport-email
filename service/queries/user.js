@@ -14,7 +14,7 @@ export const checkIfUserAllowedEmailNotifications = async ({
             JOIN "provider_detail" ON "user".provider_detail_id = "provider_detail".provider_detail_id
         WHERE "provider_detail".email = $1
     `,
-      [email],
+      [email]
     );
   }
   return await getDBPool("piiDb", poolCountry).query(
@@ -26,6 +26,6 @@ export const checkIfUserAllowedEmailNotifications = async ({
         WHERE "client_detail".email = $1
         
     `,
-    [email],
+    [email]
   );
 };
