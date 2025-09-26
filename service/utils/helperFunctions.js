@@ -16,6 +16,7 @@ import {
   sendConsultationConfirmSuggestionBookingEmail as sendConsultationConfirmSuggestionBookingEmailClient,
   sendConsultationConfirmSuggestionCancellationEmail as sendConsultationConfirmSuggestionCancellationEmailClient,
   sendConsultationHasStartedReminderEmail as sendConsultationHasStartedReminderEmailClient,
+  sendConsultationRemindStart24or48HoursBeforeEmail as sendConsultationRemindStart24or48HoursBeforeEmailClient,
   sendRegistrationOtpToUsersEmail,
   sendEmailAlreadyUsedEmail,
   sendQuestionAnsweredEmail,
@@ -140,6 +141,10 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     }
     case "client-consultationRemindStart": {
       sendConsultationRemindStartEmailClient(payload);
+      break;
+    }
+    case "client-consultationRemindStart24or48HoursBefore": {
+      sendConsultationRemindStart24or48HoursBeforeEmailClient(payload);
       break;
     }
     case "client-consultationStart": {

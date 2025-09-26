@@ -198,6 +198,55 @@ export const sendConsultationRemindStartEmail = async ({
   return { success: true };
 };
 
+export const sendConsultationRemindStart24or48HoursBeforeEmail = async ({
+  language,
+  recipientEmail,
+  countryLabel,
+  is24HoursBefore,
+  providerName,
+}) => {
+  const from = `uSupport <${EMAIL_SENDER}>`;
+
+  const subject = t(
+    is24HoursBefore
+      ? "client_consultation_start_24_subject"
+      : "client_consultation_start_48_subject",
+    language
+  );
+  const title = t(
+    is24HoursBefore
+      ? "client_consultation_start_24_title"
+      : "client_consultation_start_48_title",
+    language
+  );
+  const platformLink = `${getPlatformUrl(countryLabel)}/client/${language}`;
+  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
+  const text = t(
+    is24HoursBefore
+      ? "client_consultation_start_24_text"
+      : "client_consultation_start_48_text",
+    language,
+    [platformLinkAnchor, providerName]
+  );
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: recipientEmail,
+      subject: subject,
+      html: computedHTML,
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};
+
 export const sendConsultationHasStartedReminderEmail = async ({
   language,
   recipientEmail,
