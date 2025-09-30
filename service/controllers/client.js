@@ -526,7 +526,6 @@ export const sendMoodTrackerReportWeeklyEmail = async ({
   await transporter
     .sendMail({
       from: from,
-      //TODO: Fix this after testing
       to: recipientEmail,
       subject: subject,
       html: computedHTML,
