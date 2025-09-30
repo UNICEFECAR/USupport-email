@@ -497,3 +497,49 @@ export const sendQuestionAnsweredEmail = async ({
 
   return { success: true };
 };
+
+export const sendMoodTrackerReportWeeklyEmail = async ({
+  language,
+  recipientEmail,
+  csvData,
+  countryLabel,
+}) => {
+  const from = `uSupport <${EMAIL_SENDER}>`;
+
+  const subject = t("client_mood_tracker_report_weekly_subject", language);
+  const title = t("client_mood_tracker_report_weekly_title", language);
+  const platformLink = `${getPlatformUrl(countryLabel)}/client/${language}`;
+  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
+  const text = t("client_mood_tracker_report_weekly_text", language, [
+    platformLinkAnchor,
+  ]);
+
+  const csvFileName =
+    t("client_mood_tracker_report_weekly_subject") +
+    "-" +
+    new Date().toISOString().split("T")[0];
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      //TODO: Fix this after testing
+      to: recipientEmail,
+      subject: subject,
+      html: computedHTML,
+      attachments: [
+        {
+          filename: `${csvFileName}.csv`,
+          content: csvData,
+        },
+      ],
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};

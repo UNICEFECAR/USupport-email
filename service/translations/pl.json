@@ -97,5 +97,8 @@
   "client_registration_otp_text": "Kod weryfikacyjny do rejestracji konta w uSupport to: {1}",
   "client_email_already_used_text": "Adres email, którego chcesz użyć do rejestracji, jest już zajęty. Użyj następującego linka <a href=\"{1}\">{2}</a> aby zalogować się na swoje konto. Jeśli używasz aplikacji mobilnej wróć do strony logowania.",
   "question_answered": "Pytanie z odpowiedzią",
-  "question_answered_text": "Na Twoje pytanie odpowiedział/a"
+  "question_answered_text": "Na Twoje pytanie odpowiedział/a",
+  "client_mood_tracker_report_weekly_subject": "Tygodniowy raport śledzenia nastroju",
+  "client_mood_tracker_report_weekly_title": "Twój tygodniowy raport śledzenia nastroju",
+  "client_mood_tracker_report_weekly_text": "Cześć!<br/><br/>Oto Twój tygodniowy raport śledzenia nastroju. Ten raport zawiera podsumowanie Twoich wpisów nastroju z ostatniego tygodnia, w tym statystyki i szczegółowe zapisy.<br/><br/>Możesz przeglądać swój tracker nastroju i kontynuować śledzenie dobrego samopoczucia emocjonalnego, odwiedzając: {1}<br/><br/>Kontynuuj dbanie o swoje zdrowie psychiczne!<br/><br/>Pozdrawiamy,<br/>Zespół uSupport"
 }

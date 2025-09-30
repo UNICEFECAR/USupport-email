@@ -97,5 +97,8 @@
   "client_registration_otp_text": "The verification code for for you account registration at uSupport is: {1}",
   "client_email_already_used_text": "The email you are trying to register with is already in use. Please use the following link <a href=\"{1}\">{2}</a> to login into your account.If using the mobile application please navigate back to the login page.",
   "question_answered": "Question answered",
-  "question_answered_text": "Your question was answered by provider {1}"
+  "question_answered_text": "Your question was answered by provider {1}",
+  "client_mood_tracker_report_weekly_subject": "Weekly Mood Tracker Report",
+  "client_mood_tracker_report_weekly_title": "Your Weekly Mood Tracker Report",
+  "client_mood_tracker_report_weekly_text": "Hello!<br/><br/>Here is your weekly mood tracker report. This report contains a summary of your mood entries from the past week, including statistics and detailed records.<br/><br/>You can view your mood tracker and continue tracking your emotional well-being by visiting: {1}<br/><br/>Keep taking care of your mental health!<br/><br/>Best regards,<br/>uSupport Team"
 }

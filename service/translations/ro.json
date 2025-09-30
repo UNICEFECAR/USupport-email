@@ -97,5 +97,8 @@
   "client_registration_otp_text": "Codul de verificare pentru înregistrarea contului dvs. la uSupport este: {1}",
   "client_email_already_used_text": "Adresa de e-mail cu care încercați să vă înregistrați este deja utilizată. Utilizați următorul link <a href=\"{1}\">{2}</a> pentru a vă conecta la contul dvs. Dacă utilizați aplicația mobilă, navigați înapoi la pagina de conectare.",
   "question_answered": "Ați primit răspuns la întrebare",
-  "question_answered_text": "Ați primit răspuns la întrebarea dvs. de la furnizorul {1}"
+  "question_answered_text": "Ați primit răspuns la întrebarea dvs. de la furnizorul {1}",
+  "client_mood_tracker_report_weekly_subject": "Raport Săptămânal Urmărire Stare de Spirit",
+  "client_mood_tracker_report_weekly_title": "Raportul Săptămânal de Urmărire a Stării de Spirit",
+  "client_mood_tracker_report_weekly_text": "Bună ziua!<br/><br/>Iată raportul săptămânal de urmărire a stării de spirit. Acest raport conține un rezumat al intrărilor dvs. de stare de spirit din ultima săptămână, incluzând statistici și înregistrări detaliate.<br/><br/>Puteți vizualiza urmărirea stării de spirit și continua să urmăriți bunăstarea emoțională vizitând: {1}<br/><br/>Continuați să aveți grijă de sănătatea mentală!<br/><br/>Cu stimă,<br/>Echipa uSupport"
 }

@@ -20,6 +20,7 @@ import {
   sendRegistrationOtpToUsersEmail,
   sendEmailAlreadyUsedEmail,
   sendQuestionAnsweredEmail,
+  sendMoodTrackerReportWeeklyEmail,
 } from "#controllers/client";
 
 import {
@@ -88,6 +89,7 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     "register-2fa-request",
     "email-used",
     "availabilityReport",
+    "client-moodTrackerReportWeekly",
   ];
   console.log(messageJSON);
   let hasUserAllowedEmailNotifications = true;
@@ -115,6 +117,9 @@ export const handleEmailConsumerMessage = async ({ message }) => {
   }
 
   switch (emailType) {
+    case "client-moodTrackerReportWeekly":
+      sendMoodTrackerReportWeeklyEmail(payload);
+      break;
     case "signupWelcome": {
       sendWelcomeEmail(payload);
       break;
