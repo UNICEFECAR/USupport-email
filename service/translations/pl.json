@@ -100,5 +100,13 @@
   "question_answered_text": "Na Twoje pytanie odpowiedział/a",
   "client_mood_tracker_report_weekly_subject": "Tygodniowy raport śledzenia nastroju",
   "client_mood_tracker_report_weekly_title": "Twój tygodniowy raport śledzenia nastroju",
-  "client_mood_tracker_report_weekly_text": "Cześć!<br/><br/>Oto Twój tygodniowy raport śledzenia nastroju. Ten raport zawiera podsumowanie Twoich wpisów nastroju z ostatniego tygodnia, w tym statystyki i szczegółowe zapisy.<br/><br/>Możesz przeglądać swój tracker nastroju i kontynuować śledzenie dobrego samopoczucia emocjonalnego, odwiedzając: {1}<br/><br/>Kontynuuj dbanie o swoje zdrowie psychiczne!<br/><br/>Pozdrawiamy,<br/>Zespół uSupport"
+  "client_mood_tracker_report_weekly_text": "Cześć!<br/><br/>Gratulacje za śledzenie swojego nastroju w zeszłym tygodniu! Oto podsumowanie Twojego tygodniowego raportu:<br/><br/><strong>📅 Okres:</strong> {2}<br/><strong>📊 Łączna liczba wpisów:</strong> {3}<br/><strong>📌 Najczęstszy nastrój:</strong> {4} ({5} razy)<br/><br/><strong>Podział nastrojów:</strong><br/>{6}<br/>Kontynuuj śledzenie dobrego samopoczucia emocjonalnego, odwiedzając: {1}<br/><br/>Kontynuuj dbanie o swoje zdrowie psychiczne!<br/><br/>Pozdrawiamy,<br/>Zespół uSupport",
+  "client_mood_tracker_reminder_subject": "Śledź swój nastrój w tym tygodniu",
+  "client_mood_tracker_reminder_title": "Nie zapomnij śledzić swojego nastroju",
+  "client_mood_tracker_reminder_text": "Cześć!<br/><br/>Zauważyliśmy, że nie zalogowałeś/aś swojego nastroju w tym tygodniu. Regularne śledzenie dobrego samopoczucia emocjonalnego pomaga lepiej zrozumieć wzorce i postęp Twojego zdrowia psychicznego.<br/><br/>Poświęć chwilę, aby zalogować swój nastrój już dziś, odwiedzając: {1}<br/><br/>Twoje zdrowie psychiczne ma znaczenie!<br/><br/>Pozdrawiamy,<br/>Zespół uSupport",
+  "mood_happy": "Szczęśliwy/a",
+  "mood_good": "Zadowolony/a",
+  "mood_sad": "Smutny/a",
+  "mood_depressed": "Przygnębiony/a",
+  "mood_worried": "Zmartwiony/a"
 }

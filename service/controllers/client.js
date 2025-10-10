@@ -501,8 +501,8 @@ export const sendQuestionAnsweredEmail = async ({
 export const sendMoodTrackerReportWeeklyEmail = async ({
   language,
   recipientEmail,
-  csvData,
   countryLabel,
+  summary,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
@@ -510,14 +510,25 @@ export const sendMoodTrackerReportWeeklyEmail = async ({
   const title = t("client_mood_tracker_report_weekly_title", language);
   const platformLink = `${getPlatformUrl(countryLabel)}/client/${language}`;
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
+
+  // Build mood breakdown HTML for the email
+  let moodBreakdownHtml = "";
+  if (summary?.moodBreakdown && summary.moodBreakdown.length > 0) {
+    moodBreakdownHtml = "<ul style='margin: 10px 0;'>";
+    summary.moodBreakdown.forEach(({ mood, count, percentage }) => {
+      moodBreakdownHtml += `<li><strong>${mood}:</strong> ${count} times (${percentage}%)</li>`;
+    });
+    moodBreakdownHtml += "</ul>";
+  }
+
   const text = t("client_mood_tracker_report_weekly_text", language, [
     platformLinkAnchor,
+    summary?.dateRange || "N/A",
+    summary?.totalMoodTracks || 0,
+    summary?.mostSelectedMood || "N/A",
+    summary?.mostSelectedMoodCount || 0,
+    moodBreakdownHtml,
   ]);
-
-  const csvFileName =
-    t("client_mood_tracker_report_weekly_subject") +
-    "-" +
-    new Date().toISOString().split("T")[0];
 
   let computedHTML = GeneralTemplate(title, text);
 
@@ -529,12 +540,39 @@ export const sendMoodTrackerReportWeeklyEmail = async ({
       to: recipientEmail,
       subject: subject,
       html: computedHTML,
-      attachments: [
-        {
-          filename: `${csvFileName}.csv`,
-          content: csvData,
-        },
-      ],
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};
+
+export const sendMoodTrackerReminderEmail = async ({
+  language,
+  recipientEmail,
+  countryLabel,
+}) => {
+  const from = `uSupport <${EMAIL_SENDER}>`;
+
+  const subject = t("client_mood_tracker_reminder_subject", language);
+  const title = t("client_mood_tracker_reminder_title", language);
+  const platformLink = `${getPlatformUrl(countryLabel)}/client/${language}`;
+  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
+  const text = t("client_mood_tracker_reminder_text", language, [
+    platformLinkAnchor,
+  ]);
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: recipientEmail,
+      subject: subject,
+      html: computedHTML,
     })
     .catch((err) => {
       console.log(err);

@@ -100,5 +100,13 @@
   "question_answered_text": "Your question was answered by provider {1}",
   "client_mood_tracker_report_weekly_subject": "Weekly Mood Tracker Report",
   "client_mood_tracker_report_weekly_title": "Your Weekly Mood Tracker Report",
-  "client_mood_tracker_report_weekly_text": "Hello!<br/><br/>Here is your weekly mood tracker report. This report contains a summary of your mood entries from the past week, including statistics and detailed records.<br/><br/>You can view your mood tracker and continue tracking your emotional well-being by visiting: {1}<br/><br/>Keep taking care of your mental health!<br/><br/>Best regards,<br/>uSupport Team"
+  "client_mood_tracker_report_weekly_text": "Hello!<br/><br/>Congratulations on tracking your mood last week! Here is your weekly mood tracker report summary:<br/><br/><strong>📅 Period:</strong> {2}<br/><strong>📊 Total mood entries:</strong> {3}<br/><strong>📌 Most selected mood:</strong> {4} ({5} times)<br/><br/><strong>Mood breakdown:</strong><br/>{6}<br/>You can continue tracking your emotional well-being by visiting: {1}<br/><br/>Keep taking care of your mental health!<br/><br/>Best regards,<br/>uSupport Team",
+  "client_mood_tracker_reminder_subject": "Track Your Mood This Week",
+  "client_mood_tracker_reminder_title": "Don't Forget to Track Your Mood",
+  "client_mood_tracker_reminder_text": "Hello!<br/><br/>We noticed you haven't logged your mood this week. Tracking your emotional well-being regularly helps you better understand your mental health patterns and progress.<br/><br/>Take a moment to log your mood today by visiting: {1}<br/><br/>Your mental health matters!<br/><br/>Best regards,<br/>uSupport Team",
+  "mood_happy": "Happy",
+  "mood_good": "Good",
+  "mood_sad": "Sad",
+  "mood_depressed": "Depressed",
+  "mood_worried": "Worried"
 }

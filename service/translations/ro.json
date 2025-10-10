@@ -100,5 +100,13 @@
   "question_answered_text": "Ați primit răspuns la întrebarea dvs. de la furnizorul {1}",
   "client_mood_tracker_report_weekly_subject": "Raport Săptămânal Urmărire Stare de Spirit",
   "client_mood_tracker_report_weekly_title": "Raportul Săptămânal de Urmărire a Stării de Spirit",
-  "client_mood_tracker_report_weekly_text": "Bună ziua!<br/><br/>Iată raportul săptămânal de urmărire a stării de spirit. Acest raport conține un rezumat al intrărilor dvs. de stare de spirit din ultima săptămână, incluzând statistici și înregistrări detaliate.<br/><br/>Puteți vizualiza urmărirea stării de spirit și continua să urmăriți bunăstarea emoțională vizitând: {1}<br/><br/>Continuați să aveți grijă de sănătatea mentală!<br/><br/>Cu stimă,<br/>Echipa uSupport"
+  "client_mood_tracker_report_weekly_text": "Bună ziua!<br/><br/>Felicitări pentru urmărirea stării de spirit săptămâna trecută! Iată rezumatul raportului săptămânal:<br/><br/><strong>📅 Perioada:</strong> {2}<br/><strong>📊 Total intrări:</strong> {3}<br/><strong>📌 Starea de spirit cea mai frecventă:</strong> {4} ({5} ori)<br/><br/><strong>Detalii stări de spirit:</strong><br/>{6}<br/>Continuați să urmăriți bunăstarea emoțională vizitând: {1}<br/><br/>Continuați să aveți grijă de sănătatea mentală!<br/><br/>Cu stimă,<br/>Echipa uSupport",
+  "client_mood_tracker_reminder_subject": "Urmărește-ți Starea de Spirit Această Săptămână",
+  "client_mood_tracker_reminder_title": "Nu Uita să Îți Urmărești Starea de Spirit",
+  "client_mood_tracker_reminder_text": "Bună ziua!<br/><br/>Am observat că nu ți-ai înregistrat starea de spirit în această săptămână. Urmărirea regulată a bunăstării tale emoționale te ajută să înțelegi mai bine modelele și progresul sănătății mentale.<br/><br/>Ia-ți un moment să îți înregistrezi starea de spirit astăzi vizitând: {1}<br/><br/>Sănătatea ta mentală contează!<br/><br/>Cu stimă,<br/>Echipa uSupport",
+  "mood_happy": "Fericit",
+  "mood_good": "Bine",
+  "mood_sad": "Trist",
+  "mood_depressed": "Deprimat",
+  "mood_worried": "Îngrijorat"
 }
