@@ -4,6 +4,7 @@ import {
   sendForgotPasswordEmail,
   sendWelcomeEmail,
   sendLogin2FARequest,
+  sendDailyTestEmailReminder,
 } from "#controllers/system";
 
 import {
@@ -90,6 +91,7 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     "register-2fa-request",
     "email-used",
     "availabilityReport",
+    "system-dailyEmailTest",
     "client-moodTrackerReportWeekly",
     "client-moodTrackerReminder",
   ];
@@ -244,6 +246,10 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     case "question-answered":
       sendQuestionAnsweredEmail(payload);
       break;
+    case "system-dailyEmailTest": {
+      sendDailyTestEmailReminder(payload);
+      break;
+    }
     default:
       console.log("EMAIL TYPE NOT RECOGNIZED"); // Maybe you can throw an error, or just keep it as a log
   }
