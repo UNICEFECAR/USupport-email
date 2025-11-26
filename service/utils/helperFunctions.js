@@ -17,9 +17,12 @@ import {
   sendConsultationConfirmSuggestionBookingEmail as sendConsultationConfirmSuggestionBookingEmailClient,
   sendConsultationConfirmSuggestionCancellationEmail as sendConsultationConfirmSuggestionCancellationEmailClient,
   sendConsultationHasStartedReminderEmail as sendConsultationHasStartedReminderEmailClient,
+  sendConsultationRemindStart24or48HoursBeforeEmail as sendConsultationRemindStart24or48HoursBeforeEmailClient,
   sendRegistrationOtpToUsersEmail,
   sendEmailAlreadyUsedEmail,
   sendQuestionAnsweredEmail,
+  sendMoodTrackerReportWeeklyEmail,
+  sendMoodTrackerReminderEmail,
 } from "#controllers/client";
 
 import {
@@ -89,6 +92,8 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     "email-used",
     "availabilityReport",
     "system-dailyEmailTest",
+    "client-moodTrackerReportWeekly",
+    "client-moodTrackerReminder",
   ];
   console.log(messageJSON);
   let hasUserAllowedEmailNotifications = true;
@@ -116,6 +121,12 @@ export const handleEmailConsumerMessage = async ({ message }) => {
   }
 
   switch (emailType) {
+    case "client-moodTrackerReportWeekly":
+      sendMoodTrackerReportWeeklyEmail(payload);
+      break;
+    case "client-moodTrackerReminder":
+      sendMoodTrackerReminderEmail(payload);
+      break;
     case "signupWelcome": {
       sendWelcomeEmail(payload);
       break;
@@ -142,6 +153,10 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     }
     case "client-consultationRemindStart": {
       sendConsultationRemindStartEmailClient(payload);
+      break;
+    }
+    case "client-consultationRemindStart24or48HoursBefore": {
+      sendConsultationRemindStart24or48HoursBeforeEmailClient(payload);
       break;
     }
     case "client-consultationStart": {

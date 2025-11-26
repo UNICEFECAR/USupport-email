@@ -198,6 +198,55 @@ export const sendConsultationRemindStartEmail = async ({
   return { success: true };
 };
 
+export const sendConsultationRemindStart24or48HoursBeforeEmail = async ({
+  language,
+  recipientEmail,
+  countryLabel,
+  is24HoursBefore,
+  providerName,
+}) => {
+  const from = `uSupport <${EMAIL_SENDER}>`;
+
+  const subject = t(
+    is24HoursBefore
+      ? "client_consultation_start_24_subject"
+      : "client_consultation_start_48_subject",
+    language
+  );
+  const title = t(
+    is24HoursBefore
+      ? "client_consultation_start_24_title"
+      : "client_consultation_start_48_title",
+    language
+  );
+  const platformLink = `${getPlatformUrl(countryLabel)}/client/${language}`;
+  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
+  const text = t(
+    is24HoursBefore
+      ? "client_consultation_start_24_text"
+      : "client_consultation_start_48_text",
+    language,
+    [platformLinkAnchor, providerName]
+  );
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: recipientEmail,
+      subject: subject,
+      html: computedHTML,
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};
+
 export const sendConsultationHasStartedReminderEmail = async ({
   language,
   recipientEmail,
@@ -441,6 +490,89 @@ export const sendQuestionAnsweredEmail = async ({
     })
     .then((res) => {
       console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};
+
+export const sendMoodTrackerReportWeeklyEmail = async ({
+  language,
+  recipientEmail,
+  countryLabel,
+  summary,
+}) => {
+  const from = `uSupport <${EMAIL_SENDER}>`;
+
+  const subject = t("client_mood_tracker_report_weekly_subject", language);
+  const title = t("client_mood_tracker_report_weekly_title", language);
+  const platformLink = `${getPlatformUrl(countryLabel)}/client/${language}`;
+  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
+
+  // Build mood breakdown HTML for the email
+  let moodBreakdownHtml = "";
+  if (summary?.moodBreakdown && summary.moodBreakdown.length > 0) {
+    moodBreakdownHtml = "<ul style='margin: 10px 0;'>";
+    summary.moodBreakdown.forEach(({ mood, count, percentage }) => {
+      moodBreakdownHtml += `<li><strong>${mood}:</strong> ${count} times (${percentage}%)</li>`;
+    });
+    moodBreakdownHtml += "</ul>";
+  }
+
+  const text = t("client_mood_tracker_report_weekly_text", language, [
+    platformLinkAnchor,
+    summary?.dateRange || "N/A",
+    summary?.totalMoodTracks || 0,
+    summary?.mostSelectedMood || "N/A",
+    summary?.mostSelectedMoodCount || 0,
+    moodBreakdownHtml,
+  ]);
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: recipientEmail,
+      subject: subject,
+      html: computedHTML,
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};
+
+export const sendMoodTrackerReminderEmail = async ({
+  language,
+  recipientEmail,
+  countryLabel,
+}) => {
+  const from = `uSupport <${EMAIL_SENDER}>`;
+
+  const subject = t("client_mood_tracker_reminder_subject", language);
+  const title = t("client_mood_tracker_reminder_title", language);
+  const platformLink = `${getPlatformUrl(countryLabel)}/client/${language}`;
+  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
+  const text = t("client_mood_tracker_reminder_text", language, [
+    platformLinkAnchor,
+  ]);
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: recipientEmail,
+      subject: subject,
+      html: computedHTML,
     })
     .catch((err) => {
       console.log(err);
