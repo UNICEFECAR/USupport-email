@@ -6,6 +6,7 @@ import { getMailTransporter } from "#utils/helperFunctions";
 
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
 const FRONTEND_URL = process.env.FRONTEND_URL;
+const ENVIRONMENT = process.env.ENVIRONMENT;
 
 const getPlatformUrl = (countryLabel, platform) => {
   let PLATFORM_URL = `${FRONTEND_URL}/${platform}`;
@@ -112,6 +113,31 @@ export const sendLogin2FARequest = async ({
       from: from,
       to: recipientEmail,
       subject: subject,
+      html: computedHTML,
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};
+
+export const sendDailyTestEmailReminder = async ({ language = "en" }) => {
+  const from = `uSupport <${EMAIL_SENDER}>`;
+
+  const subject = t("system_daily_email_test_subject", language, [ENVIRONMENT]);
+  const title = t("system_daily_email_test_title", language, [ENVIRONMENT]);
+  const text = t("system_daily_email_test_text", language);
+
+  const computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from,
+      to: ["vasilen@7digit.io", "stefan@7digit.io"],
+      subject,
       html: computedHTML,
     })
     .catch((err) => {

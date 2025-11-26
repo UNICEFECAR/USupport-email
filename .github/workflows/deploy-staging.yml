@@ -60,6 +60,7 @@ jobs:
             echo "  EMAIL_SENDER_PASSWORD: '${{ secrets.EMAIL_SENDER_PASSWORD }}'"
             echo "  AMAZON_S3_BUCKET: '${{ secrets.AMAZON_S3_BUCKET }}'"
             echo "  FRONTEND_URL: '${{ secrets.FRONTEND_URL }}'"
+            echo "  ENVIRONMENT: 'staging'"
           } > kube-config/staging/secrets.yaml
 
       - name: Deploy to Kubernetes
