@@ -226,7 +226,7 @@ export const sendConsultationRemindStart24or48HoursBeforeEmail = async ({
       ? "client_consultation_start_24_text"
       : "client_consultation_start_48_text",
     language,
-    [platformLinkAnchor, providerName]
+    [providerName, platformLinkAnchor]
   );
 
   let computedHTML = GeneralTemplate(title, text);
