@@ -27,7 +27,13 @@ const getPlatformUrl = (countryLabel) => {
 
 const GLOBAL_COUNTRY_EMAIL_RECEIVER = process.env.GLOBAL_COUNTRY_EMAIL_RECEIVER;
 
-export const sendAdminEmail = async ({ country, subject, title, text }) => {
+export const sendAdminEmail = async ({
+  country,
+  subject,
+  title,
+  text,
+  email, // Email for reply-to
+}) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
   let emails = [];
 
@@ -68,6 +74,7 @@ export const sendAdminEmail = async ({ country, subject, title, text }) => {
     .sendMail({
       from: from,
       to: emails,
+      replyTo: email || "",
       subject: subject,
       html: computedHTML,
     })
