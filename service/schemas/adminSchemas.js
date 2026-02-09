@@ -5,4 +5,5 @@ export const sendAdminEmailSchema = yup.object().shape({
   subject: yup.string().required(),
   text: yup.string().required(),
   title: yup.string().required(),
+  email: yup.string().email().optional(),
 });
