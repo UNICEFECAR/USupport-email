@@ -111,5 +111,8 @@
   "mood_good": "Good",
   "mood_sad": "Sad",
   "mood_depressed": "Depressed",
-  "mood_worried": "Worried"
+  "mood_worried": "Worried",
+  "client_coupon_reminder_subject": "Take advantage of an online session sponsored by UNICEF",
+  "client_coupon_reminder_title": "Take advantage of an online session sponsored by UNICEF",
+  "client_coupon_reminder_text": "Good morning,<br/><br/>Thank you for trusting us and creating an account on our platform - uSupport. However, we've noticed that you haven't yet been able to take advantage of a consultation with our psychologists.<br/><br/>We still have a few free sessions available. However, their number and time are limited, so we encourage you to take advantage of them as soon as possible. You can book them at https://poland.usupport.online/client/pl/select-provider.<br/><br/>Take the first step to taking care of your well-being."
 }

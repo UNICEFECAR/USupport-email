@@ -580,3 +580,34 @@ export const sendMoodTrackerReminderEmail = async ({
 
   return { success: true };
 };
+
+export const sendCouponReminderEmail = async ({
+  language,
+  recipientEmail,
+  countryLabel,
+}) => {
+  const from = `uSupport <${EMAIL_SENDER}>`;
+
+  const subject = t("client_coupon_reminder_subject", language);
+  const title = t("client_coupon_reminder_title", language);
+  const platformLink = `${getPlatformUrl(countryLabel)}/client/${language}`;
+  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
+  const text = t("client_coupon_reminder_text", language, [platformLinkAnchor]);
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: recipientEmail,
+      subject: subject,
+      html: computedHTML,
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};
