@@ -25,7 +25,7 @@
   "client_consultation_remind_start_text": "Consultația dvs. începe în {2} minute. Vă rugăm să vizitați {1} pentru intra la consultație.",
   "client_consultation_notify_suggestion_subject": "Propunere consultație",
   "client_consultation_notify_suggestion_title": "Propunere nouă de consultație",
-  "client_consultation_notify_suggestion_text": "Aveți o nouă propunere de consultație. Vă rugăm să vizitați {1} pentru a vizualiza mai multe detalii.",
+  "client_consultation_notify_suggestion_text": "Aveți o nouă propunere de consultație. Aveți la dispoziție până la 24 de ore înainte de data rezervării pentru a accepta această propunere. Vă rugăm să vizitați {1} pentru a vizualiza mai multe detalii.",
   "client_consultation_confirm_suggestion_booking_subject": "Programare consultație",
   "client_consultation_confirm_suggestion_booking_title": "Confirmarea programării consultației",
   "client_consultation_confirm_suggestion_booking_text": "Ați acceptat o propunere de consultație. Vă rugăm să vizitați {1} pentru a vizualiza detaliile consultației",

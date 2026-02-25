@@ -284,13 +284,17 @@ export const sendConsultationNotifySuggestionEmail = async ({
   language,
   recipientEmail,
   countryLabel,
+  bookingDate,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("client_consultation_notify_suggestion_subject", language);
   const title = t("client_consultation_notify_suggestion_title", language);
   const platformLink = `${getPlatformUrl(countryLabel)}/client/${language}`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
+  const platformLinkWithQuery = `${platformLink}/consultations?suggestion_date=${encodeURIComponent(
+    bookingDate
+  )}`;
+  const platformLinkAnchor = `<a href=${platformLinkWithQuery}>${platformLink}</a>`;
   const text = t("client_consultation_notify_suggestion_text", language, [
     platformLinkAnchor,
   ]);

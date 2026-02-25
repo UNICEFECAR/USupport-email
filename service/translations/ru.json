@@ -25,7 +25,7 @@
   "client_consultation_remind_start_text": "Ваша консультация начнется через {2} минут(ы). Посетите {1}, чтобы присоединиться к консультации.",
   "client_consultation_notify_suggestion_subject": "Предложение консультации",
   "client_consultation_notify_suggestion_title": "Предложение новой консультации",
-  "client_consultation_notify_suggestion_text": "У Вас есть предложение о новой консультации. Посетите {1}, чтобы просмотреть дополнительные сведения.",
+  "client_consultation_notify_suggestion_text": "У Вас есть предложение о новой консультации. У Вас есть до 24 часов до даты бронирования, чтобы принять это предложение. Посетите {1}, чтобы просмотреть дополнительные сведения.",
   "client_consultation_confirm_suggestion_booking_subject": "Запись на консультацию",
   "client_consultation_confirm_suggestion_booking_title": "Подтверждение записи на консультацию",
   "client_consultation_confirm_suggestion_booking_text": "Вы успешно приняли предложенную консультацию. Посетите {1}, чтобы просмотреть подробности консультации.",

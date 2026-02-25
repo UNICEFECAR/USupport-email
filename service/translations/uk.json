@@ -25,7 +25,7 @@
   "client_consultation_remind_start_text": "Твоя консультація розпочнеться за {2} хв. Щоб долучитися до неї, перейди {1}.",
   "client_consultation_notify_suggestion_subject": "Пропозиція щодо консультації",
   "client_consultation_notify_suggestion_title": "Нова пропозиція щодо консультацій",
-  "client_consultation_notify_suggestion_text": "Ти отримав/ла нову пропозицію консультації. Щоб дізнатися бТи відхилив/ла запропоновану консультацію. Щоб запланувати нову, перейди {1}.ільше деталей, перейди {1}.",
+  "client_consultation_notify_suggestion_text": "Ти отримав/ла нову пропозицію консультації. У тебе є до 24 годин до дати бронювання, щоб прийняти цю пропозицію. Щоб дізнатися більше деталей, перейди {1}.",
   "client_consultation_confirm_suggestion_booking_sclient_consultation_confirm_suggestion_cancellation_textubject": "Резервація консультації",
   "client_consultation_confirm_suggestion_booking_title": "Підтвердження резервації консультації",
   "client_consultation_confirm_suggestion_booking_text": "Ти погодився/лася га запропоновану консультацію. Щоб переглянути деталі, перейди {1}.",
