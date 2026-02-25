@@ -25,7 +25,7 @@
   "client_consultation_remind_start_text": "Твоя консультація розпочнеться за {2} хв. Щоб долучитися до неї, перейди {1}.",
   "client_consultation_notify_suggestion_subject": "Пропозиція щодо консультації",
   "client_consultation_notify_suggestion_title": "Нова пропозиція щодо консультацій",
-  "client_consultation_notify_suggestion_text": "Ти отримав/ла нову пропозицію консультації. Щоб дізнатися бТи відхилив/ла запропоновану консультацію. Щоб запланувати нову, перейди {1}.ільше деталей, перейди {1}.",
+  "client_consultation_notify_suggestion_text": "Ти отримав/ла нову пропозицію консультації. У тебе є до 24 годин до дати бронювання, щоб прийняти цю пропозицію. Щоб дізнатися більше деталей, перейди {1}.",
   "client_consultation_confirm_suggestion_booking_sclient_consultation_confirm_suggestion_cancellation_textubject": "Резервація консультації",
   "client_consultation_confirm_suggestion_booking_title": "Підтвердження резервації консультації",
   "client_consultation_confirm_suggestion_booking_text": "Ти погодився/лася га запропоновану консультацію. Щоб переглянути деталі, перейди {1}.",
@@ -108,5 +108,8 @@
   "mood_good": "Задоволеним/ою",
   "mood_sad": "Засмученим/ою",
   "mood_depressed": "Пригніченим/ою",
-  "mood_worried": "Схвильованим/ою"
+  "mood_worried": "Схвильованим/ою",
+  "client_coupon_reminder_subject": "Скористайся онлайн-сесією,  за підтримки UNICEF",
+  "client_coupon_reminder_title": "На платформі uSupport на тебе чекають психологи, які можуть тобі допомогти",
+  "client_coupon_reminder_text": "Доброго дня,<br/><br/>Дякуємо за довіру та створення облікового запису на нашій платформі - uSupport. Ми помітили, що поки що тобі не вдалося скористатися консультаціями з нашими психологинями. У нас є ще кілька безкоштовних сесій, якими ти можеш скористатися. Їхня кількість і час обмежені, тому заохочуємо тебе не зволікати. Ти можеш забронювати сесію за посиланням:<br/><br/>https://poland.usupport.online/client/uk/select-provider<br/><br/>Зроби перший крок, щоб подбати про своє самопочуття."
 }
