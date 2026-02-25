@@ -23,6 +23,7 @@ import {
   sendQuestionAnsweredEmail,
   sendMoodTrackerReportWeeklyEmail,
   sendMoodTrackerReminderEmail,
+  sendCouponReminderEmail,
 } from "#controllers/client";
 
 import {
@@ -248,6 +249,10 @@ export const handleEmailConsumerMessage = async ({ message }) => {
       break;
     case "system-dailyEmailTest": {
       sendDailyTestEmailReminder(payload);
+      break;
+    }
+    case "client-couponReminder": {
+      sendCouponReminderEmail(payload);
       break;
     }
     default:

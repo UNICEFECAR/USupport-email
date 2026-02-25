@@ -25,7 +25,7 @@
   "client_consultation_remind_start_text": "Η συνεδρία σας ξεκινά σε {2} λεπτά. Παρακαλώ επισκεφθείτε το {1} για να συνδεθείτε.",
   "client_consultation_notify_suggestion_subject": "Πρόταση για συνεδρία",
   "client_consultation_notify_suggestion_title": "Πρόταση για νέα συνεδρία",
-  "client_consultation_notify_suggestion_text": "Έχετε μια νέα πρόταση για συνεδρία. Επισκεφθείτε το {1} για να δείτε περισσότερες λεπτομέρειες.",
+  "client_consultation_notify_suggestion_text": "Έχετε μια νέα πρόταση διαβούλευσης. Έχετε έως και 24 ώρες πριν από την ημερομηνία κράτησης για να αποδεχτείτε αυτήν την πρόταση. Επισκεφθείτε τη διεύθυνση {1} για να δείτε περισσότερες λεπτομέρειες.",
   "client_consultation_confirm_suggestion_booking_subject": "Κράτηση για συνεδρία",
   "client_consultation_confirm_suggestion_booking_title": "Επιβεβαίωση κράτησης για συνεδρία",
   "client_consultation_confirm_suggestion_booking_text": "Έχετε αποδεχτεί με επιτυχία μια προτεινόμενη συνεδρία. Επισκεφθείτε το {1} για να δείτε τις λεπτομέρειες της συνεδρίας σας.",

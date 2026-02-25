@@ -284,13 +284,17 @@ export const sendConsultationNotifySuggestionEmail = async ({
   language,
   recipientEmail,
   countryLabel,
+  bookingDate,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
   const subject = t("client_consultation_notify_suggestion_subject", language);
   const title = t("client_consultation_notify_suggestion_title", language);
   const platformLink = `${getPlatformUrl(countryLabel)}/client/${language}`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
+  const platformLinkWithQuery = `${platformLink}/consultations?suggestion_date=${encodeURIComponent(
+    bookingDate
+  )}`;
+  const platformLinkAnchor = `<a href=${platformLinkWithQuery}>${platformLink}</a>`;
   const text = t("client_consultation_notify_suggestion_text", language, [
     platformLinkAnchor,
   ]);
@@ -562,6 +566,37 @@ export const sendMoodTrackerReminderEmail = async ({
   const text = t("client_mood_tracker_reminder_text", language, [
     platformLinkAnchor,
   ]);
+
+  let computedHTML = GeneralTemplate(title, text);
+
+  const transporter = getMailTransporter();
+
+  await transporter
+    .sendMail({
+      from: from,
+      to: recipientEmail,
+      subject: subject,
+      html: computedHTML,
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return { success: true };
+};
+
+export const sendCouponReminderEmail = async ({
+  language,
+  recipientEmail,
+  countryLabel,
+}) => {
+  const from = `uSupport <${EMAIL_SENDER}>`;
+
+  const subject = t("client_coupon_reminder_subject", language);
+  const title = t("client_coupon_reminder_title", language);
+  const platformLink = `${getPlatformUrl(countryLabel)}/client/${language}`;
+  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
+  const text = t("client_coupon_reminder_text", language, [platformLinkAnchor]);
 
   let computedHTML = GeneralTemplate(title, text);
 
