@@ -25,7 +25,7 @@
   "client_consultation_remind_start_text": "Твоя консультація розпочнеться за {2} хв. Щоб долучитися до неї, перейди {1}.",
   "client_consultation_notify_suggestion_subject": "Пропозиція щодо консультації",
   "client_consultation_notify_suggestion_title": "Нова пропозиція щодо консультацій",
-  "client_consultation_notify_suggestion_text": "Ти отримав/ла нову пропозицію консультації. У тебе є до 24 годин до дати бронювання, щоб прийняти цю пропозицію. Щоб дізнатися більше деталей, перейди {1}.",
+  "client_consultation_notify_suggestion_text": "Ти отримав/ла нову пропозицію консультації від фахівця {1}. У тебе є до 24 годин до запропонованого часу прийому, щоб прийняти цю пропозицію. Щоб дізнатися більше деталей, перейди за посиланням {2}.",
   "client_consultation_notify_suggestion_text_new_time": "Твій фахівець <strong>{1}</strong> скасував початкову консультацію та запропонував замість неї новий час. Переглянь нову пропозицію та підтвердь її протягом <strong>24 годин до запропонованого часу прийому.</strong> Перейди за посиланням <strong>{2}</strong>, щоб дізнатися більше.",
   "client_consultation_confirm_suggestion_booking_subject": "Резервація консультації",
   "client_consultation_confirm_suggestion_booking_title": "Підтвердження резервації консультації",
