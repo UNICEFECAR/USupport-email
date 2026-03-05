@@ -26,6 +26,7 @@
   "client_consultation_notify_suggestion_subject": "Consultation suggestion",
   "client_consultation_notify_suggestion_title": "New consultation suggestion",
   "client_consultation_notify_suggestion_text": "You have a new consultation suggestion. You have up to 24 hours before the booking date to accept this suggestion. Please visit {1} to view more details.",
+  "client_consultation_notify_suggestion_text_new_time": "Your provider <strong>{1}</strong> has cancelled the original consultation and has suggested a new time slot instead. Please review the new proposal and confirm it within <strong>24 hours before the suggested appointment time.</strong> Visit <strong>{2}</strong> to see more details.",
   "client_consultation_confirm_suggestion_booking_subject": "Consultation booking",
   "client_consultation_confirm_suggestion_booking_title": "Confirmation of consultation booking",
   "client_consultation_confirm_suggestion_booking_text": "You have successfully accepted a suggested consultation. Please visit {1} to view your consultation details.",

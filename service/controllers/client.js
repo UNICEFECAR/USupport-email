@@ -285,8 +285,14 @@ export const sendConsultationNotifySuggestionEmail = async ({
   recipientEmail,
   countryLabel,
   bookingDate,
+  providerName,
+  isSuggestingNewTime,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
+
+  const textKey = isSuggestingNewTime
+    ? "client_consultation_notify_suggestion_text_new_time"
+    : "client_consultation_notify_suggestion_text";
 
   const subject = t("client_consultation_notify_suggestion_subject", language);
   const title = t("client_consultation_notify_suggestion_title", language);
@@ -295,9 +301,7 @@ export const sendConsultationNotifySuggestionEmail = async ({
     bookingDate
   )}`;
   const platformLinkAnchor = `<a href=${platformLinkWithQuery}>${platformLink}</a>`;
-  const text = t("client_consultation_notify_suggestion_text", language, [
-    platformLinkAnchor,
-  ]);
+  const text = t(textKey, language, [providerName, platformLinkAnchor]);
 
   let computedHTML = GeneralTemplate(title, text);
 
