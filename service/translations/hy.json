@@ -26,6 +26,7 @@
   "client_consultation_notify_suggestion_subject": "Խորհրդատվության առաջարկ",
   "client_consultation_notify_suggestion_title": "Նոր խորհրդատվության առաջարկ",
   "client_consultation_notify_suggestion_text": "Դուք ունեք նոր խորհրդատվական առաջարկ։ Դուք ունեք մինչև 24 ժամ ժամանակ ամրագրման ամսաթվից առաջ այս առաջարկն ընդունելու համար։ Խնդրում ենք այցելել {1}՝ ավելի շատ մանրամասներ դիտելու համար։",
+  "client_consultation_notify_suggestion_text_new_time": "Ձեր մասնագետը <strong>{1}</strong> չեղարկել է սկզբնական խորհրդատվությունը և դրա փոխարեն առաջարկել է նոր ժամանակ: Խնդրում ենք ստուգել նոր առաջարկը և հաստատել այն <strong>առաջարկված ժամից 24 ժամ առաջ:</strong> Ավելի մանրամասն տեսնելու համար այցելեք <strong>{2}</strong>.",
   "client_consultation_confirm_suggestion_booking_subject": "Խորհրդատվության պատվեր",
   "client_consultation_confirm_suggestion_booking_title": "Խորհրդատվության պատվերի հաստատում",
   "client_consultation_confirm_suggestion_booking_text": "Դուք բարեհաջող ընդունել եք առաջարկված խորհրդատվությունը։ Խնդրում ենք այցելել {1}՝ ձեր խորհրդատվության մանրամասներին ծանոթանալու համար։",

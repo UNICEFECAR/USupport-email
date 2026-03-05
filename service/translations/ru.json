@@ -26,6 +26,7 @@
   "client_consultation_notify_suggestion_subject": "Предложение консультации",
   "client_consultation_notify_suggestion_title": "Предложение новой консультации",
   "client_consultation_notify_suggestion_text": "У Вас есть предложение о новой консультации. У Вас есть до 24 часов до даты бронирования, чтобы принять это предложение. Посетите {1}, чтобы просмотреть дополнительные сведения.",
+  "client_consultation_notify_suggestion_text_new_time": "Ваш специалист <strong>{1}</strong> отменил первоначальную консультацию и предложил вместо неё новое время. Пожалуйста, ознакомьтесь с новым предложением и подтвердите его в течение <strong>24 часов до предложенного времени приёма.</strong> Перейдите по ссылке <strong>{2}</strong>, чтобы увидеть подробности.",
   "client_consultation_confirm_suggestion_booking_subject": "Запись на консультацию",
   "client_consultation_confirm_suggestion_booking_title": "Подтверждение записи на консультацию",
   "client_consultation_confirm_suggestion_booking_text": "Вы успешно приняли предложенную консультацию. Посетите {1}, чтобы просмотреть подробности консультации.",

@@ -26,6 +26,7 @@
   "client_consultation_notify_suggestion_subject": "Sugestia konsultacji",
   "client_consultation_notify_suggestion_title": "Nowa sugestia konsultacji",
   "client_consultation_notify_suggestion_text": "Masz nową sugestię dotyczącą konsultacji. Masz do 24 godzin przed datą rezerwacji na zaakceptowanie tej sugestii. Odwiedź stronę {1}, aby wyświetlić więcej szczegółów.",
+  "client_consultation_notify_suggestion_text_new_time": "Twój specjalista <strong>{1}</strong> anulował pierwotną konsultację i zaproponował zamiast niej nowy termin. Przejrzyj nową propozycję i potwierdź ją w ciągu <strong>24 godzin przed zaproponowanym terminem wizyty.</strong> Odwiedź <strong>{2}</strong>, aby zobaczyć więcej szczegółów.",
   "client_consultation_confirm_suggestion_booking_subject": "Rezerwacja konsultacji",
   "client_consultation_confirm_suggestion_booking_title": "Potwierdzenie rezerwacji konsultacji",
   "client_consultation_confirm_suggestion_booking_text": "Pomyślnie zaakceptowałeś sugerowaną konsultację. Odwiedź stronę {1}, aby wyświetlić szczegóły konsultacji.",
@@ -110,6 +111,6 @@
   "mood_depressed": "Przygnębiony/a",
   "mood_worried": "Zmartwiony/a",
   "client_coupon_reminder_subject": "Skorzystaj z sesji online sponsorowanej przez UNICEF",
-  "client_coupon_reminder_title": "Skorzystaj z sesji online sponsorowanej przez UNICEF",
+  "client_coupon_reminder_title": "Na uSupport czekają psychologowie, którzy mogą Ci pomóc.",
   "client_coupon_reminder_text": "Dzień dobry,<br/><br/>dziękujemy za zaufanie i założenie konta na naszej platformie - uSupport. Zauważyliśmy jednak, że do tej pory nie udało Ci się jeszcze skorzystać z konsultacji z naszymi psycholożkami.<br/><br/>Mamy jeszcze kilka bezpłatnych sesji, z których możesz skorzystać. Ich liczba i czas są jednak ograniczone, więc zachęcamy Cię do skorzystania jak najszybciej. Możesz je zarezerwowac na https://poland.usupport.online/client/pl/select-provider.<br/><br/>Zrób pierwszy krok, aby zadbać o swoje samopoczucie."
 }
