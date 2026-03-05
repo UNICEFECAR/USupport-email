@@ -26,6 +26,7 @@
   "client_consultation_notify_suggestion_subject": "Propunere consultație",
   "client_consultation_notify_suggestion_title": "Propunere nouă de consultație",
   "client_consultation_notify_suggestion_text": "Aveți o nouă propunere de consultație. Aveți la dispoziție până la 24 de ore înainte de data rezervării pentru a accepta această propunere. Vă rugăm să vizitați {1} pentru a vizualiza mai multe detalii.",
+  "client_consultation_notify_suggestion_text_new_time": "Furnizorul dvs. <strong>{1}</strong> a anulat consultația inițială și a sugerat în schimb un interval orar nou. Vă rugăm să examinați noua propunere și să o confirmați în termen de <strong>24 de ore înainte de ora programată sugerată.</strong> Vizitați <strong>{2}</strong> pentru mai multe detalii.",
   "client_consultation_confirm_suggestion_booking_subject": "Programare consultație",
   "client_consultation_confirm_suggestion_booking_title": "Confirmarea programării consultației",
   "client_consultation_confirm_suggestion_booking_text": "Ați acceptat o propunere de consultație. Vă rugăm să vizitați {1} pentru a vizualiza detaliile consultației",

@@ -26,6 +26,7 @@
   "client_consultation_notify_suggestion_subject": "Консультация туралы ұсыныс беру",
   "client_consultation_notify_suggestion_title": "Жаңа консультация туралы ұсыныс беру",
   "client_consultation_notify_suggestion_text": "Сізде жаңа консультация туралы ұсыныс бар. Бұл ұсынысты қабылдау үшін брондау күніне дейін 24 сағатыңыз бар. Қосымша ақпарат алу үшін {1} кіріңіз.",
+  "client_consultation_notify_suggestion_text_new_time": "Сіздің маман <strong>{1}</strong> бастапқы консультацияны болдырмады және оның орнына жаңа уақыт ұсынды. Жаңа ұсынысты қарап шығыңыз және оны <strong>ұсынылған кездесу уақытына 24 сағат бұрын</strong> растаңыз. Толық ақпарат алу үшін <strong>{2}</strong> кіріңіз.",
   "client_consultation_confirm_suggestion_booking_subject": "Консультацияға жазылу",
   "client_consultation_confirm_suggestion_booking_title": "Консультацияға жазылуды растау",
   "client_consultation_confirm_suggestion_booking_text": "Сіз ұсынылған консультацияны сәтті қабылдадыңыз. Консультация мәліметтерін көру үшін {1} кіріңіз.",

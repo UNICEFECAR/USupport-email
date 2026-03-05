@@ -26,6 +26,7 @@
   "client_consultation_notify_suggestion_subject": "Sugestia konsultacji",
   "client_consultation_notify_suggestion_title": "Nowa sugestia konsultacji",
   "client_consultation_notify_suggestion_text": "Masz nową sugestię dotyczącą konsultacji. Masz do 24 godzin przed datą rezerwacji na zaakceptowanie tej sugestii. Odwiedź stronę {1}, aby wyświetlić więcej szczegółów.",
+  "client_consultation_notify_suggestion_text_new_time": "Twój specjalista <strong>{1}</strong> anulował pierwotną konsultację i zaproponował zamiast niej nowy termin. Przejrzyj nową propozycję i potwierdź ją w ciągu <strong>24 godzin przed zaproponowanym terminem wizyty.</strong> Odwiedź <strong>{2}</strong>, aby zobaczyć więcej szczegółów.",
   "client_consultation_confirm_suggestion_booking_subject": "Rezerwacja konsultacji",
   "client_consultation_confirm_suggestion_booking_title": "Potwierdzenie rezerwacji konsultacji",
   "client_consultation_confirm_suggestion_booking_text": "Pomyślnie zaakceptowałeś sugerowaną konsultację. Odwiedź stronę {1}, aby wyświetlić szczegóły konsultacji.",
