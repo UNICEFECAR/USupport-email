@@ -51,6 +51,24 @@ export const GeneralTemplate = (title, text) => {
           background: #0b1220 !important;
           color: #ffffff !important;
         }
+        .card {
+          background-color: #0e202e !important;
+          border-color: #263238 !important;
+          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35) !important;
+        }
+        .logo-divider {
+          background: #263238 !important;
+        }
+        .heading-text {
+          color: #ffffff !important;
+        }
+        .content-text {
+          color: #ffffff !important;
+        }
+        .footer,
+        .content-text .secondary-text {
+          color: #c1d7e0 !important;
+        }
         .logo-light {
           display: none !important;
         }
