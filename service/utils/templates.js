@@ -40,7 +40,6 @@ export const GeneralTemplate = (title, text) => {
         -webkit-text-size-adjust: 100%;
       }
 
-      /* Dark-mode support (best-effort across clients) */
       .logo-light {
         display: block;
       }
