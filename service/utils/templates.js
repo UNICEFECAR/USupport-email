@@ -1,6 +1,10 @@
 // This File should store all the templates for the emails
 
 const AMAZON_S3_BUCKET = process.env.AMAZON_S3_BUCKET;
+const EMAIL_LOGO_LIGHT_URL =
+  process.env.EMAIL_LOGO_LIGHT_URL || `${AMAZON_S3_BUCKET}/logo-horizontal`;
+const EMAIL_LOGO_DARK_URL =
+  process.env.EMAIL_LOGO_DARK_URL || `${AMAZON_S3_BUCKET}/logo-horizontal-dark`;
 
 /**
  *
@@ -13,6 +17,8 @@ export const GeneralTemplate = (title, text) => {
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="supported-color-schemes" content="light dark" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -32,6 +38,26 @@ export const GeneralTemplate = (title, text) => {
           sans-serif;
         color: #0e202f;
         -webkit-text-size-adjust: 100%;
+      }
+
+      /* Dark-mode support (best-effort across clients) */
+      .logo-light {
+        display: block;
+      }
+      .logo-dark {
+        display: none;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: #0b1220 !important;
+          color: #ffffff !important;
+        }
+        .logo-light {
+          display: none !important;
+        }
+        .logo-dark {
+          display: block !important;
+        }
       }
 
       table {
@@ -205,8 +231,13 @@ export const GeneralTemplate = (title, text) => {
             <div class="card">
               <div class="header">
                 <img
-                  src="${AMAZON_S3_BUCKET}/logo-horizontal"
-                  class="logo-horizontal"
+                  src="${EMAIL_LOGO_LIGHT_URL}"
+                  class="logo-horizontal logo-light"
+                  alt="uSupport"
+                />
+                <img
+                  src="${EMAIL_LOGO_DARK_URL}"
+                  class="logo-horizontal logo-dark"
                   alt="uSupport"
                 />
                 <div class="logo-divider"></div>
