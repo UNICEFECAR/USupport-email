@@ -40,10 +40,12 @@ export const GeneralTemplate = (title, text) => {
         -webkit-text-size-adjust: 100%;
       }
 
-      .logo-light {
+      .logo-light,
+      .mascot-light {
         display: block;
       }
-      .logo-dark {
+      .logo-dark,
+      .mascot-dark {
         display: none;
       }
       @media (prefers-color-scheme: dark) {
@@ -69,10 +71,12 @@ export const GeneralTemplate = (title, text) => {
         .content-text .secondary-text {
           color: #c1d7e0 !important;
         }
-        .logo-light {
+        .logo-light,
+        .mascot-light {
           display: none !important;
         }
-        .logo-dark {
+        .logo-dark,
+        .mascot-dark {
           display: block !important;
         }
       }
