@@ -237,6 +237,21 @@ export const GeneralTemplate = (title, text) => {
         width: 132px;
         margin: 32px auto 0;
       }
+
+      .mascot-light {
+        display: block;
+      }
+      .mascot-dark {
+        display: none;
+      }
+      @media (prefers-color-scheme: dark) {
+        .mascot-light {
+          display: none !important;
+        }
+        .mascot-dark {
+          display: block !important;
+        }
+      }
     </style>
   </head>
 
@@ -267,7 +282,12 @@ export const GeneralTemplate = (title, text) => {
 
               <img
                 src="${AMAZON_S3_BUCKET}/mascot-happy-blue"
-                class="mascot-image"
+                class="mascot-image mascot-light"
+                alt=""
+              />
+              <img
+                src="${AMAZON_S3_BUCKET}/mascot-happy-blue-light"
+                class="mascot-image mascot-dark"
                 alt=""
               />
 
