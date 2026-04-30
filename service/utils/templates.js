@@ -243,10 +243,10 @@ export const GeneralTemplate = (title, text) => {
       }
 
       .mascot-light {
-        display: block;
+        display: block !important;
       }
       .mascot-dark {
-        display: none;
+        display: none !important;
       }
       @media (prefers-color-scheme: dark) {
         .mascot-light {
@@ -255,6 +255,20 @@ export const GeneralTemplate = (title, text) => {
         .mascot-dark {
           display: block !important;
         }
+      }
+      /* Yahoo/AOL dark mode */
+      [data-ogsc] .mascot-light {
+        display: none !important;
+      }
+      [data-ogsc] .mascot-dark {
+        display: block !important;
+      }
+      /* Outlook dark mode */
+      [data-ogsb] .mascot-light {
+        display: none !important;
+      }
+      [data-ogsb] .mascot-dark {
+        display: block !important;
       }
     </style>
   </head>
@@ -287,12 +301,14 @@ export const GeneralTemplate = (title, text) => {
               <img
                 src="${AMAZON_S3_BUCKET}/mascot-happy-blue"
                 class="mascot-image mascot-light"
-                alt=""
+                alt="mascot"
+                style="display: block; width: 132px; margin: 32px auto 0;"
               />
               <img
                 src="${AMAZON_S3_BUCKET}/mascot-happy-blue-light"
                 class="mascot-image mascot-dark"
-                alt=""
+                alt="mascot"
+                style="display: none; width: 132px; margin: 32px auto 0;"
               />
 
               <div class="divider"></div>
