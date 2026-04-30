@@ -40,10 +40,12 @@ export const GeneralTemplate = (title, text) => {
         -webkit-text-size-adjust: 100%;
       }
 
-      .logo-light {
+      .logo-light,
+      .mascot-light {
         display: block;
       }
-      .logo-dark {
+      .logo-dark,
+      .mascot-dark {
         display: none;
       }
       @media (prefers-color-scheme: dark) {
@@ -69,10 +71,12 @@ export const GeneralTemplate = (title, text) => {
         .content-text .secondary-text {
           color: #c1d7e0 !important;
         }
-        .logo-light {
+        .logo-light,
+        .mascot-light {
           display: none !important;
         }
-        .logo-dark {
+        .logo-dark,
+        .mascot-dark {
           display: block !important;
         }
       }
@@ -237,6 +241,35 @@ export const GeneralTemplate = (title, text) => {
         width: 132px;
         margin: 32px auto 0;
       }
+
+      .mascot-light {
+        display: block !important;
+      }
+      .mascot-dark {
+        display: none !important;
+      }
+      @media (prefers-color-scheme: dark) {
+        .mascot-light {
+          display: none !important;
+        }
+        .mascot-dark {
+          display: block !important;
+        }
+      }
+      /* Yahoo/AOL dark mode */
+      [data-ogsc] .mascot-light {
+        display: none !important;
+      }
+      [data-ogsc] .mascot-dark {
+        display: block !important;
+      }
+      /* Outlook dark mode */
+      [data-ogsb] .mascot-light {
+        display: none !important;
+      }
+      [data-ogsb] .mascot-dark {
+        display: block !important;
+      }
     </style>
   </head>
 
@@ -267,8 +300,15 @@ export const GeneralTemplate = (title, text) => {
 
               <img
                 src="${AMAZON_S3_BUCKET}/mascot-happy-blue"
-                class="mascot-image"
-                alt=""
+                class="mascot-image mascot-light"
+                alt="mascot"
+                style="display: block; width: 132px; margin: 32px auto 0;"
+              />
+              <img
+                src="${AMAZON_S3_BUCKET}/mascot-happy-blue-light"
+                class="mascot-image mascot-dark"
+                alt="mascot"
+                style="display: none; width: 132px; margin: 32px auto 0;"
               />
 
               <div class="divider"></div>
