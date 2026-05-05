@@ -29,10 +29,16 @@ export const GeneralTemplate = (title, text) => {
         box-sizing: border-box;
       }
 
+      html {
+        color-scheme: light dark;
+      }
+
       body {
         margin: 0;
         padding: 0;
         width: 100% !important;
+        color-scheme: light dark;
+        background-color: #f4f7fe;
         background: #f4f7fe;
         font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
           sans-serif;
@@ -50,8 +56,18 @@ export const GeneralTemplate = (title, text) => {
       }
       @media (prefers-color-scheme: dark) {
         body {
+          background-color: #0b1220 !important;
           background: #0b1220 !important;
           color: #ffffff !important;
+        }
+        .shell {
+          background-color: #121a2e !important;
+          background-image: linear-gradient(
+            145deg,
+            rgba(90, 70, 140, 0.35),
+            rgba(60, 100, 160, 0.32),
+            rgba(120, 80, 60, 0.28)
+          ) !important;
         }
         .card {
           background-color: #0e202e !important;
@@ -65,11 +81,26 @@ export const GeneralTemplate = (title, text) => {
           color: #ffffff !important;
         }
         .content-text {
-          color: #ffffff !important;
+          color: #e8eef5 !important;
+        }
+        .content-text a {
+          color: #7ec8e0 !important;
         }
         .footer,
         .content-text .secondary-text {
           color: #c1d7e0 !important;
+        }
+        .content-text .secondary-link {
+          color: #7ec8e0 !important;
+        }
+        .divider {
+          background: linear-gradient(
+            90deg,
+            #2a3040 0%,
+            #3d4a58 40%,
+            #3d4a58 100%
+          ) !important;
+          opacity: 0.85 !important;
         }
         .logo-light,
         .mascot-light {
@@ -102,7 +133,9 @@ export const GeneralTemplate = (title, text) => {
       .shell {
         max-width: 640px;
         margin: 32px auto;
-        background: linear-gradient(
+        /* Solid fallback when clients strip or alter gradients (Gmail, etc.) */
+        background-color: #e8ecf8;
+        background-image: linear-gradient(
           145deg,
           rgba(175, 133, 255, 0.2),
           rgba(124, 172, 255, 0.22),
@@ -242,43 +275,122 @@ export const GeneralTemplate = (title, text) => {
         margin: 32px auto 0;
       }
 
-      .mascot-light {
+       * Yahoo (data-ogsc) / Outlook.com (data-ogsb): mirror authored dark theme
+       * when the client signals dark mode (prefers-color-scheme is absent here).
+       */
+      body[data-ogsc],
+      body[data-ogsb] {
+        background-color: #0b1220 !important;
+        background: #0b1220 !important;
+        color: #ffffff !important;
+      }
+      body[data-ogsc] .shell,
+      body[data-ogsb] .shell,
+      [data-ogsc] .shell {
+        background-color: #121a2e !important;
+        background-image: linear-gradient(
+          145deg,
+          rgba(90, 70, 140, 0.35),
+          rgba(60, 100, 160, 0.32),
+          rgba(120, 80, 60, 0.28)
+        ) !important;
+      }
+      body[data-ogsc] .card,
+      body[data-ogsb] .card,
+      [data-ogsc] .card {
+        background-color: #0e202e !important;
+        border-color: #263238 !important;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35) !important;
+      }
+      body[data-ogsc] .logo-divider,
+      body[data-ogsb] .logo-divider,
+      [data-ogsc] .logo-divider {
+        background: #263238 !important;
+      }
+      body[data-ogsc] .heading-text,
+      body[data-ogsb] .heading-text,
+      [data-ogsc] .heading-text {
+        color: #ffffff !important;
+      }
+      body[data-ogsc] .content-text,
+      body[data-ogsb] .content-text,
+      [data-ogsc] .content-text {
+        color: #e8eef5 !important;
+      }
+      body[data-ogsc] .content-text a,
+      body[data-ogsb] .content-text a,
+      [data-ogsc] .content-text a {
+        color: #7ec8e0 !important;
+      }
+      body[data-ogsc] .footer,
+      body[data-ogsb] .footer,
+      [data-ogsc] .footer,
+      body[data-ogsc] .content-text .secondary-text,
+      body[data-ogsb] .content-text .secondary-text,
+      [data-ogsc] .content-text .secondary-text {
+        color: #c1d7e0 !important;
+      }
+      body[data-ogsc] .content-text .secondary-link,
+      body[data-ogsb] .content-text .secondary-link,
+      [data-ogsc] .content-text .secondary-link {
+        color: #7ec8e0 !important;
+      }
+      body[data-ogsc] .divider,
+      body[data-ogsb] .divider,
+      [data-ogsc] .divider {
+        background: linear-gradient(
+          90deg,
+          #2a3040 0%,
+          #3d4a58 40%,
+          #3d4a58 100%
+        ) !important;
+        opacity: 0.85 !important;
+      }
+      /* Yahoo/AOL dark mode – assets */
+      [data-ogsc] .mascot-light,
+      [data-ogsc] .logo-light {
+        display: none !important;
+      }
+      [data-ogsc] .mascot-dark,
+      [data-ogsc] .logo-dark {
         display: block !important;
       }
-      .mascot-dark {
+      /* Outlook dark mode – assets */
+      [data-ogsb] .mascot-light,
+      [data-ogsb] .logo-light {
         display: none !important;
       }
-      @media (prefers-color-scheme: dark) {
-        .mascot-light {
-          display: none !important;
-        }
-        .mascot-dark {
-          display: block !important;
-        }
-      }
-      /* Yahoo/AOL dark mode */
-      [data-ogsc] .mascot-light {
-        display: none !important;
-      }
-      [data-ogsc] .mascot-dark {
-        display: block !important;
-      }
-      /* Outlook dark mode */
-      [data-ogsb] .mascot-light {
-        display: none !important;
-      }
-      [data-ogsb] .mascot-dark {
+      [data-ogsb] .mascot-dark,
+      [data-ogsb] .logo-dark {
         display: block !important;
       }
     </style>
   </head>
 
-  <body>
-    <table role="presentation" class="wrapper" width="100%">
+  <body
+    style="margin:0;padding:0;width:100%;background-color:#f4f7fe;color:#0e202f;"
+  >
+    <table
+      role="presentation"
+      class="wrapper"
+      width="100%"
+      bgcolor="#F4F7FE"
+      style="width:100%;background-color:#f4f7fe;"
+    >
       <tr>
-        <td align="center">
-          <div class="shell">
-            <div class="card">
+        <td
+          align="center"
+          bgcolor="#F4F7FE"
+          style="background-color:#f4f7fe;"
+        >
+          <div
+            class="shell"
+            style="background-color:#e8ecf8;max-width:640px;margin:32px auto;border-radius:32px;"
+          >
+            <div
+              class="card"
+              style="background-color:#ffffff;border:1px solid #dde5f0;border-radius:30px;"
+            >
               <div class="header">
                 <img
                   src="${EMAIL_LOGO_LIGHT_URL}"
