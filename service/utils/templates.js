@@ -1,8 +1,6 @@
 const AMAZON_S3_BUCKET = process.env.AMAZON_S3_BUCKET;
 const EMAIL_LOGO_LIGHT_URL =
   process.env.EMAIL_LOGO_LIGHT_URL || `${AMAZON_S3_BUCKET}/logo-horizontal`;
-const EMAIL_LOGO_DARK_URL =
-  process.env.EMAIL_LOGO_DARK_URL || `${AMAZON_S3_BUCKET}/logo-horizontal-dark`;
 
 export const GeneralTemplate = (title, text) => {
   const computedHTML = `<!DOCTYPE html>
@@ -10,8 +8,8 @@ export const GeneralTemplate = (title, text) => {
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="supported-color-schemes" content="light dark" />
+    <meta name="color-scheme" content="light" />
+    <meta name="supported-color-schemes" content="light" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -22,14 +20,14 @@ export const GeneralTemplate = (title, text) => {
       }
 
       html {
-        color-scheme: light dark;
+        color-scheme: light;
       }
 
       body {
         margin: 0;
         padding: 0;
         width: 100% !important;
-        color-scheme: light dark;
+        color-scheme: light;
         font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
           sans-serif;
         -webkit-text-size-adjust: 100%;
@@ -85,30 +83,6 @@ export const GeneralTemplate = (title, text) => {
 
       .header {
         text-align: center;
-      }
-
-      .logo-light-wrap {
-        display: block;
-        max-height: none;
-        overflow: visible;
-        margin: 0 auto 24px;
-      }
-      .logo-dark-wrap {
-        display: none;
-        max-height: 0;
-        overflow: hidden;
-        mso-hide: all;
-        margin: 0 auto 24px;
-      }
-
-      .mascot-light {
-        display: block;
-      }
-      .mascot-dark {
-        display: none;
-        max-height: 0;
-        overflow: hidden;
-        mso-hide: all;
       }
 
       .logo-divider {
@@ -331,96 +305,6 @@ export const GeneralTemplate = (title, text) => {
         mix-blend-mode: normal !important;
       }
 
-      u + .body .logo-light-wrap {
-        display: block !important;
-        max-height: none !important;
-        overflow: visible !important;
-      }
-      u + .body .logo-dark-wrap {
-        display: none !important;
-        max-height: 0 !important;
-        overflow: hidden !important;
-      }
-      u + .body .mascot-light {
-        display: block !important;
-      }
-      u + .body .mascot-dark {
-        display: none !important;
-        max-height: 0 !important;
-        overflow: hidden !important;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        body {
-          background: #0b1220 !important;
-          color: #ffffff !important;
-        }
-        table.wrapper,
-        table.wrapper > tbody > tr > td {
-          background-color: #0b1220 !important;
-          background: #0b1220 !important;
-        }
-        .shell {
-          background-color: #121a2e !important;
-          background-image: linear-gradient(
-            145deg,
-            rgba(90, 70, 140, 0.35),
-            rgba(60, 100, 160, 0.32),
-            rgba(120, 80, 60, 0.28)
-          ) !important;
-        }
-        .card {
-          background: #0e202e !important;
-          border-color: #263238 !important;
-          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35) !important;
-        }
-        .logo-divider {
-          background: #263238 !important;
-        }
-        .heading-text {
-          color: #ffffff !important;
-        }
-        .content-text {
-          color: #e8eef5 !important;
-        }
-        .content-text a {
-          color: #7ec8e0 !important;
-        }
-        .footer,
-        .content-text .secondary-text {
-          color: #c1d7e0 !important;
-        }
-        .content-text .secondary-link {
-          color: #7ec8e0 !important;
-        }
-        .divider {
-          background: linear-gradient(
-            90deg,
-            #2a3040 0%,
-            #3d4a58 40%,
-            #3d4a58 100%
-          ) !important;
-          opacity: 0.85 !important;
-        }
-        .logo-light-wrap {
-          display: none !important;
-          max-height: 0 !important;
-          overflow: hidden !important;
-        }
-        .logo-dark-wrap {
-          display: block !important;
-          max-height: none !important;
-          overflow: visible !important;
-        }
-        .mascot-light {
-          display: none !important;
-        }
-        .mascot-dark {
-          display: block !important;
-          max-height: none !important;
-          overflow: visible !important;
-        }
-      }
     </style>
   </head>
 
@@ -454,7 +338,7 @@ export const GeneralTemplate = (title, text) => {
             >
               <div class="header">
 
-                <div class="logo-light-wrap" style="display:block;max-height:none;overflow:visible;margin:0 auto 24px;text-align:center;">
+                <div style="margin:0 auto 24px;text-align:center;">
                   <img
                     src="${EMAIL_LOGO_LIGHT_URL}"
                     alt="uSupport"
@@ -462,17 +346,6 @@ export const GeneralTemplate = (title, text) => {
                     style="margin:0 auto;border:0;display:inline-block;max-width:100%;width:176px;vertical-align:top;"
                   />
                 </div>
-
-                <!--[if !mso]><!-->
-                <div class="logo-dark-wrap" style="display:none;max-height:0;overflow:hidden;mso-hide:all;margin:0 auto 24px;">
-                  <img
-                    src="${EMAIL_LOGO_DARK_URL}"
-                    alt="uSupport"
-                    width="176"
-                    style="margin:0 auto;border:0;display:block;max-width:100%;width:176px;"
-                  />
-                </div>
-                <!--<![endif]-->
 
                 <div class="logo-divider"></div>
                 <h1 class="heading-text" style="color:#0e202f;">${title}</h1>
@@ -484,21 +357,10 @@ export const GeneralTemplate = (title, text) => {
 
               <img
                 src="${AMAZON_S3_BUCKET}/mascot-happy-blue"
-                class="mascot-image mascot-light"
+                class="mascot-image"
                 alt="mascot"
                 style="display:block;width:132px;margin:32px auto 0;"
               />
-
-              <!--[if !mso]><!-->
-              <div class="mascot-dark" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
-                <img
-                  src="${AMAZON_S3_BUCKET}/mascot-happy-blue-light"
-                  class="mascot-image"
-                  alt="mascot"
-                  style="display:block;width:132px;margin:32px auto 0;"
-                />
-              </div>
-              <!--<![endif]-->
 
               <div class="divider"></div>
               <div class="footer" style="color:#66768d;">
