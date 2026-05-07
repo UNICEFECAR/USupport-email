@@ -10,7 +10,6 @@ export const GeneralTemplate = (title, text) => {
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Gmail replaces the doctype with <u>; required for u + .body Gmail-only CSS. -->
     <meta name="color-scheme" content="light dark" />
     <meta name="supported-color-schemes" content="light dark" />
     <link
@@ -88,7 +87,6 @@ export const GeneralTemplate = (title, text) => {
         text-align: center;
       }
 
-      /* Default: show light logo, hide dark logo */
       .logo-light-wrap {
         display: block;
         max-height: none;
@@ -231,10 +229,6 @@ export const GeneralTemplate = (title, text) => {
         background: transparent !important;
         mix-blend-mode: normal !important;
       }
-      /*
-       * Gmail mobile (and Web) often applies prefers-color-scheme: dark AND its own
-       * colour remapping. Reset to the intended light palette so blend layers stay in sync.
-       */
       u + .body .wrapper,
       u + .body .wrapper > tbody > tr > td {
         background-color: #f4f7fe !important;
@@ -302,21 +296,13 @@ export const GeneralTemplate = (title, text) => {
         background: #f4f7fe !important;
         background-image: linear-gradient(#f4f7fe, #f4f7fe) !important;
         color: #0e202f !important;
-        -webkit-text-fill-color: #0e202f !important;
       }
-      u + .body .gmail-blend-screen {
-        background: #000000 !important;
-        mix-blend-mode: screen !important;
-      }
+      u + .body .gmail-blend-screen,
       u + .body .gmail-blend-difference {
-        background: #000000 !important;
-        mix-blend-mode: difference !important;
+        background: transparent !important;
+        mix-blend-mode: normal !important;
       }
 
-      /*
-       * Keep light logo/mascot in Gmail: we restore the light palette above so
-       * assets match the card again (dark variants are for real dark mode clients).
-       */
       u + .body .logo-light-wrap {
         display: block !important;
         max-height: none !important;
@@ -388,7 +374,6 @@ export const GeneralTemplate = (title, text) => {
           ) !important;
           opacity: 0.85 !important;
         }
-        /* Swap logos for native dark mode clients (Apple Mail, Outlook iOS, etc.) */
         .logo-light-wrap {
           display: none !important;
           max-height: 0 !important;
@@ -411,7 +396,7 @@ export const GeneralTemplate = (title, text) => {
     </style>
   </head>
 
-  <body class="body" style="margin:0;padding:0;width:100%;">
+  <body class="body" style="margin:0;padding:0;width:100%;color:#0e202f;">
     <div
       class="gmail-blend-outer"
       style="background-color:#f4f7fe;background-image:linear-gradient(#f4f7fe,#f4f7fe);color:#0e202f;"
@@ -450,10 +435,6 @@ export const GeneralTemplate = (title, text) => {
                   />
                 </div>
 
-                <!--
-                  Dark logo — revealed by u+.body (Gmail app) and prefers-color-scheme:dark.
-                  MSO conditional prevents Outlook desktop from reserving space for it.
-                -->
                 <!--[if !mso]><!-->
                 <div class="logo-dark-wrap" style="display:none;max-height:0;overflow:hidden;mso-hide:all;margin:0 auto 24px;">
                   <img
@@ -466,14 +447,13 @@ export const GeneralTemplate = (title, text) => {
                 <!--<![endif]-->
 
                 <div class="logo-divider"></div>
-                <h1 class="heading-text">${title}</h1>
+                <h1 class="heading-text" style="color:#0e202f;">${title}</h1>
               </div>
 
-              <div class="content-text">
+              <div class="content-text" style="color:#3d527b;">
                 ${text}
               </div>
 
-              <!-- Mascot light (default) -->
               <img
                 src="${AMAZON_S3_BUCKET}/mascot-happy-blue"
                 class="mascot-image mascot-light"
@@ -481,7 +461,6 @@ export const GeneralTemplate = (title, text) => {
                 style="display:block;width:132px;margin:32px auto 0;"
               />
 
-              <!-- Mascot dark — same swap logic as logo above -->
               <!--[if !mso]><!-->
               <div class="mascot-dark" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
                 <img
@@ -494,7 +473,7 @@ export const GeneralTemplate = (title, text) => {
               <!--<![endif]-->
 
               <div class="divider"></div>
-              <div class="footer">
+              <div class="footer" style="color:#66768d;">
                 <div>
                   You're receiving this email because you have an account with
                   uSupport.
