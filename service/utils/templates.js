@@ -100,13 +100,29 @@ export const GeneralTemplate = (title, text) => {
         margin: 0 auto;
       }
 
-      .logo-light,
+      /* Default: show light logo, hide dark logo */
+      .logo-light-wrap {
+        display: block;
+        max-height: none;
+        overflow: visible;
+        margin: 0 auto 24px;
+      }
+      .logo-dark-wrap {
+        display: none;
+        max-height: 0;
+        overflow: hidden;
+        mso-hide: all;
+        margin: 0 auto 24px;
+      }
+
       .mascot-light {
         display: block;
       }
-      .logo-dark,
       .mascot-dark {
-        display: none !important;
+        display: none;
+        max-height: 0;
+        overflow: hidden;
+        mso-hide: all;
       }
 
       .logo-divider {
@@ -214,6 +230,57 @@ export const GeneralTemplate = (title, text) => {
         margin: 32px auto 0;
       }
 
+      .gmail-blend-outer {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .gmail-blend-screen,
+      .gmail-blend-difference {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: transparent !important;
+        mix-blend-mode: normal !important;
+      }
+      u + .body .gmail-blend-outer {
+        background: #f4f7fe !important;
+        background-image: linear-gradient(#f4f7fe, #f4f7fe) !important;
+        color: #0e202f !important;
+      }
+      u + .body .gmail-blend-screen {
+        background: #000000 !important;
+        mix-blend-mode: screen !important;
+      }
+      u + .body .gmail-blend-difference {
+        background: #000000 !important;
+        mix-blend-mode: difference !important;
+      }
+
+      /*
+       * u+.body targets only the Gmail app. Gmail ignores prefers-color-scheme
+       * and inverts colours itself, which breaks the light logo — so we swap
+       * to the dark logo unconditionally for all Gmail app renders.
+       */
+      u + .body .logo-light-wrap {
+        display: none !important;
+        max-height: 0 !important;
+        overflow: hidden !important;
+      }
+      u + .body .logo-dark-wrap {
+        display: block !important;
+        max-height: none !important;
+        overflow: visible !important;
+      }
+      u + .body .mascot-light {
+        display: none !important;
+      }
+      u + .body .mascot-dark {
+        display: block !important;
+        max-height: none !important;
+        overflow: visible !important;
+      }
+
       @media (prefers-color-scheme: dark) {
         body {
           background: #0b1220 !important;
@@ -266,29 +333,33 @@ export const GeneralTemplate = (title, text) => {
           ) !important;
           opacity: 0.85 !important;
         }
-        .logo-plate {
+        /* Swap logos for native dark mode clients (Apple Mail, Outlook iOS, etc.) */
+        .logo-light-wrap {
           display: none !important;
           max-height: 0 !important;
           overflow: hidden !important;
-          mso-hide: all !important;
         }
-        .logo-light {
-          display: none !important;
-        }
-        .logo-dark {
+        .logo-dark-wrap {
           display: block !important;
+          max-height: none !important;
+          overflow: visible !important;
         }
         .mascot-light {
           display: none !important;
         }
         .mascot-dark {
           display: block !important;
+          max-height: none !important;
+          overflow: visible !important;
         }
       }
     </style>
   </head>
 
-  <body style="margin:0;padding:0;width:100%;">
+  <body class="body" style="margin:0;padding:0;width:100%;">
+    <div class="gmail-blend-outer">
+      <div class="gmail-blend-screen">
+        <div class="gmail-blend-difference">
     <table
       role="presentation"
       class="wrapper"
@@ -307,37 +378,49 @@ export const GeneralTemplate = (title, text) => {
               style="border-radius:30px;border:1px solid #dde5f0;"
             >
               <div class="header">
-                <table
-                  role="presentation"
-                  class="logo-plate"
-                  width="100%"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                >
-                  <tr>
-                    <td
-                      align="center"
-                      bgcolor="#FFFFFF"
-                      style="background-color:#ffffff;background-image:linear-gradient(#ffffff,#ffffff);border-radius:16px;padding:14px 20px;mso-padding-alt:14px 20px;"
-                    >
-                      <img
-                        src="${EMAIL_LOGO_LIGHT_URL}"
-                        class="logo-horizontal logo-light"
-                        alt="uSupport"
-                        width="176"
-                        style="margin:0 auto;border:0;display:block;max-width:100%;width:176px;"
-                      />
-                    </td>
-                  </tr>
-                </table>
-                <img
-                  src="${EMAIL_LOGO_DARK_URL}"
-                  class="logo-horizontal logo-dark"
-                  alt="uSupport"
-                  width="176"
-                  style="display:none;margin:0 auto 24px;border:0;max-width:100%;width:176px;"
-                />
+
+                <!-- Light logo (default) -->
+                <div class="logo-light-wrap" style="display:block;max-height:none;overflow:visible;margin:0 auto 24px;">
+                  <table
+                    role="presentation"
+                    class="logo-plate"
+                    width="100%"
+                    cellpadding="0"
+                    cellspacing="0"
+                    border="0"
+                  >
+                    <tr>
+                      <td
+                        align="center"
+                        bgcolor="#FFFFFF"
+                        style="background-color:#ffffff;background-image:linear-gradient(#ffffff,#ffffff);border-radius:16px;padding:14px 20px;mso-padding-alt:14px 20px;"
+                      >
+                        <img
+                          src="${EMAIL_LOGO_LIGHT_URL}"
+                          alt="uSupport"
+                          width="176"
+                          style="margin:0 auto;border:0;display:block;max-width:100%;width:176px;"
+                        />
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <!--
+                  Dark logo — revealed by u+.body (Gmail app) and prefers-color-scheme:dark.
+                  MSO conditional prevents Outlook desktop from reserving space for it.
+                -->
+                <!--[if !mso]><!-->
+                <div class="logo-dark-wrap" style="display:none;max-height:0;overflow:hidden;mso-hide:all;margin:0 auto 24px;">
+                  <img
+                    src="${EMAIL_LOGO_DARK_URL}"
+                    alt="uSupport"
+                    width="176"
+                    style="margin:0 auto;border:0;display:block;max-width:100%;width:176px;"
+                  />
+                </div>
+                <!--<![endif]-->
+
                 <div class="logo-divider"></div>
                 <h1 class="heading-text">${title}</h1>
               </div>
@@ -346,18 +429,25 @@ export const GeneralTemplate = (title, text) => {
                 ${text}
               </div>
 
+              <!-- Mascot light (default) -->
               <img
                 src="${AMAZON_S3_BUCKET}/mascot-happy-blue"
                 class="mascot-image mascot-light"
                 alt="mascot"
                 style="display:block;width:132px;margin:32px auto 0;"
               />
-              <img
-                src="${AMAZON_S3_BUCKET}/mascot-happy-blue-light"
-                class="mascot-image mascot-dark"
-                alt="mascot"
-                style="display:none;width:132px;margin:32px auto 0;"
-              />
+
+              <!-- Mascot dark — same swap logic as logo above -->
+              <!--[if !mso]><!-->
+              <div class="mascot-dark" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+                <img
+                  src="${AMAZON_S3_BUCKET}/mascot-happy-blue-light"
+                  class="mascot-image"
+                  alt="mascot"
+                  style="display:block;width:132px;margin:32px auto 0;"
+                />
+              </div>
+              <!--<![endif]-->
 
               <div class="divider"></div>
               <div class="footer">
@@ -375,6 +465,9 @@ export const GeneralTemplate = (title, text) => {
         </td>
       </tr>
     </table>
+        </div>
+      </div>
+    </div>
   </body>
 </html>`;
 
