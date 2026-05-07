@@ -5,10 +5,12 @@ const EMAIL_LOGO_DARK_URL =
   process.env.EMAIL_LOGO_DARK_URL || `${AMAZON_S3_BUCKET}/logo-horizontal-dark`;
 
 export const GeneralTemplate = (title, text) => {
-  const computedHTML = `<html lang="en">
+  const computedHTML = `<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Gmail replaces the doctype with <u>; required for u + .body Gmail-only CSS. -->
     <meta name="color-scheme" content="light dark" />
     <meta name="supported-color-schemes" content="light dark" />
     <link
@@ -84,20 +86,6 @@ export const GeneralTemplate = (title, text) => {
 
       .header {
         text-align: center;
-      }
-
-      .logo-plate {
-        margin: 0 auto 24px;
-        border-collapse: separate;
-      }
-      .logo-plate td {
-        border-radius: 16px;
-        padding: 14px 20px;
-      }
-
-      .logo-horizontal {
-        width: 176px;
-        margin: 0 auto;
       }
 
       /* Default: show light logo, hide dark logo */
@@ -243,10 +231,78 @@ export const GeneralTemplate = (title, text) => {
         background: transparent !important;
         mix-blend-mode: normal !important;
       }
+      /*
+       * Gmail mobile (and Web) often applies prefers-color-scheme: dark AND its own
+       * colour remapping. Reset to the intended light palette so blend layers stay in sync.
+       */
+      u + .body .wrapper,
+      u + .body .wrapper > tbody > tr > td {
+        background-color: #f4f7fe !important;
+        background: #f4f7fe !important;
+        background-image: linear-gradient(#f4f7fe, #f4f7fe) !important;
+      }
+      u + .body .shell {
+        background-color: #e8ecf8 !important;
+        background-image:
+          linear-gradient(#e8ecf8, #e8ecf8),
+          linear-gradient(
+            145deg,
+            rgba(175, 133, 255, 0.2),
+            rgba(124, 172, 255, 0.22),
+            rgba(255, 167, 103, 0.2)
+          ) !important;
+      }
+      u + .body .card {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        background-image: linear-gradient(#ffffff, #ffffff) !important;
+        border-color: #dde5f0 !important;
+        box-shadow: 0 18px 40px rgba(61, 82, 123, 0.16) !important;
+      }
+      u + .body .logo-divider {
+        background: #e3edf7 !important;
+      }
+      u + .body .heading-text {
+        color: #0e202f !important;
+        -webkit-text-fill-color: #0e202f !important;
+      }
+      u + .body .content-text {
+        color: #3d527b !important;
+        -webkit-text-fill-color: #3d527b !important;
+      }
+      u + .body .content-text a {
+        color: #20809e !important;
+        -webkit-text-fill-color: #20809e !important;
+      }
+      u + .body .footer,
+      u + .body .content-text .secondary-text {
+        color: #66768d !important;
+        -webkit-text-fill-color: #66768d !important;
+      }
+      u + .body .content-text .secondary-link {
+        color: #20809e !important;
+        -webkit-text-fill-color: #20809e !important;
+      }
+      u + .body .divider {
+        background: linear-gradient(
+          90deg,
+          #f3f3ff 0%,
+          #c1d7e0 40%,
+          #c1d7e0 100%
+        ) !important;
+        opacity: 0.7 !important;
+      }
+      u + .body .content-text .primary-button {
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+        background: linear-gradient(90deg, #20809e 0%, #6a4ffb 100%) !important;
+        background-image: linear-gradient(90deg, #20809e 0%, #6a4ffb 100%) !important;
+      }
       u + .body .gmail-blend-outer {
         background: #f4f7fe !important;
         background-image: linear-gradient(#f4f7fe, #f4f7fe) !important;
         color: #0e202f !important;
+        -webkit-text-fill-color: #0e202f !important;
       }
       u + .body .gmail-blend-screen {
         background: #000000 !important;
@@ -258,27 +314,26 @@ export const GeneralTemplate = (title, text) => {
       }
 
       /*
-       * u+.body targets only the Gmail app. Gmail ignores prefers-color-scheme
-       * and inverts colours itself, which breaks the light logo — so we swap
-       * to the dark logo unconditionally for all Gmail app renders.
+       * Keep light logo/mascot in Gmail: we restore the light palette above so
+       * assets match the card again (dark variants are for real dark mode clients).
        */
       u + .body .logo-light-wrap {
+        display: block !important;
+        max-height: none !important;
+        overflow: visible !important;
+      }
+      u + .body .logo-dark-wrap {
         display: none !important;
         max-height: 0 !important;
         overflow: hidden !important;
       }
-      u + .body .logo-dark-wrap {
-        display: block !important;
-        max-height: none !important;
-        overflow: visible !important;
-      }
       u + .body .mascot-light {
-        display: none !important;
+        display: block !important;
       }
       u + .body .mascot-dark {
-        display: block !important;
-        max-height: none !important;
-        overflow: visible !important;
+        display: none !important;
+        max-height: 0 !important;
+        overflow: hidden !important;
       }
 
       @media (prefers-color-scheme: dark) {
@@ -357,7 +412,10 @@ export const GeneralTemplate = (title, text) => {
   </head>
 
   <body class="body" style="margin:0;padding:0;width:100%;">
-    <div class="gmail-blend-outer">
+    <div
+      class="gmail-blend-outer"
+      style="background-color:#f4f7fe;background-image:linear-gradient(#f4f7fe,#f4f7fe);color:#0e202f;"
+    >
       <div class="gmail-blend-screen">
         <div class="gmail-blend-difference">
     <table
@@ -365,45 +423,31 @@ export const GeneralTemplate = (title, text) => {
       class="wrapper"
       width="100%"
       bgcolor="#F4F7FE"
-      style="width:100%;background-color:#f4f7fe;"
+      style="width:100%;background-color:#f4f7fe;background-image:linear-gradient(#f4f7fe,#f4f7fe);"
     >
       <tr>
-        <td align="center" bgcolor="#F4F7FE" style="background-color:#f4f7fe;">
+        <td
+          align="center"
+          bgcolor="#F4F7FE"
+          style="background-color:#f4f7fe;background-image:linear-gradient(#f4f7fe,#f4f7fe);"
+        >
           <div
             class="shell"
-            style="max-width:640px;margin:32px auto;border-radius:32px;"
+            style="max-width:640px;margin:32px auto;border-radius:32px;background-color:#e8ecf8;background-image:linear-gradient(#e8ecf8,#e8ecf8),linear-gradient(145deg,rgba(175,133,255,0.2),rgba(124,172,255,0.22),rgba(255,167,103,0.2));"
           >
             <div
               class="card"
-              style="border-radius:30px;border:1px solid #dde5f0;"
+              style="border-radius:30px;border:1px solid #dde5f0;background-color:#ffffff;background-image:linear-gradient(#ffffff,#ffffff);"
             >
               <div class="header">
 
-                <!-- Light logo (default) -->
-                <div class="logo-light-wrap" style="display:block;max-height:none;overflow:visible;margin:0 auto 24px;">
-                  <table
-                    role="presentation"
-                    class="logo-plate"
-                    width="100%"
-                    cellpadding="0"
-                    cellspacing="0"
-                    border="0"
-                  >
-                    <tr>
-                      <td
-                        align="center"
-                        bgcolor="#FFFFFF"
-                        style="background-color:#ffffff;background-image:linear-gradient(#ffffff,#ffffff);border-radius:16px;padding:14px 20px;mso-padding-alt:14px 20px;"
-                      >
-                        <img
-                          src="${EMAIL_LOGO_LIGHT_URL}"
-                          alt="uSupport"
-                          width="176"
-                          style="margin:0 auto;border:0;display:block;max-width:100%;width:176px;"
-                        />
-                      </td>
-                    </tr>
-                  </table>
+                <div class="logo-light-wrap" style="display:block;max-height:none;overflow:visible;margin:0 auto 24px;text-align:center;">
+                  <img
+                    src="${EMAIL_LOGO_LIGHT_URL}"
+                    alt="uSupport"
+                    width="176"
+                    style="margin:0 auto;border:0;display:inline-block;max-width:100%;width:176px;vertical-align:top;"
+                  />
                 </div>
 
                 <!--
