@@ -229,6 +229,14 @@ export const GeneralTemplate = (title, text) => {
         background: transparent !important;
         mix-blend-mode: normal !important;
       }
+      u + .body {
+        background: #f4f7fe !important;
+        background-image: linear-gradient(#f4f7fe, #f4f7fe) !important;
+        color: #3d527b !important;
+        -webkit-text-fill-color: #3d527b !important;
+        color-scheme: light !important;
+        forced-color-adjust: none !important;
+      }
       u + .body .wrapper,
       u + .body .wrapper > tbody > tr > td {
         background-color: #f4f7fe !important;
@@ -252,11 +260,15 @@ export const GeneralTemplate = (title, text) => {
         background-image: linear-gradient(#ffffff, #ffffff) !important;
         border-color: #dde5f0 !important;
         box-shadow: 0 18px 40px rgba(61, 82, 123, 0.16) !important;
+        color: #3d527b !important;
+        color-scheme: light !important;
+        forced-color-adjust: none !important;
       }
       u + .body .logo-divider {
         background: #e3edf7 !important;
       }
-      u + .body .heading-text {
+      u + .body .heading-text,
+      u + .body .heading-text * {
         color: #0e202f !important;
         -webkit-text-fill-color: #0e202f !important;
       }
@@ -264,18 +276,34 @@ export const GeneralTemplate = (title, text) => {
         color: #3d527b !important;
         -webkit-text-fill-color: #3d527b !important;
       }
-      u + .body .content-text a {
+      u + .body .content-text * {
+        color: #3d527b !important;
+        -webkit-text-fill-color: #3d527b !important;
+      }
+      u + .body .content-text a,
+      u + .body .content-text a * {
+        color: #20809e !important;
+        -webkit-text-fill-color: #20809e !important;
+      }
+      u + .body .content-text .primary-button,
+      u + .body .content-text .primary-button * {
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+      }
+      u + .body .content-text .secondary-text,
+      u + .body .content-text .secondary-text * {
+        color: #66768d !important;
+        -webkit-text-fill-color: #66768d !important;
+      }
+      u + .body .content-text .secondary-link,
+      u + .body .content-text .secondary-link * {
         color: #20809e !important;
         -webkit-text-fill-color: #20809e !important;
       }
       u + .body .footer,
-      u + .body .content-text .secondary-text {
+      u + .body .footer * {
         color: #66768d !important;
         -webkit-text-fill-color: #66768d !important;
-      }
-      u + .body .content-text .secondary-link {
-        color: #20809e !important;
-        -webkit-text-fill-color: #20809e !important;
       }
       u + .body .divider {
         background: linear-gradient(
@@ -287,8 +315,6 @@ export const GeneralTemplate = (title, text) => {
         opacity: 0.7 !important;
       }
       u + .body .content-text .primary-button {
-        color: #ffffff !important;
-        -webkit-text-fill-color: #ffffff !important;
         background: linear-gradient(90deg, #20809e 0%, #6a4ffb 100%) !important;
         background-image: linear-gradient(90deg, #20809e 0%, #6a4ffb 100%) !important;
       }
@@ -296,6 +322,8 @@ export const GeneralTemplate = (title, text) => {
         background: #f4f7fe !important;
         background-image: linear-gradient(#f4f7fe, #f4f7fe) !important;
         color: #0e202f !important;
+        color-scheme: light !important;
+        forced-color-adjust: none !important;
       }
       u + .body .gmail-blend-screen,
       u + .body .gmail-blend-difference {
