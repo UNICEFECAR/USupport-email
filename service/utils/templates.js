@@ -16,7 +16,7 @@ const TX = {
   heading: "#0e202f",
   body: "#142c3d",
   muted: "#3d4f62",
-  link: "#156c82",
+      link: "#20809e",
 };
 
 const pageBgStyle = `background-color:${BG.page};background-image:linear-gradient(${BG.page},${BG.page})`;
@@ -255,52 +255,43 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
         color: ${TX.heading} !important;
         -webkit-text-fill-color: ${TX.heading} !important;
       }
-      u + .body .content-text p,
-      u + .body .content-text div,
-      u + .body .content-text span,
-      u + .body .content-text li,
-      u + .body .content-text td,
-      u + .body .content-text strong,
-      u + .body .content-text b,
-      u + .body .content-text em,
-      u + .body .content-text i {
+      u + .body .content-text,
+      u + .body .content-text * {
         color: ${TX.body} !important;
         -webkit-text-fill-color: ${TX.body} !important;
       }
-      [data-ogsc] .body .heading-text,
-      [data-ogsc] .body .heading-text *,
-      [data-ogsc] .body .content-text,
-      [data-ogsc] .body .content-text * {
+      [data-ogsc] .heading-text,
+      [data-ogsc] .heading-text * {
         color: ${TX.heading} !important;
         -webkit-text-fill-color: ${TX.heading} !important;
       }
-      [data-ogsc] .body .content-text,
-      [data-ogsc] .body .content-text p,
-      [data-ogsc] .body .content-text div,
-      [data-ogsc] .body .content-text span,
-      [data-ogsc] .body .content-text li,
-      [data-ogsc] .body .content-text strong,
-      [data-ogsc] .body .content-text b {
+      [data-ogsc] .content-text,
+      [data-ogsc] .content-text * {
         color: ${TX.body} !important;
         -webkit-text-fill-color: ${TX.body} !important;
       }
-      [data-ogsc] .body .heading-text,
-      [data-ogsc] .body .heading-text * {
-        color: ${TX.heading} !important;
-        -webkit-text-fill-color: ${TX.heading} !important;
-      }
-      [data-ogsc] .body .content-text a,
-      [data-ogsc] .body .content-text a * {
+      [data-ogsc] .content-text a,
+      [data-ogsc] .content-text a * {
         color: ${TX.link} !important;
         -webkit-text-fill-color: ${TX.link} !important;
       }
-      [data-ogsc] .body .content-text .primary-button,
-      [data-ogsc] .body .content-text .primary-button * {
+      [data-ogsc] .content-text .secondary-link,
+      [data-ogsc] .content-text .secondary-link * {
+        color: ${TX.link} !important;
+        -webkit-text-fill-color: ${TX.link} !important;
+      }
+      [data-ogsc] .content-text .secondary-text,
+      [data-ogsc] .content-text .secondary-text * {
+        color: ${TX.muted} !important;
+        -webkit-text-fill-color: ${TX.muted} !important;
+      }
+      [data-ogsc] .content-text .primary-button,
+      [data-ogsc] .content-text .primary-button * {
         color: #ffffff !important;
         -webkit-text-fill-color: #ffffff !important;
       }
-      [data-ogsc] .body .footer,
-      [data-ogsc] .body .footer * {
+      [data-ogsc] .footer,
+      [data-ogsc] .footer * {
         color: ${TX.muted} !important;
         -webkit-text-fill-color: ${TX.muted} !important;
       }
@@ -371,7 +362,7 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
                 class="card"
                 align="left"
                 width="100%"
-                style="width:100%;border:0;outline:none;border-radius:24px;background-color:${BG.card};background-image:linear-gradient(${BG.card},${BG.card});box-shadow:0 18px 40px rgba(61,82,123,0.16)"
+                style="width:100%;border:0;outline:none;border-radius:24px;background-color:${BG.card};background-image:linear-gradient(${BG.card},${BG.card});box-shadow:0 18px 40px rgba(61,82,123,0.16);color:${TX.body};-webkit-text-fill-color:${TX.body}"
               >
                 <div class="header">
                   <div style="margin:0 auto 24px;text-align:center;">
@@ -383,7 +374,7 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
                     />
                   </div>
                   <div class="logo-divider"></div>
-                  <h1 class="heading-text">${title}</h1>
+                  <h1 class="heading-text" style="color:${TX.heading};-webkit-text-fill-color:${TX.heading}">${title}</h1>
                 </div>
                 <div
                   class="content-text"
