@@ -97,10 +97,19 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
         text-align: center;
       }
 
-      .logo-divider {
+      .divider {
         width: 100%;
         height: 1px;
-        background: #e3edf7;
+        line-height: 0;
+        font-size: 0;
+        margin: 28px 0 20px;
+        overflow: hidden;
+        background: ${GRAD.divider};
+        background-image: ${GRAD.divider};
+        opacity: 0.7;
+      }
+
+      .divider--after-logo {
         margin: 0 0 28px;
       }
 
@@ -121,10 +130,17 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
         text-align: center;
         word-wrap: break-word;
         overflow-wrap: anywhere;
+        forced-color-adjust: none;
       }
 
       .content-text p {
         margin: 0 0 14px;
+        color: ${TX.body};
+        -webkit-text-fill-color: ${TX.body};
+        forced-color-adjust: none;
+      }
+
+      .content-text font {
         color: ${TX.body};
         -webkit-text-fill-color: ${TX.body};
       }
@@ -139,6 +155,7 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
       .content-text i {
         color: ${TX.body};
         -webkit-text-fill-color: ${TX.body};
+        forced-color-adjust: none;
       }
 
       .content-text a {
@@ -183,14 +200,7 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
         text-decoration: underline;
       }
 
-      .divider {
-        margin: 28px 0 20px;
-        height: 1px;
-        background: ${GRAD.divider};
-        opacity: 0.7;
-      }
-
-      .footer,
+      .heading-text {
       .footer div {
         color: ${TX.muted};
         -webkit-text-fill-color: ${TX.muted};
@@ -244,11 +254,9 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
         outline: none !important;
         box-shadow: 0 18px 40px rgba(61, 82, 123, 0.16) !important;
         color: ${TX.body} !important;
+        -webkit-text-fill-color: ${TX.body} !important;
         color-scheme: light !important;
         forced-color-adjust: none !important;
-      }
-      u + .body .logo-divider {
-        background: #e3edf7 !important;
       }
       u + .body .heading-text,
       u + .body .heading-text * {
@@ -259,41 +267,63 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
       u + .body .content-text * {
         color: ${TX.body} !important;
         -webkit-text-fill-color: ${TX.body} !important;
+        forced-color-adjust: none !important;
       }
       [data-ogsc] .heading-text,
-      [data-ogsc] .heading-text * {
+      [data-ogsb] .heading-text,
+      [data-ogsc] .heading-text *,
+      [data-ogsb] .heading-text * {
         color: ${TX.heading} !important;
         -webkit-text-fill-color: ${TX.heading} !important;
       }
       [data-ogsc] .content-text,
-      [data-ogsc] .content-text * {
+      [data-ogsb] .content-text,
+      [data-ogsc] .content-text *,
+      [data-ogsb] .content-text * {
         color: ${TX.body} !important;
         -webkit-text-fill-color: ${TX.body} !important;
+        forced-color-adjust: none !important;
       }
       [data-ogsc] .content-text a,
-      [data-ogsc] .content-text a * {
+      [data-ogsb] .content-text a,
+      [data-ogsc] .content-text a *,
+      [data-ogsb] .content-text a * {
         color: ${TX.link} !important;
         -webkit-text-fill-color: ${TX.link} !important;
       }
       [data-ogsc] .content-text .secondary-link,
-      [data-ogsc] .content-text .secondary-link * {
+      [data-ogsb] .content-text .secondary-link,
+      [data-ogsc] .content-text .secondary-link *,
+      [data-ogsb] .content-text .secondary-link * {
         color: ${TX.link} !important;
         -webkit-text-fill-color: ${TX.link} !important;
       }
       [data-ogsc] .content-text .secondary-text,
-      [data-ogsc] .content-text .secondary-text * {
+      [data-ogsb] .content-text .secondary-text,
+      [data-ogsc] .content-text .secondary-text *,
+      [data-ogsb] .content-text .secondary-text * {
         color: ${TX.muted} !important;
         -webkit-text-fill-color: ${TX.muted} !important;
       }
       [data-ogsc] .content-text .primary-button,
-      [data-ogsc] .content-text .primary-button * {
+      [data-ogsb] .content-text .primary-button,
+      [data-ogsc] .content-text .primary-button *,
+      [data-ogsb] .content-text .primary-button * {
         color: #ffffff !important;
         -webkit-text-fill-color: #ffffff !important;
       }
       [data-ogsc] .footer,
-      [data-ogsc] .footer * {
+      [data-ogsb] .footer,
+      [data-ogsc] .footer *,
+      [data-ogsb] .footer * {
         color: ${TX.muted} !important;
         -webkit-text-fill-color: ${TX.muted} !important;
+      }
+      [data-ogsc] .divider,
+      [data-ogsb] .divider {
+        background: ${GRAD.divider} !important;
+        background-image: ${GRAD.divider} !important;
+        opacity: 0.7 !important;
       }
       u + .body .content-text a,
       u + .body .content-text a *,
@@ -319,11 +349,44 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
       }
       u + .body .divider {
         background: ${GRAD.divider} !important;
+        background-image: ${GRAD.divider} !important;
         opacity: 0.7 !important;
       }
       u + .body .content-text .primary-button {
         background: ${GRAD.btn} !important;
         background-image: ${GRAD.btn} !important;
+      }
+
+      .body .card .content-text,
+      .body .card .content-text * {
+        color: ${TX.body} !important;
+        -webkit-text-fill-color: ${TX.body} !important;
+        forced-color-adjust: none !important;
+      }
+      .body .card .content-text font,
+      .body .card .content-text font * {
+        color: ${TX.body} !important;
+        -webkit-text-fill-color: ${TX.body} !important;
+      }
+      .body .card .content-text a,
+      .body .card .content-text a * {
+        color: ${TX.link} !important;
+        -webkit-text-fill-color: ${TX.link} !important;
+      }
+      .body .card .content-text .primary-button,
+      .body .card .content-text .primary-button * {
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+      }
+      .body .card .content-text .secondary-text,
+      .body .card .content-text .secondary-text * {
+        color: ${TX.muted} !important;
+        -webkit-text-fill-color: ${TX.muted} !important;
+      }
+      .body .card .content-text .secondary-link,
+      .body .card .content-text .secondary-link * {
+        color: ${TX.link} !important;
+        -webkit-text-fill-color: ${TX.link} !important;
       }
 
     </style>
@@ -379,16 +442,23 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
                       style="margin:0 auto;border:0;display:block;max-width:100%;width:176px;height:auto;vertical-align:top"
                     />
                   </div>
-                  <div class="logo-divider"></div>
+                  <div class="divider divider--after-logo"></div>
                   <h1 class="heading-text" style="color:${
                     TX.heading
                   };-webkit-text-fill-color:${TX.heading}">${title}</h1>
                 </div>
                 <div
                   class="content-text"
-                  style="color:${TX.body};-webkit-text-fill-color:${TX.body}"
+                  style="color:${TX.body};-webkit-text-fill-color:${
+  TX.body
+};forced-color-adjust:none"
                 >
-                  ${text}
+                  <font
+                    color="${TX.body}"
+                    face="inherit"
+                    style="color:${TX.body};-webkit-text-fill-color:${TX.body}"
+                    >${text}</font
+                  >
                 </div>
                 <img
                   src="${AMAZON_S3_BUCKET}/mascot-happy-blue"
