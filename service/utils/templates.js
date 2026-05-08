@@ -54,7 +54,7 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
           sans-serif;
         -webkit-text-size-adjust: 100%;
         background: ${BG.page};
-        color: ${TX.heading};
+        color: ${TX.heading} !important !important;
       }
 
       table {
@@ -118,7 +118,7 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
         line-height: 1.3;
         font-weight: 600;
         margin: 0 0 32px;
-        color: ${TX.heading};
+        color: ${TX.heading} !important;
       }
 
       .content-text {
@@ -260,8 +260,8 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
       }
       u + .body .heading-text,
       u + .body .heading-text * {
-        color: ${TX.heading} !important;
-        -webkit-text-fill-color: ${TX.heading} !important;
+        color: ${TX.heading} !important !important;
+        -webkit-text-fill-color: ${TX.heading} !important !important;
       }
       u + .body .content-text,
       u + .body .content-text * {
@@ -273,8 +273,8 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
       [data-ogsb] .heading-text,
       [data-ogsc] .heading-text *,
       [data-ogsb] .heading-text * {
-        color: ${TX.heading} !important;
-        -webkit-text-fill-color: ${TX.heading} !important;
+        color: ${TX.heading} !important !important;
+        -webkit-text-fill-color: ${TX.heading} !important !important;
       }
       [data-ogsc] .content-text,
       [data-ogsb] .content-text,
