@@ -54,7 +54,7 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
           sans-serif;
         -webkit-text-size-adjust: 100%;
         background: ${BG.page};
-        color: ${TX.heading};
+        color: ${TX.heading} !important !important;
       }
 
       table {
@@ -118,7 +118,7 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
         line-height: 1.3;
         font-weight: 600;
         margin: 0 0 32px;
-        color: ${TX.heading};
+        color: ${TX.heading} !important;
       }
 
       .content-text {
@@ -260,8 +260,8 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
       }
       u + .body .heading-text,
       u + .body .heading-text * {
-        color: ${TX.heading} !important;
-        -webkit-text-fill-color: ${TX.heading} !important;
+        color: ${TX.heading} !important !important;
+        -webkit-text-fill-color: ${TX.heading} !important !important;
       }
       u + .body .content-text,
       u + .body .content-text * {
@@ -273,8 +273,8 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
       [data-ogsb] .heading-text,
       [data-ogsc] .heading-text *,
       [data-ogsb] .heading-text * {
-        color: ${TX.heading} !important;
-        -webkit-text-fill-color: ${TX.heading} !important;
+        color: ${TX.heading} !important !important;
+        -webkit-text-fill-color: ${TX.heading} !important !important;
       }
       [data-ogsc] .content-text,
       [data-ogsb] .content-text,
@@ -425,7 +425,13 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
                 class="card"
                 align="left"
                 width="100%"
-                style="width:100%;border:0;outline:none;border-radius:24px;background-color:${BG.card};background-image:linear-gradient(${BG.card},${BG.card});box-shadow:0 18px 40px rgba(61,82,123,0.16);color:${TX.body};-webkit-text-fill-color:${TX.body}"
+                style="width:100%;border:0;outline:none;border-radius:24px;background-color:${
+                  BG.card
+                };background-image:linear-gradient(${BG.card},${
+  BG.card
+});box-shadow:0 18px 40px rgba(61,82,123,0.16);color:${
+  TX.body
+};-webkit-text-fill-color:${TX.body}"
               >
                 <div class="header">
                   <div style="margin:0 auto 24px;text-align:center;">
@@ -437,11 +443,15 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
                     />
                   </div>
                   <div class="divider divider--after-logo"></div>
-                  <h1 class="heading-text" style="color:${TX.heading};-webkit-text-fill-color:${TX.heading}">${title}</h1>
+                  <h1 class="heading-text" style="color:${
+                    TX.heading
+                  };-webkit-text-fill-color:${TX.heading}">${title}</h1>
                 </div>
                 <div
                   class="content-text"
-                  style="color:${TX.body};-webkit-text-fill-color:${TX.body};forced-color-adjust:none"
+                  style="color:${TX.body};-webkit-text-fill-color:${
+  TX.body
+};forced-color-adjust:none"
                 >
                   <font
                     color="${TX.body}"
