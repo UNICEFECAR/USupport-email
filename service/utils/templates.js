@@ -200,10 +200,15 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
         text-decoration: underline;
       }
 
-      .heading-text {
+      .footer {
+        text-align: center;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
       .footer div {
-        color: ${TX.muted};
-        -webkit-text-fill-color: ${TX.muted};
+        color: ${TX.muted} !important;
+        -webkit-text-fill-color: ${TX.muted} !important;
       }
 
       .footer-legal {
@@ -389,10 +394,36 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
         -webkit-text-fill-color: ${TX.link} !important;
       }
 
+      #body .content-text,
+      #body .content-text *,
+      #body .content-text span,
+      #body .content-text font {
+        color: ${TX.body} !important;
+        -webkit-text-fill-color: ${TX.body} !important;
+      }
+      #body .content-text a,
+      #body .content-text a * {
+        color: ${TX.link} !important;
+        -webkit-text-fill-color: ${TX.link} !important;
+      }
+      #body .content-text .primary-button,
+      #body .content-text .primary-button * {
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+      }
+      #body .footer,
+      #body .footer *,
+      #body .footer div {
+        color: ${TX.muted} !important;
+        -webkit-text-fill-color: ${TX.muted} !important;
+      }
+
     </style>
   </head>
 
-  <body class="body" style="margin:0;padding:0;width:100%;color:${TX.heading};">
+  <body id="body" class="body" style="margin:0;padding:0;width:100%;color:${TX.heading};-webkit-text-fill-color:${TX.heading};">
+    <!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
+    <div style="display:none;font-size:1px;color:${BG.page};line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">&#8199;&#65279;&#847;</div>
     <table
       role="presentation"
       class="wrapper"
@@ -449,15 +480,18 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
                 </div>
                 <div
                   class="content-text"
-                  style="color:${TX.body};-webkit-text-fill-color:${
+                  style="color:${TX.body} !important;-webkit-text-fill-color:${
   TX.body
-};forced-color-adjust:none"
+} !important;forced-color-adjust:none !important"
                 >
-                  <font
-                    color="${TX.body}"
-                    face="inherit"
-                    style="color:${TX.body};-webkit-text-fill-color:${TX.body}"
-                    >${text}</font
+                  <span
+                    style="color:${TX.body} !important;-webkit-text-fill-color:${TX.body} !important"
+                    ><font
+                      color="${TX.body}"
+                      face="inherit"
+                      style="color:${TX.body} !important;-webkit-text-fill-color:${TX.body} !important"
+                      >${text}</font
+                    ></span
                   >
                 </div>
                 <img
@@ -470,13 +504,13 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
                 <div class="divider"></div>
                 <div
                   class="footer"
-                  style="color:${TX.muted};-webkit-text-fill-color:${TX.muted}"
+                  style="color:${TX.muted} !important;-webkit-text-fill-color:${TX.muted} !important;text-align:center"
                 >
-                  <div>
+                  <div style="color:${TX.muted} !important;-webkit-text-fill-color:${TX.muted} !important">
                     You're receiving this email because you have an account with
                     uSupport.
                   </div>
-                  <div class="footer-legal">
+                  <div class="footer-legal" style="color:${TX.muted} !important;-webkit-text-fill-color:${TX.muted} !important">
                     &copy; ${new Date().getFullYear()} uSupport. All rights
                     reserved.
                   </div>
