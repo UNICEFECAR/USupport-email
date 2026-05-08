@@ -2,8 +2,28 @@ const AMAZON_S3_BUCKET = process.env.AMAZON_S3_BUCKET;
 const EMAIL_LOGO_LIGHT_URL =
   process.env.EMAIL_LOGO_LIGHT_URL || `${AMAZON_S3_BUCKET}/logo-horizontal`;
 
-export const GeneralTemplate = (title, text) => {
-  const computedHTML = `<!DOCTYPE html>
+const BG = {
+  page: "#f4f7fe",
+  shell: "#e8ecf8",
+  card: "#ffffff",
+};
+
+const GRAD = {
+  shellAccent:
+    "linear-gradient(145deg, rgba(175, 133, 255, 0.2), rgba(124, 172, 255, 0.22), rgba(255, 167, 103, 0.2))",
+  divider:
+    "linear-gradient(90deg, #f3f3ff 0%, #c1d7e0 40%, #c1d7e0 100%)",
+  btn: "linear-gradient(90deg, #20809e 0%, #6a4ffb 100%)",
+};
+
+const shellBgImage = `linear-gradient(${BG.shell}, ${BG.shell}), ${GRAD.shellAccent}`;
+
+const pageBgStyle = `background-color:${BG.page};background-image:linear-gradient(${BG.page},${BG.page})`;
+
+const tableReset =
+  "border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt";
+
+export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -31,7 +51,7 @@ export const GeneralTemplate = (title, text) => {
         font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
           sans-serif;
         -webkit-text-size-adjust: 100%;
-        background: #f4f7fe;
+        background: ${BG.page};
         color: #0e202f;
       }
 
@@ -50,35 +70,31 @@ export const GeneralTemplate = (title, text) => {
 
       .wrapper {
         width: 100%;
+      }
+
+      .wrapper-pad {
         padding: 24px 12px;
       }
 
-      .shell {
+      .shell-table {
+        width: 100%;
         max-width: 640px;
-        margin: 32px auto;
-        background-color: #e8ecf8;
-        background-image: linear-gradient(
-          145deg,
-          rgba(175, 133, 255, 0.2),
-          rgba(124, 172, 255, 0.22),
-          rgba(255, 167, 103, 0.2)
-        );
+        margin: 0 auto;
+      }
+
+      .shell {
+        background-color: ${BG.shell};
+        background-image: ${GRAD.shellAccent};
         border-radius: 32px;
-        padding: 1.5px;
+        padding: 2px;
       }
 
       .card {
-        background: #ffffff;
+        background: ${BG.card};
         border-radius: 30px;
         border: 1px solid #dde5f0;
         box-shadow: 0 18px 40px rgba(61, 82, 123, 0.16);
         padding: 40px 28px 32px;
-      }
-
-      @media (min-width: 600px) {
-        .card {
-          padding: 48px 40px 36px;
-        }
       }
 
       .header {
@@ -100,12 +116,6 @@ export const GeneralTemplate = (title, text) => {
         color: #0e202f;
       }
 
-      @media (min-width: 600px) {
-        .heading-text {
-          font-size: 24px;
-        }
-      }
-
       .content-text {
         margin: 0 auto;
         max-width: 460px;
@@ -113,6 +123,8 @@ export const GeneralTemplate = (title, text) => {
         line-height: 1.6;
         color: #3d527b;
         text-align: center;
+        word-wrap: break-word;
+        overflow-wrap: anywhere;
       }
 
       .content-text p {
@@ -134,7 +146,7 @@ export const GeneralTemplate = (title, text) => {
         margin: 24px 0 8px;
         padding: 12px 32px;
         border-radius: 999px;
-        background: linear-gradient(90deg, #20809e 0%, #6a4ffb 100%);
+        background: ${GRAD.btn};
         color: #ffffff !important;
         font-size: 14px;
         font-weight: 600;
@@ -164,12 +176,7 @@ export const GeneralTemplate = (title, text) => {
       .divider {
         margin: 28px 0 20px;
         height: 1px;
-        background: linear-gradient(
-          90deg,
-          #f3f3ff 0%,
-          #c1d7e0 40%,
-          #c1d7e0 100%
-        );
+        background: ${GRAD.divider};
         opacity: 0.7;
       }
 
@@ -190,22 +197,19 @@ export const GeneralTemplate = (title, text) => {
         margin: 32px auto 0;
       }
 
-      .gmail-blend-outer {
-        width: 100%;
-        margin: 0;
-        padding: 0;
+      @media (min-width: 600px) {
+        .card {
+          padding: 48px 40px 36px;
+        }
+
+        .heading-text {
+          font-size: 24px;
+        }
       }
-      .gmail-blend-screen,
-      .gmail-blend-difference {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        background: transparent !important;
-        mix-blend-mode: normal !important;
-      }
+
       u + .body {
-        background: #f4f7fe !important;
-        background-image: linear-gradient(#f4f7fe, #f4f7fe) !important;
+        background: ${BG.page} !important;
+        background-image: linear-gradient(${BG.page}, ${BG.page}) !important;
         color: #3d527b !important;
         -webkit-text-fill-color: #3d527b !important;
         color-scheme: light !important;
@@ -213,25 +217,22 @@ export const GeneralTemplate = (title, text) => {
       }
       u + .body .wrapper,
       u + .body .wrapper > tbody > tr > td {
-        background-color: #f4f7fe !important;
-        background: #f4f7fe !important;
-        background-image: linear-gradient(#f4f7fe, #f4f7fe) !important;
+        background-color: ${BG.page} !important;
+        background: ${BG.page} !important;
+        background-image: linear-gradient(${BG.page}, ${BG.page}) !important;
       }
       u + .body .shell {
-        background-color: #e8ecf8 !important;
-        background-image:
-          linear-gradient(#e8ecf8, #e8ecf8),
-          linear-gradient(
-            145deg,
-            rgba(175, 133, 255, 0.2),
-            rgba(124, 172, 255, 0.22),
-            rgba(255, 167, 103, 0.2)
-          ) !important;
+        background-color: ${BG.shell} !important;
+        background-image: ${shellBgImage} !important;
+      }
+      u + .body .shell-table {
+        background-color: transparent !important;
+        background-image: none !important;
       }
       u + .body .card {
-        background: #ffffff !important;
-        background-color: #ffffff !important;
-        background-image: linear-gradient(#ffffff, #ffffff) !important;
+        background: ${BG.card} !important;
+        background-color: ${BG.card} !important;
+        background-image: linear-gradient(${BG.card}, ${BG.card}) !important;
         border-color: #dde5f0 !important;
         box-shadow: 0 18px 40px rgba(61, 82, 123, 0.16) !important;
         color: #3d527b !important;
@@ -246,16 +247,15 @@ export const GeneralTemplate = (title, text) => {
         color: #0e202f !important;
         -webkit-text-fill-color: #0e202f !important;
       }
-      u + .body .content-text {
-        color: #3d527b !important;
-        -webkit-text-fill-color: #3d527b !important;
-      }
+      u + .body .content-text,
       u + .body .content-text * {
         color: #3d527b !important;
         -webkit-text-fill-color: #3d527b !important;
       }
       u + .body .content-text a,
-      u + .body .content-text a * {
+      u + .body .content-text a *,
+      u + .body .content-text .secondary-link,
+      u + .body .content-text .secondary-link * {
         color: #20809e !important;
         -webkit-text-fill-color: #20809e !important;
       }
@@ -269,120 +269,112 @@ export const GeneralTemplate = (title, text) => {
         color: #66768d !important;
         -webkit-text-fill-color: #66768d !important;
       }
-      u + .body .content-text .secondary-link,
-      u + .body .content-text .secondary-link * {
-        color: #20809e !important;
-        -webkit-text-fill-color: #20809e !important;
-      }
       u + .body .footer,
       u + .body .footer * {
         color: #66768d !important;
         -webkit-text-fill-color: #66768d !important;
       }
       u + .body .divider {
-        background: linear-gradient(
-          90deg,
-          #f3f3ff 0%,
-          #c1d7e0 40%,
-          #c1d7e0 100%
-        ) !important;
+        background: ${GRAD.divider} !important;
         opacity: 0.7 !important;
       }
       u + .body .content-text .primary-button {
-        background: linear-gradient(90deg, #20809e 0%, #6a4ffb 100%) !important;
-        background-image: linear-gradient(90deg, #20809e 0%, #6a4ffb 100%) !important;
-      }
-      u + .body .gmail-blend-outer {
-        background: #f4f7fe !important;
-        background-image: linear-gradient(#f4f7fe, #f4f7fe) !important;
-        color: #0e202f !important;
-        color-scheme: light !important;
-        forced-color-adjust: none !important;
-      }
-      u + .body .gmail-blend-screen,
-      u + .body .gmail-blend-difference {
-        background: transparent !important;
-        mix-blend-mode: normal !important;
+        background: ${GRAD.btn} !important;
+        background-image: ${GRAD.btn} !important;
       }
 
     </style>
   </head>
 
   <body class="body" style="margin:0;padding:0;width:100%;color:#0e202f;">
-    <div
-      class="gmail-blend-outer"
-      style="background-color:#f4f7fe;background-image:linear-gradient(#f4f7fe,#f4f7fe);color:#0e202f;"
-    >
-      <div class="gmail-blend-screen">
-        <div class="gmail-blend-difference">
     <table
       role="presentation"
       class="wrapper"
       width="100%"
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
       bgcolor="#F4F7FE"
-      style="width:100%;background-color:#f4f7fe;background-image:linear-gradient(#f4f7fe,#f4f7fe);"
+      style="width:100%;${pageBgStyle};${tableReset}"
     >
       <tr>
         <td
           align="center"
+          valign="top"
+          class="wrapper-pad"
           bgcolor="#F4F7FE"
-          style="background-color:#f4f7fe;background-image:linear-gradient(#f4f7fe,#f4f7fe);"
+          style="padding:24px 12px;${pageBgStyle}"
         >
-          <div
-            class="shell"
-            style="max-width:640px;margin:32px auto;border-radius:32px;background-color:#e8ecf8;background-image:linear-gradient(#e8ecf8,#e8ecf8),linear-gradient(145deg,rgba(175,133,255,0.2),rgba(124,172,255,0.22),rgba(255,167,103,0.2));"
+          <table
+            role="presentation"
+            class="shell-table"
+            width="100%"
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+            style="width:100%;max-width:640px;${tableReset}"
           >
-            <div
-              class="card"
-              style="border-radius:30px;border:1px solid #dde5f0;background-color:#ffffff;background-image:linear-gradient(#ffffff,#ffffff);"
-            >
-              <div class="header">
-
-                <div style="margin:0 auto 24px;text-align:center;">
-                  <img
-                    src="${EMAIL_LOGO_LIGHT_URL}"
-                    alt="uSupport"
-                    width="176"
-                    style="margin:0 auto;border:0;display:inline-block;max-width:100%;width:176px;vertical-align:top;"
-                  />
-                </div>
-
-                <div class="logo-divider"></div>
-                <h1 class="heading-text" style="color:#0e202f;">${title}</h1>
-              </div>
-
-              <div class="content-text" style="color:#3d527b;">
-                ${text}
-              </div>
-
-              <img
-                src="${AMAZON_S3_BUCKET}/mascot-happy-blue"
-                class="mascot-image"
-                alt="mascot"
-                style="display:block;width:132px;margin:32px auto 0;"
-              />
-
-              <div class="divider"></div>
-              <div class="footer" style="color:#66768d;">
-                <div>
-                  You're receiving this email because you have an account with
-                  uSupport.
-                </div>
-                <div class="footer-legal">
-                  &copy; ${new Date().getFullYear()} uSupport. All rights
-                  reserved.
-                </div>
-              </div>
-            </div>
-          </div>
+            <tr>
+              <td
+                align="center"
+                class="shell"
+                style="border-radius:32px;padding:2px;background-color:${BG.shell};background-image:${shellBgImage}"
+              >
+                <table
+                  role="presentation"
+                  width="100%"
+                  border="0"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="width:100%;${tableReset}"
+                >
+                  <tr>
+                    <td
+                      class="card"
+                      align="left"
+                      style="border-radius:30px;border:1px solid #dde5f0;background-color:${BG.card};background-image:linear-gradient(${BG.card},${BG.card});box-shadow:0 18px 40px rgba(61,82,123,0.16)"
+                    >
+                      <div class="header">
+                        <div style="margin:0 auto 24px;text-align:center;">
+                          <img
+                            src="${EMAIL_LOGO_LIGHT_URL}"
+                            alt="uSupport"
+                            width="176"
+                            style="margin:0 auto;border:0;display:block;max-width:100%;width:176px;height:auto;vertical-align:top"
+                          />
+                        </div>
+                        <div class="logo-divider"></div>
+                        <h1 class="heading-text">${title}</h1>
+                      </div>
+                      <div class="content-text">
+                        ${text}
+                      </div>
+                      <img
+                        src="${AMAZON_S3_BUCKET}/mascot-happy-blue"
+                        class="mascot-image"
+                        alt="mascot"
+                        width="132"
+                        style="display:block;width:132px;max-width:100%;height:auto;margin:32px auto 0"
+                      />
+                      <div class="divider"></div>
+                      <div class="footer">
+                        <div>
+                          You're receiving this email because you have an account with
+                          uSupport.
+                        </div>
+                        <div class="footer-legal">
+                          &copy; ${new Date().getFullYear()} uSupport. All rights
+                          reserved.
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
         </td>
       </tr>
     </table>
-        </div>
-      </div>
-    </div>
   </body>
 </html>`;
-
-  return computedHTML;
-};
