@@ -30,8 +30,8 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="x-apple-disable-message-reformatting" />
-    <meta name="color-scheme" content="light" />
-    <meta name="supported-color-schemes" content="light" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="supported-color-schemes" content="light only" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -41,20 +41,36 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
         box-sizing: border-box;
       }
 
+      :root {
+        color-scheme: light only;
+        supported-color-schemes: light only;
+      }
+
       html {
-        color-scheme: light;
+        color-scheme: light only;
       }
 
       body {
         margin: 0;
         padding: 0;
         width: 100% !important;
-        color-scheme: light;
+        color-scheme: light only;
         font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
           sans-serif;
         -webkit-text-size-adjust: 100%;
         background: ${BG.page};
-        color: ${TX.heading} !important !important;
+        color: ${TX.heading} !important;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root, html, body, .body, #body {
+          color-scheme: light only !important;
+          background: ${BG.page} !important;
+          background-color: ${BG.page} !important;
+        }
+        .card, .content-text, .content-text *, .footer, .footer *, .heading-text {
+          color: inherit !important;
+        }
       }
 
       table {
@@ -418,12 +434,38 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
         -webkit-text-fill-color: ${TX.muted} !important;
       }
 
+      u + #body .content-text,
+      u + #body .content-text *,
+      u + #body .content-text div,
+      u + #body .content-text span,
+      u + #body .content-text font {
+        color: ${TX.body} !important;
+        -webkit-text-fill-color: ${TX.body} !important;
+        forced-color-adjust: none !important;
+      }
+      u + #body .heading-text,
+      u + #body .heading-text *,
+      u + #body .heading-text font {
+        color: ${TX.heading} !important;
+        -webkit-text-fill-color: ${TX.heading} !important;
+      }
+      u + #body .footer,
+      u + #body .footer *,
+      u + #body .footer font,
+      u + #body .footer span {
+        color: ${TX.muted} !important;
+        -webkit-text-fill-color: ${TX.muted} !important;
+      }
+
     </style>
   </head>
 
-  <body id="body" class="body" style="margin:0;padding:0;width:100%;color:${TX.heading};-webkit-text-fill-color:${TX.heading};">
+  <body id="body" class="body" style="margin:0;padding:0;width:100%;color:${TX.heading};-webkit-text-fill-color:${TX.heading};color-scheme:light only;">
     <!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
     <div style="display:none;font-size:1px;color:${BG.page};line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">&#8199;&#65279;&#847;</div>
+    <div style="display:none;max-height:0;overflow:hidden;background-color:#0e202f;color:#ffffff;">
+      <span style="color:#ffffff;background-color:#0e202f;">&#8204;</span>
+    </div>
     <table
       role="presentation"
       class="wrapper"
@@ -476,7 +518,7 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
                   <div class="divider divider--after-logo"></div>
                   <h1 class="heading-text" style="color:${
                     TX.heading
-                  };-webkit-text-fill-color:${TX.heading}">${title}</h1>
+                  } !important;-webkit-text-fill-color:${TX.heading} !important"><font color="${TX.heading}" style="color:${TX.heading} !important">${title}</font></h1>
                 </div>
                 <div
                   class="content-text"
@@ -484,15 +526,11 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
   TX.body
 } !important;forced-color-adjust:none !important"
                 >
-                  <span
-                    style="color:${TX.body} !important;-webkit-text-fill-color:${TX.body} !important"
-                    ><font
-                      color="${TX.body}"
-                      face="inherit"
-                      style="color:${TX.body} !important;-webkit-text-fill-color:${TX.body} !important"
-                      >${text}</font
-                    ></span
-                  >
+                  <div style="color:${TX.body} !important;-webkit-text-fill-color:${TX.body} !important">
+                    <font color="${TX.body}" style="color:${TX.body} !important">
+                      <span style="color:${TX.body} !important;-webkit-text-fill-color:${TX.body} !important">${text}</span>
+                    </font>
+                  </div>
                 </div>
                 <img
                   src="${AMAZON_S3_BUCKET}/mascot-happy-blue"
@@ -507,12 +545,14 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
                   style="color:${TX.muted} !important;-webkit-text-fill-color:${TX.muted} !important;text-align:center"
                 >
                   <div style="color:${TX.muted} !important;-webkit-text-fill-color:${TX.muted} !important">
-                    You're receiving this email because you have an account with
-                    uSupport.
+                    <font color="${TX.muted}" style="color:${TX.muted} !important">
+                      <span style="color:${TX.muted} !important;-webkit-text-fill-color:${TX.muted} !important">You're receiving this email because you have an account with uSupport.</span>
+                    </font>
                   </div>
                   <div class="footer-legal" style="color:${TX.muted} !important;-webkit-text-fill-color:${TX.muted} !important">
-                    &copy; ${new Date().getFullYear()} uSupport. All rights
-                    reserved.
+                    <font color="${TX.muted}" style="color:${TX.muted} !important">
+                      <span style="color:${TX.muted} !important;-webkit-text-fill-color:${TX.muted} !important">&copy; ${new Date().getFullYear()} uSupport. All rights reserved.</span>
+                    </font>
                   </div>
                 </div>
               </td>
