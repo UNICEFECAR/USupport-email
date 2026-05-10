@@ -1,6 +1,6 @@
 const AMAZON_S3_BUCKET = process.env.AMAZON_S3_BUCKET;
 const EMAIL_LOGO_LIGHT_URL =
-  process.env.EMAIL_LOGO_LIGHT_URL || `${AMAZON_S3_BUCKET}/logo-horizontal`;
+  process.env.EMAIL_LOGO_LIGHT_URL || `${AMAZON_S3_BUCKET}/email-logo-svg`;
 const EMAIL_LOGO_DARK_URL =
   process.env.EMAIL_LOGO_DARK_URL || `${AMAZON_S3_BUCKET}/logo-horizontal-dark`;
 
@@ -16,22 +16,23 @@ const GRAD = {
 
 const TX = {
   heading: "#0e202f",
-  body:    "#142c3d",
-  muted:   "#3d4f62",
-  link:    "#20809e",
+  body: "#142c3d",
+  muted: "#3d4f62",
+  link: "#20809e",
 };
 
 const DK = {
-  card:    "#1a2535",  // unified bg for both logo row and content row
+  card: "#1a2535", // unified bg for both logo row and content row
   heading: "#e8f0f7",
-  body:    "#c8d8e8",
-  muted:   "#8899aa",
-  link:    "#5bb8d4",
+  body: "#c8d8e8",
+  muted: "#8899aa",
+  link: "#5bb8d4",
   divider: "linear-gradient(90deg, #1e2e42 0%, #2a4a5a 40%, #2a4a5a 100%)",
 };
 
 const pageBgStyle = `background-color:${BG.page};background-image:linear-gradient(${BG.page},${BG.page})`;
-const tableReset  = "border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;border:0";
+const tableReset =
+  "border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;border:0";
 
 export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
 <html lang="en">
@@ -121,7 +122,9 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
       }
 
       .content-text p   { margin: 0 0 14px; color: ${TX.body}; }
-      .content-text a   { color: ${TX.link}; font-weight: 500; text-decoration: none; }
+      .content-text a   { color: ${
+        TX.link
+      }; font-weight: 500; text-decoration: none; }
       .content-text a:hover { text-decoration: underline; }
 
       .content-text .primary-button {
@@ -247,11 +250,15 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
   <body
     id="body"
     class="body"
-    style="margin:0;padding:0;width:100%;background-color:${BG.page};color:${TX.heading};font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;"
+    style="margin:0;padding:0;width:100%;background-color:${BG.page};color:${
+  TX.heading
+};font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;"
   >
     <!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
 
-    <div style="display:none;font-size:1px;color:${BG.page};line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">&#8199;&#65279;&#847;</div>
+    <div style="display:none;font-size:1px;color:${
+      BG.page
+    };line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">&#8199;&#65279;&#847;</div>
 
     <table
       role="presentation"
@@ -284,7 +291,9 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
                 class="logo-row"
                 align="center"
                 bgcolor="${BG.card}"
-                style="background-color:${BG.card};padding:40px 28px 24px;text-align:center;"
+                style="background-color:${
+                  BG.card
+                };padding:40px 28px 24px;text-align:center;"
               >
                 <img
                   src="${EMAIL_LOGO_LIGHT_URL}"
@@ -310,7 +319,9 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
               >
                 <div
                   class="divider"
-                  style="width:100%;height:1px;line-height:0;font-size:0;overflow:hidden;background:${GRAD.divider};opacity:0.7;"
+                  style="width:100%;height:1px;line-height:0;font-size:0;overflow:hidden;background:${
+                    GRAD.divider
+                  };opacity:0.7;"
                 ></div>
               </td>
             </tr>
@@ -324,12 +335,16 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
               >
                 <h1
                   class="heading-text"
-                  style="font-size:22px;line-height:1.3;font-weight:600;margin:0 0 32px;text-align:center;color:${TX.heading};"
+                  style="font-size:22px;line-height:1.3;font-weight:600;margin:0 0 32px;text-align:center;color:${
+                    TX.heading
+                  };"
                 >${title}</h1>
 
                 <div
                   class="content-text"
-                  style="margin:0 auto;max-width:460px;font-size:14px;line-height:1.6;text-align:center;word-wrap:break-word;overflow-wrap:anywhere;color:${TX.body};"
+                  style="margin:0 auto;max-width:460px;font-size:14px;line-height:1.6;text-align:center;word-wrap:break-word;overflow-wrap:anywhere;color:${
+                    TX.body
+                  };"
                 >${text}</div>
 
                 <img
@@ -341,12 +356,16 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
 
                 <div
                   class="divider"
-                  style="width:100%;height:1px;line-height:0;font-size:0;margin:28px 0 20px;overflow:hidden;background:${GRAD.divider};opacity:0.7;"
+                  style="width:100%;height:1px;line-height:0;font-size:0;margin:28px 0 20px;overflow:hidden;background:${
+                    GRAD.divider
+                  };opacity:0.7;"
                 ></div>
 
                 <div
                   class="footer"
-                  style="text-align:center;font-size:12px;line-height:1.5;color:${TX.muted};"
+                  style="text-align:center;font-size:12px;line-height:1.5;color:${
+                    TX.muted
+                  };"
                 >
                   <div>You're receiving this email because you have an account with uSupport.</div>
                   <div style="margin-top:6px;">&copy; ${new Date().getFullYear()} uSupport. All rights reserved.</div>
