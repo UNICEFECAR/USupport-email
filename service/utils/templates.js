@@ -1,6 +1,6 @@
 const AMAZON_S3_BUCKET = process.env.AMAZON_S3_BUCKET;
 const EMAIL_LOGO_LIGHT_URL =
-  process.env.EMAIL_LOGO_LIGHT_URL || `${AMAZON_S3_BUCKET}/email-logo-svg`;
+  process.env.EMAIL_LOGO_LIGHT_URL || `${AMAZON_S3_BUCKET}/email-horizontal`;
 const EMAIL_LOGO_DARK_URL =
   process.env.EMAIL_LOGO_DARK_URL || `${AMAZON_S3_BUCKET}/logo-horizontal-dark`;
 
