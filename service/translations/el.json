@@ -26,7 +26,6 @@
   "client_consultation_notify_suggestion_subject": "Πρόταση για συνεδρία",
   "client_consultation_notify_suggestion_title": "Πρόταση για νέα συνεδρία",
   "client_consultation_notify_suggestion_text": "Έχετε μια νέα πρόταση διαβούλευσης από τον πάροχο {1}. Έχετε έως και 24 ώρες πριν από την προτεινόμενη ώρα ραντεβού για να αποδεχτείτε αυτήν την πρόταση. Επισκεφθείτε τη διεύθυνση {2} για να δείτε περισσότερες λεπτομέρειες.",
-  "client_consultation_notify_suggestion_text_new_time": "Ο πάροχός σας <strong>{1}</strong> ακύρωσε την αρχική συνεδρία και πρότεινε αντί αυτής νέα ώρα. Παρακαλούμε εξετάστε τη νέα πρόταση και επιβεβαιώστε την εντός <strong>24 ωρών πριν από την προτεινόμενη ώρα ραντεβού.</strong> Επισκεφθείτε <strong>{2}</strong> για περισσότερες λεπτομέρειες.",
   "client_consultation_confirm_suggestion_booking_subject": "Κράτηση για συνεδρία",
   "client_consultation_confirm_suggestion_booking_title": "Επιβεβαίωση κράτησης για συνεδρία",
   "client_consultation_confirm_suggestion_booking_text": "Έχετε αποδεχτεί με επιτυχία μια προτεινόμενη συνεδρία. Επισκεφθείτε το {1} για να δείτε τις λεπτομέρειες της συνεδρίας σας.",
@@ -113,5 +112,9 @@
   "mood_worried": "Αγχωμένος/η",
   "system_daily_email_test_subject": "Καθημερινή υπενθύμιση {1}",
   "system_daily_email_test_title": "Καθημερινή υπενθύμιση {1}",
-  "system_daily_email_test_text": "Αυτό είναι το προγραμματισμένο καθημερινό email υπενθύμισης."
+  "system_daily_email_test_text": "Αυτό είναι το προγραμματισμένο καθημερινό email υπενθύμισης.",
+  "client_consultation_notify_suggestion_text_new_time": "Ο πάροχός σας <strong>{1}</strong> ακύρωσε την αρχική συνεδρία και πρότεινε αντί αυτής νέα ώρα. Παρακαλούμε εξετάστε τη νέα πρόταση και επιβεβαιώστε την εντός <strong>24 ωρών πριν από την προτεινόμενη ώρα ραντεβού.</strong> Επισκεφθείτε <strong>{2}</strong> για περισσότερες λεπτομέρειες.",
+  "client_coupon_reminder_subject": "Take advantage of an online session sponsored by UNICEF",
+  "client_coupon_reminder_title": "Take advantage of an online session sponsored by UNICEF",
+  "client_coupon_reminder_text": "Good morning,<br/><br/>Thank you for trusting us and creating an account on our platform - uSupport. However, we've noticed that you haven't yet been able to take advantage of a consultation with our psychologists.<br/><br/>We still have a few free sessions available. However, their number and time are limited, so we encourage you to take advantage of them as soon as possible. You can book them at https://poland.usupport.online/client/pl/select-provider.<br/><br/>Take the first step to taking care of your well-being."
 }
