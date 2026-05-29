@@ -49,7 +49,7 @@
   "provider_consultation_remind_start_text": "Η συνεδρία σας ξεκινά σε {2} λεπτά. Παρακαλώ επισκεφθείτε το {1} για να συνδεθείτε.",
   "provider_consultation_confirm_suggestion_subject": "Πρόταση για συνεδρία",
   "provider_consultation_confirm_suggestion_title": "Επιβεβαίωση προτεινόμενης συνεδρίας",
-  "provider_consultation_confirm_suggestion_text": "Έχετε προτείνει με επιτυχία μια συνεδρία. Επισκεφθείτε το {1} για να δείτε περισσότερες λεπτομέρειες.",
+  "provider_consultation_confirm_suggestion_text": "Έχετε προτείνει με επιτυχία μια συνεδρία. Λάβετε υπόψη ότι εάν ο πελάτης δεν αποδεχτεί τη συνεδρία έως 24 ώρες πριν από την ώρα έναρξης, θα ακυρωθεί αυτόματα. Επισκεφθείτε το {1} για να δείτε περισσότερες λεπτομέρειες.",
   "provider_consultation_notify_suggestion_booking_subject": "Κράτηση για συνεδρία",
   "provider_consultation_notify_suggestion_booking_title": "Η πρόταση για συνεδρία έγινε αποδεκτή.",
   "provider_consultation_notify_suggestion_booking_text": "Η πρότασή σας για συνεδρία έχει γίνει αποδεκτή. Επισκεφθείτε το {1} για περισσότερες λεπτομέρειες.",
