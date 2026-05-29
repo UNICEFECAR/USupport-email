@@ -49,7 +49,7 @@
   "provider_consultation_remind_start_text": "Ваша консультация начнется через {2} минут(ы). Посетите {1}, чтобы присоединиться к консультации.",
   "provider_consultation_confirm_suggestion_subject": "Предложение консультации",
   "provider_consultation_confirm_suggestion_title": "Подтверждение предложенной консультации",
-  "provider_consultation_confirm_suggestion_text": "Вы успешно предложили консультацию. Посетите {1}, чтобы просмотреть дополнительные сведения.",
+  "provider_consultation_confirm_suggestion_text": "Вы успешно предложили консультацию. Обратите внимание, что если клиент не примет консультацию за 24 часа до начала, она будет автоматически отменена. Посетите {1}, чтобы просмотреть дополнительные сведения.",
   "provider_consultation_notify_suggestion_booking_subject": "Запись на консультацию",
   "provider_consultation_notify_suggestion_booking_title": "Принятое предложение консультации",
   "provider_consultation_notify_suggestion_booking_text": "Ваше предложение консультации было принято. Посетите {1}, чтобы просмотреть дополнительные сведения.",
