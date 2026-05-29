@@ -49,7 +49,7 @@
   "provider_consultation_remind_start_text": "Ձեր խորհրդատվությունը կսկսվի {2} րոպեից։ Խնդրում ենք այցելել {1}՝ դրան միանալու համար։",
   "provider_consultation_confirm_suggestion_subject": "Խորհրդատվության առաջարկ",
   "provider_consultation_confirm_suggestion_title": "Առաջարկված խորհրդատվության հաստատում",
-  "provider_consultation_confirm_suggestion_text": "Դուք բարեհաջող առաջարկել եք խորհրդատվություն։ Խնդրում ենք այցելել {1}՝ հավելյալ մանրամասների համար։",
+  "provider_consultation_confirm_suggestion_text": "Դուք բարեհաջող առաջարկել եք խորհրդատվություն։ Խնդրում ենք նկատի ունեցեք, որ եթե հաճախորդը չընդունի խորհրդատվությունը մինչև 24 ժամ առաջ սկսի ժամից, այն կչեղարկվի ավտոմատ կերպով։ Խնդրում ենք այցելել {1}՝ հավելյալ մանրամասների համար։",
   "provider_consultation_notify_suggestion_booking_subject": "Խորհրդատվության պատվեր",
   "provider_consultation_notify_suggestion_booking_title": "Ընդունված խորհրդատվության առաջարկ",
   "provider_consultation_notify_suggestion_booking_text": "Ձեր խորհրդատվության առաջարկն ընդունվել է։ Խնդրում ենք այցելել {1}՝ հավելյալ մանրամասների համար։",
