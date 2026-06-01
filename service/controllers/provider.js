@@ -39,31 +39,38 @@ export const sendConsultationNotifyBookingEmail = async ({
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
-  const timezoneResult = await getCountryTimezoneByAlpha2Query({
-    alpha2: country?.toUpperCase(),
-  }).catch(() => null);
-  const timezone = timezoneResult?.rows?.[0]?.timezone ?? "UTC";
+  let formattedDatetimeWithTimezone = "";
+  try {
+    const timezoneResult = await getCountryTimezoneByAlpha2Query({
+      alpha2: country?.toUpperCase(),
+    }).catch(() => null);
+    const timezone = timezoneResult?.rows?.[0]?.timezone ?? "UTC";
 
-  const date = new Date(time * 1000);
-  const formattedDatetime = new Intl.DateTimeFormat(language, {
-    timeZone: timezone,
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  }).format(date);
+    const date = new Date(time * 1000);
+    if (isNaN(date.getTime())) throw new Error(`Invalid consultation time: ${time}`);
 
-  const city = timezone.split("/").pop().replace(/_/g, " ");
-  const gmtOffset = new Intl.DateTimeFormat("en", {
-    timeZone: timezone,
-    timeZoneName: "shortOffset",
-  })
-    .formatToParts(date)
-    .find((p) => p.type === "timeZoneName")?.value ?? "UTC";
+    const formattedDatetime = new Intl.DateTimeFormat(language, {
+      timeZone: timezone,
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }).format(date);
 
-  const formattedDatetimeWithTimezone = `${formattedDatetime} (${city}, ${gmtOffset})`;
+    const city = timezone.split("/").pop().replace(/_/g, " ");
+    const gmtOffset = new Intl.DateTimeFormat("en", {
+      timeZone: timezone,
+      timeZoneName: "shortOffset",
+    })
+      .formatToParts(date)
+      .find((p) => p.type === "timeZoneName")?.value ?? "UTC";
+
+    formattedDatetimeWithTimezone = `${formattedDatetime} (${city}, ${gmtOffset})`;
+  } catch (err) {
+    console.error("sendConsultationNotifyBookingEmail: failed to format datetime", err);
+  }
 
   const subject = t("provider_consultation_notify_booking_subject", language);
   const title = t("provider_consultation_notify_booking_title", language);
