@@ -44,6 +44,7 @@ export const sendConsultationNotifyBookingEmail = async ({
   }).catch(() => null);
   const timezone = timezoneResult?.rows?.[0]?.timezone ?? "UTC";
 
+  const date = new Date(time * 1000);
   const formattedDatetime = new Intl.DateTimeFormat(language, {
     timeZone: timezone,
     year: "numeric",
@@ -52,8 +53,17 @@ export const sendConsultationNotifyBookingEmail = async ({
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
-    timeZoneName: "short",
-  }).format(new Date(time * 1000));
+  }).format(date);
+
+  const city = timezone.split("/").pop().replace(/_/g, " ");
+  const gmtOffset = new Intl.DateTimeFormat("en", {
+    timeZone: timezone,
+    timeZoneName: "shortOffset",
+  })
+    .formatToParts(date)
+    .find((p) => p.type === "timeZoneName")?.value ?? "UTC";
+
+  const formattedDatetimeWithTimezone = `${formattedDatetime} (${city}, ${gmtOffset})`;
 
   const subject = t("provider_consultation_notify_booking_subject", language);
   const title = t("provider_consultation_notify_booking_title", language);
@@ -61,7 +71,7 @@ export const sendConsultationNotifyBookingEmail = async ({
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("provider_consultation_notify_booking_text", language, [
     platformLinkAnchor,
-    formattedDatetime,
+    formattedDatetimeWithTimezone,
   ]);
 
   let computedHTML = GeneralTemplate(title, text);
