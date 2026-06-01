@@ -10,7 +10,7 @@
   "system_login_2fa_request_text": "Օգտագործեք, խնդրեմ, հետևյալ կոդը՝ ձեր օգտահաշիվ մուտք գործելու համար {1}",
   "client_consultation_confirm_booking_subject": "Խորհրդատվության պատվեր",
   "client_consultation_confirm_booking_title": "Խորհրդատվության պատվերի հաստատում",
-  "client_consultation_confirm_booking_text": "Դուք բարեհաջող պատվիրել եք խորհրդատվություն։ Խնդրում ենք այցելել {1}՝ ձեր խորհրդատվության մանրամասները դիտելու համար։",
+  "client_consultation_confirm_booking_text": "Դուք բարեհաջող պատվիրել եք խորհրդատվություն {2}-ին։ Խնդրում ենք այցելել {1}՝ ձեր խորհրդատվության մանրամասները դիտելու համար։",
   "client_consultation_confirm_reschedule_subject": "Խորհրդատվության վերապլանավորում",
   "client_consultation_confirm_reschedule_title": "Խորհրդատվության վերապլանավորման հաստատում",
   "client_consultation_confirm_reschedule_text": "Դուք բարեհաջող վերապլանավորել եք ձեր խորհրդատվությունը։ Խնդրում ենք այցելել {1}՝ նոր խորհրդատվության մանրամասները դիտելու համար։",
