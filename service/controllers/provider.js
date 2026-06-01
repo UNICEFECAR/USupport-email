@@ -52,6 +52,7 @@ export const sendConsultationNotifyBookingEmail = async ({
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
+    timeZoneName: "short",
   }).format(new Date(time * 1000));
 
   const subject = t("provider_consultation_notify_booking_subject", language);
