@@ -10,7 +10,7 @@
   "system_login_2fa_request_text": "Өз аккаунтыңызға кіру үшін осы кодты пайдаланыңыз",
   "client_consultation_confirm_booking_subject": "Консультацияға жазылу",
   "client_consultation_confirm_booking_title": "Консультацияға жазылуды растау",
-  "client_consultation_confirm_booking_text": "Сіз консультацияға сәтті жазылдыңыз. Консультация мәліметтерін көру үшін {1} кіріңіз.",
+  "client_consultation_confirm_booking_text": "Сіз {2} консультацияға сәтті жазылдыңыз. Консультация мәліметтерін көру үшін {1} кіріңіз.",
   "client_consultation_confirm_reschedule_subject": "Консультацияны басқа уақытқа ауыстыру",
   "client_consultation_confirm_reschedule_title": "Консультацияны басқа уақытқа ауыстыруды растау",
   "client_consultation_confirm_reschedule_text": "Сіз консультацияны басқа уақытқа сәтті ауыстырдыңыз. Консультация туралы жаңа мәліметтерді көру үшін {1} кіріңіз.",

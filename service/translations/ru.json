@@ -10,7 +10,7 @@
   "system_login_2fa_request_text": "Используйте этот код для входа в свой аккаунт: {1}",
   "client_consultation_confirm_booking_subject": "Запись на консультацию",
   "client_consultation_confirm_booking_title": "Подтверждение записи на консультацию",
-  "client_consultation_confirm_booking_text": "Вы успешно записались на консультацию. Посетите {1}, чтобы просмотреть подробности консультации.",
+  "client_consultation_confirm_booking_text": "Вы успешно записались на консультацию на {2}. Посетите {1}, чтобы просмотреть подробности консультации.",
   "client_consultation_confirm_reschedule_subject": "Перенос консультации",
   "client_consultation_confirm_reschedule_title": "Подтверждение переноса консультации",
   "client_consultation_confirm_reschedule_text": "Вы успешно перенесли консультацию. Посетите {1}, чтобы просмотреть новые сведения о консультации.",

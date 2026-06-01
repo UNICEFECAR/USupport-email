@@ -10,7 +10,7 @@
   "system_login_2fa_request_text": "Χρησιμοποιήστε αυτόν τον κωδικό για να συνδεθείτε στον λογαριασμό σας: {1}",
   "client_consultation_confirm_booking_subject": "Κράτηση για συνεδρία",
   "client_consultation_confirm_booking_title": "Επιβεβαίωση κράτησης για συνεδρία",
-  "client_consultation_confirm_booking_text": "Η κράτηση της συνεδρίας σας ολοκληρώθηκε με επιτυχία. Παρακαλώ επισκεφθείτε το {1} για να δείτε τις λεπτομέρειες της συνεδρίας σας.",
+  "client_consultation_confirm_booking_text": "Η κράτηση της συνεδρίας σας ολοκληρώθηκε με επιτυχία στις {2}. Παρακαλώ επισκεφθείτε το {1} για να δείτε τις λεπτομέρειες της συνεδρίας σας.",
   "client_consultation_confirm_reschedule_subject": "Επαναπρογραμματισμός συνεδρίας",
   "client_consultation_confirm_reschedule_title": "Επιβεβαίωση επαναπρογραμματισμού συνεδρίας",
   "client_consultation_confirm_reschedule_text": "Ο επαναπρογραμματισμός της συνεδρίας σας έχει ολοκληρωθεί με επιτυχία. Παρακαλώ επισκεφθείτε το {1} για να δείτε τις νέες λεπτομέρειες της συνεδρίας.",
