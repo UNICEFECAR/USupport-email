@@ -58,12 +58,26 @@ export const sendConsultationNotifyBookingEmail = async ({
     }).format(date);
 
     const city = timezone.split("/").pop().replace(/_/g, " ");
-    const gmtOffset = new Intl.DateTimeFormat("en", {
-      timeZone: timezone,
-      timeZoneName: "shortOffset",
-    })
-      .formatToParts(date)
-      .find((p) => p.type === "timeZoneName")?.value ?? "";
+    let gmtOffset = "";
+    try {
+      gmtOffset =
+        new Intl.DateTimeFormat("en", { timeZone: timezone, timeZoneName: "shortOffset" })
+          .formatToParts(date)
+          .find((p) => p.type === "timeZoneName")?.value ?? "";
+    } catch {
+      const parts = new Intl.DateTimeFormat("en", {
+        timeZone: timezone,
+        year: "numeric", month: "numeric", day: "numeric",
+        hour: "numeric", minute: "numeric", hour12: false,
+      }).formatToParts(date).reduce((acc, p) => ({ ...acc, [p.type]: p.value }), {});
+      const h = parseInt(parts.hour);
+      const tzDate = new Date(Date.UTC(+parts.year, +parts.month - 1, +parts.day, h === 24 ? 0 : h, +parts.minute));
+      const totalMinutes = Math.round((tzDate - date) / 60000);
+      const sign = totalMinutes >= 0 ? "+" : "-";
+      const abs = Math.abs(totalMinutes);
+      const oh = Math.floor(abs / 60), om = abs % 60;
+      gmtOffset = om > 0 ? `GMT${sign}${oh}:${String(om).padStart(2, "0")}` : `GMT${sign}${oh}`;
+    }
 
     formattedDatetimeWithTimezone = `${formattedDatetime} (${city}, ${gmtOffset})`;
   }
