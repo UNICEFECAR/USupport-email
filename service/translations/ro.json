@@ -49,7 +49,7 @@
   "provider_consultation_remind_start_text": "Consultația dvs. începe în {2} minute. Vă rugăm să vizitați {1} pentru intra la consultație.",
   "provider_consultation_confirm_suggestion_subject": "Propunere consultație",
   "provider_consultation_confirm_suggestion_title": "Confirmarea consultației propuse",
-  "provider_consultation_confirm_suggestion_text": "Ați propus o consultație. Vă rugăm să vizitați {1} pentru a vizualiza mai multe detalii.",
+  "provider_consultation_confirm_suggestion_text": "Ați propus o consultație. Vă rugăm să rețineți că, dacă clientul nu acceptă consultația cu cel puțin 24 de ore înainte de ora de începere, aceasta va fi anulată automat. Vă rugăm să vizitați {1} pentru a vizualiza mai multe detalii.",
   "provider_consultation_notify_suggestion_booking_subject": "Programare consultație",
   "provider_consultation_notify_suggestion_booking_title": "Consultație propusă acceptată",
   "provider_consultation_notify_suggestion_booking_text": "Consultația propusă de dvs. a fost acceptată. Vă rugăm să vizitați {1} pentru a vedea mai multe detalii.",

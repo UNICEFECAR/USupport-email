@@ -49,7 +49,7 @@
   "provider_consultation_remind_start_text": "Твоя консультація розпочнеться за {2} хвилин. Щоб долучитися до неї, перейди {1}.",
   "provider_consultation_confirm_suggestion_subject": "Пропозиція консультації",
   "provider_consultation_confirm_suggestion_title": "Підтвердження запропонованої консультації",
-  "provider_consultation_confirm_suggestion_text": "Ти запропонував/ла консультацію. Щоб дізнатися більше деталей, перейди {1}.",
+  "provider_consultation_confirm_suggestion_text": "Ти запропонував/ла консультацію. Зверни увагу, що якщо клієнт не прийме консультацію за 24 години до початку, вона буде автоматично скасована. Щоб дізнатися більше деталей, перейди {1}.",
   "provider_consultation_notify_suggestion_booking_subject": "Резервація консультації",
   "provider_consultation_notify_suggestion_booking_title": "Прийнято пропозицію консультації",
   "provider_consultation_notify_suggestion_booking_text": "Твою пропозицію консультації прийнято. Щоб дізнатися більше деталей, перейди {1}.",
