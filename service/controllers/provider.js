@@ -39,17 +39,15 @@ export const sendConsultationNotifyBookingEmail = async ({
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
+  const timezoneResult = await getCountryTimezoneByAlpha2Query({
+    alpha2: country?.toUpperCase(),
+  }).catch(() => null);
+  const timezone = timezoneResult?.rows?.[0]?.timezone ?? null;
+
   let formattedDatetimeWithTimezone = "";
-  try {
-    const timezoneResult = await getCountryTimezoneByAlpha2Query({
-      alpha2: country?.toUpperCase(),
-    }).catch(() => null);
-    const timezone = timezoneResult?.rows?.[0]?.timezone ?? "UTC";
-
+  if (time && timezone) {
     const date = new Date(time * 1000);
-    if (isNaN(date.getTime())) throw new Error(`Invalid consultation time: ${time}`);
-
-    const formattedDatetime = new Intl.DateTimeFormat(language, {
+    const formattedDatetime = new Intl.DateTimeFormat("en", {
       timeZone: timezone,
       year: "numeric",
       month: "long",
@@ -65,11 +63,9 @@ export const sendConsultationNotifyBookingEmail = async ({
       timeZoneName: "shortOffset",
     })
       .formatToParts(date)
-      .find((p) => p.type === "timeZoneName")?.value ?? "UTC";
+      .find((p) => p.type === "timeZoneName")?.value ?? "";
 
     formattedDatetimeWithTimezone = `${formattedDatetime} (${city}, ${gmtOffset})`;
-  } catch (err) {
-    console.error("sendConsultationNotifyBookingEmail: failed to format datetime", err);
   }
 
   const subject = t("provider_consultation_notify_booking_subject", language);
