@@ -34,7 +34,7 @@
   "client_consultation_confirm_suggestion_cancellation_text": "Ați respins o consultație propusă. Vă rugăm să vizitați {1} pentru a programa alta.",
   "provider_consultation_notify_booking_subject": "Programare consultație",
   "provider_consultation_notify_booking_title": "Programare consultație nouă ",
-  "provider_consultation_notify_booking_text": "Aveți o nouă consultație programată. Vă rugăm să vizitați {1} pentru a vizualiza mai multe detalii.",
+  "provider_consultation_notify_booking_text": "Aveți o nouă consultație programată pe {2}. Vă rugăm să vizitați {1} pentru a vizualiza mai multe detalii.",
   "provider_consultation_notify_reschedule_subject": "Consultație reprogramată",
   "provider_consultation_notify_reschedule_title": "Consultație reprogramată",
   "provider_consultation_notify_reschedule_text": "O consultație a fost reprogramată. Vă rugăm să vizitați {1} pentru a vedea mai multe detalii.",

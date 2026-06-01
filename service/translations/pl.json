@@ -34,7 +34,7 @@
   "client_consultation_confirm_suggestion_cancellation_text": "Pomyślnie odrzuciłeś/aś sugerowaną konsultację. Odwiedź stronę {1}, aby zaplanować nową.",
   "provider_consultation_notify_booking_subject": "Rezerwacja konsultacji",
   "provider_consultation_notify_booking_title": "Nowa rezerwacja konsultacji",
-  "provider_consultation_notify_booking_text": "Masz nową rezerwację konsultacji. Odwiedź stronę {1}, aby wyświetlić więcej szczegółów.",
+  "provider_consultation_notify_booking_text": "Masz nową rezerwację konsultacji na {2}. Odwiedź stronę {1}, aby wyświetlić więcej szczegółów.",
   "provider_consultation_notify_reschedule_subject": "Zmiana terminu konsultacji",
   "provider_consultation_notify_reschedule_title": "Zmiana terminu konsultacji",
   "provider_consultation_notify_reschedule_text": "Konsultacja została przełożona. Odwiedź stronę {1}, aby wyświetlić więcej szczegółów.",

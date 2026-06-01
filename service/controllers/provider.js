@@ -7,6 +7,8 @@ import {
   getStartAndEndOfWeek,
 } from "#utils/helperFunctions";
 
+import { getCountryTimezoneByAlpha2Query } from "#queries/countries";
+
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
@@ -32,8 +34,25 @@ export const sendConsultationNotifyBookingEmail = async ({
   language,
   recipientEmail,
   countryLabel,
+  time,
+  country,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
+
+  const timezoneResult = await getCountryTimezoneByAlpha2Query({
+    alpha2: country?.toUpperCase(),
+  }).catch(() => null);
+  const timezone = timezoneResult?.rows?.[0]?.timezone ?? "UTC";
+
+  const formattedDatetime = new Intl.DateTimeFormat(language, {
+    timeZone: timezone,
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(new Date(time * 1000));
 
   const subject = t("provider_consultation_notify_booking_subject", language);
   const title = t("provider_consultation_notify_booking_title", language);
@@ -41,6 +60,7 @@ export const sendConsultationNotifyBookingEmail = async ({
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("provider_consultation_notify_booking_text", language, [
     platformLinkAnchor,
+    formattedDatetime,
   ]);
 
   let computedHTML = GeneralTemplate(title, text);
