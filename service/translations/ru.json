@@ -34,7 +34,7 @@
   "client_consultation_confirm_suggestion_cancellation_text": "You have successfully rejected a suggested consultation. Please visit {1} to schedule a new one.",
   "provider_consultation_notify_booking_subject": "Consultation booking",
   "provider_consultation_notify_booking_title": "Запись на новую консультацию",
-  "provider_consultation_notify_booking_text": "У Вас новая запись на консультацию. Посетите {1}, чтобы просмотреть дополнительные сведения.",
+  "provider_consultation_notify_booking_text": "У Вас новая запись на консультацию {2}. Посетите {1}, чтобы просмотреть дополнительные сведения.",
   "provider_consultation_notify_reschedule_subject": "Перенос консультации",
   "provider_consultation_notify_reschedule_title": "Перенос консультации",
   "provider_consultation_notify_reschedule_text": "Консультация перенесена. Посетите {1}, чтобы просмотреть дополнительные сведения.",

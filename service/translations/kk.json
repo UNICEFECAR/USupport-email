@@ -34,7 +34,7 @@
   "client_consultation_confirm_suggestion_cancellation_text": "Ұсынылған консультациядан сәтті бас тарттыңыз. Жаңа консультация жоспарлау үшін {1} кіріңіз.",
   "provider_consultation_notify_booking_subject": "Консультацияға жазылу",
   "provider_consultation_notify_booking_title": "Жаңа консультацияға жазылу",
-  "provider_consultation_notify_booking_text": "Сіз жаңа консультацияға жазылдыңыз. Қосымша ақпарат алу үшін {1} кіріңіз.",
+  "provider_consultation_notify_booking_text": "Сізде {2} күні жаңа консультацияға жазылу бар. Қосымша ақпарат алу үшін {1} кіріңіз.",
   "provider_consultation_notify_reschedule_subject": "Консультацияны басқа уақытқа ауыстыру",
   "provider_consultation_notify_reschedule_title": "Консультацияны басқа уақытқа ауыстыру",
   "provider_consultation_notify_reschedule_text": "Консультация басқа уақытқа ауыстырылды. Қосымша ақпарат алу үшін {1} кіріңіз.",

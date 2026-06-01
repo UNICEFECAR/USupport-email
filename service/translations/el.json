@@ -34,7 +34,7 @@
   "client_consultation_confirm_suggestion_cancellation_text": "Έχετε απορρίψει με επιτυχία μια προτεινόμενη συνεδρία. Επισκεφθείτε το {1} για να προγραμματίσετε μια νέα συνεδρία.",
   "provider_consultation_notify_booking_subject": "Κράτηση για συνεδρία",
   "provider_consultation_notify_booking_title": "Νέα κράτηση για συνεδρία",
-  "provider_consultation_notify_booking_text": "Έχετε μια νέα κράτηση για συνεδρία. Επισκεφθείτε το {1} για να δείτε περισσότερες λεπτομέρειες.",
+  "provider_consultation_notify_booking_text": "Έχετε μια νέα κράτηση για συνεδρία στις {2}. Επισκεφθείτε το {1} για να δείτε περισσότερες λεπτομέρειες.",
   "provider_consultation_notify_reschedule_subject": "Επαναπρογραμματισμός συνεδρίας",
   "provider_consultation_notify_reschedule_title": "Επαναπρογραμματισμός συνεδρίας",
   "provider_consultation_notify_reschedule_text": "Η συνεδρία έχει επαναπρογραμματιστεί. Για περισσότερες λεπτομέρειες, επισκεφθείτε το {1}.",

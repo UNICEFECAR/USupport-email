@@ -34,7 +34,7 @@
   "client_consultation_confirm_suggestion_cancellation_text": "Դուք բարեհաջող մերժել եք առաջարկված խորհրդատվությունը։ Խնդրում ենք այցելել {1}՝ նորը պլանավորելու համար։",
   "provider_consultation_notify_booking_subject": "Խորհրդատվության պատվեր",
   "provider_consultation_notify_booking_title": "Նոր խորհրդատվության պատվեր",
-  "provider_consultation_notify_booking_text": "Դուք ունեք նոր խորհրդատվության պատվեր։ Խնդրում ենք այցելել {1}՝ հավելյալ մանրամասների համար։",
+  "provider_consultation_notify_booking_text": "Դուք ունեք նոր խորհրդատվության պատվեր {2}–ին։ Խնդրում ենք այցելել {1}՝ հավելյալ մանրամասների համար։",
   "provider_consultation_notify_reschedule_subject": "Խորհրդատվության վերապլանավորում",
   "provider_consultation_notify_reschedule_title": "Խորհրդատվության վերապլանավորում",
   "provider_consultation_notify_reschedule_text": "Խորհրդատվությունը վերապլանավորված է։ Խնդրում ենք այցելել {1}՝ հավելյալ մանրամասների համար։",
