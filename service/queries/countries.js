@@ -10,3 +10,9 @@ export const getCountryIdByAlpha2CodeQuery = async ({ alpha2 }) =>
     `,
     [alpha2],
   );
+
+export const getCountryTimezoneByAlpha2Query = async ({ alpha2 }) =>
+  await getDBPool("masterDb").query(
+    `SELECT timezone FROM "country" WHERE alpha2 = $1 LIMIT 1;`,
+    [alpha2],
+  );

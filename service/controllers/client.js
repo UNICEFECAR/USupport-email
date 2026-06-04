@@ -4,6 +4,8 @@ import { GeneralTemplate } from "#utils/templates";
 
 import { getMailTransporter } from "#utils/helperFunctions";
 
+import { getCountryTimezoneByAlpha2Query } from "#queries/countries";
+
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
@@ -29,8 +31,53 @@ export const sendConsultationConfirmBookingEmail = async ({
   language,
   recipientEmail,
   countryLabel,
+  time,
+  country,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
+
+  const timezoneResult = await getCountryTimezoneByAlpha2Query({
+    alpha2: country?.toUpperCase(),
+  }).catch(() => null);
+  const timezone = timezoneResult?.rows?.[0]?.timezone ?? null;
+
+  let formattedDatetimeWithTimezone = "";
+  if (time && timezone) {
+    const date = new Date(time * 1000);
+    const formattedDatetime = new Intl.DateTimeFormat("en", {
+      timeZone: timezone,
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }).format(date);
+
+    const city = timezone.split("/").pop().replace(/_/g, " ");
+    let gmtOffset = "";
+    try {
+      gmtOffset =
+        new Intl.DateTimeFormat("en", { timeZone: timezone, timeZoneName: "shortOffset" })
+          .formatToParts(date)
+          .find((p) => p.type === "timeZoneName")?.value ?? "";
+    } catch {
+      const parts = new Intl.DateTimeFormat("en", {
+        timeZone: timezone,
+        year: "numeric", month: "numeric", day: "numeric",
+        hour: "numeric", minute: "numeric", hour12: false,
+      }).formatToParts(date).reduce((acc, p) => ({ ...acc, [p.type]: p.value }), {});
+      const h = parseInt(parts.hour);
+      const tzDate = new Date(Date.UTC(+parts.year, +parts.month - 1, +parts.day, h === 24 ? 0 : h, +parts.minute));
+      const totalMinutes = Math.round((tzDate - date) / 60000);
+      const sign = totalMinutes >= 0 ? "+" : "-";
+      const abs = Math.abs(totalMinutes);
+      const oh = Math.floor(abs / 60), om = abs % 60;
+      gmtOffset = om > 0 ? `GMT${sign}${oh}:${String(om).padStart(2, "0")}` : `GMT${sign}${oh}`;
+    }
+
+    formattedDatetimeWithTimezone = `${formattedDatetime} (${city}, ${gmtOffset})`;
+  }
 
   const subject = t("client_consultation_confirm_booking_subject", language);
   const title = t("client_consultation_confirm_booking_title", language);
@@ -38,6 +85,7 @@ export const sendConsultationConfirmBookingEmail = async ({
   const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t("client_consultation_confirm_booking_text", language, [
     platformLinkAnchor,
+    formattedDatetimeWithTimezone,
   ]);
 
   let computedHTML = GeneralTemplate(title, text);
