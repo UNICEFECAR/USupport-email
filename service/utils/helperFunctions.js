@@ -52,14 +52,18 @@ const EMAIL_HOST = process.env.EMAIL_HOST;
 const EMAIL_PORT = process.env.EMAIL_PORT;
 
 export function getMailTransporter() {
+  const port = Number(EMAIL_PORT);
   return nodemailer.createTransport({
     host: EMAIL_HOST,
-    port: EMAIL_PORT,
-    secure: true,
+    port: Number.isFinite(port) ? port : EMAIL_PORT,
+    secure: true, // true = TLS from the start (typical for 465). For 587 use secure:false + requireTLS
     auth: {
       user: EMAIL_SENDER,
       pass: EMAIL_SENDER_PASSWORD,
     },
+    connectionTimeout: 15_000,
+    greetingTimeout: 15_000,
+    socketTimeout: 30_000,
   });
 }
 
