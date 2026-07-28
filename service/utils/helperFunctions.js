@@ -51,16 +51,64 @@ const EMAIL_SENDER_PASSWORD = process.env.EMAIL_SENDER_PASSWORD;
 const EMAIL_HOST = process.env.EMAIL_HOST;
 const EMAIL_PORT = process.env.EMAIL_PORT;
 
-export function getMailTransporter() {
-  return nodemailer.createTransport({
-    host: EMAIL_HOST,
-    port: EMAIL_PORT,
+const maskSecret = (value) => {
+  if (!value) return "(empty)";
+  if (value.length <= 4) return "****";
+  return `${value.slice(0, 2)}***${value.slice(-2)} (len=${value.length})`;
+};
+
+const logSmtpConfig = () => {
+  const parsedPort = Number(EMAIL_PORT);
+  console.log("[SMTP] transporter config", {
+    host: EMAIL_HOST || "(empty)",
+    portRaw: EMAIL_PORT,
+    portParsed: Number.isFinite(parsedPort) ? parsedPort : null,
     secure: true,
+    authUser: EMAIL_SENDER || "(empty)",
+    authPass: maskSecret(EMAIL_SENDER_PASSWORD),
+    hasHost: Boolean(EMAIL_HOST),
+    hasPort: Boolean(EMAIL_PORT),
+    hasUser: Boolean(EMAIL_SENDER),
+    hasPass: Boolean(EMAIL_SENDER_PASSWORD),
+  });
+};
+
+export function getMailTransporter() {
+  logSmtpConfig();
+
+  const port = Number(EMAIL_PORT);
+  const transporter = nodemailer.createTransport({
+    host: EMAIL_HOST,
+    port: Number.isFinite(port) ? port : EMAIL_PORT,
+    secure: true, // true = TLS from the start (typical for 465). For 587 use secure:false + requireTLS
     auth: {
       user: EMAIL_SENDER,
       pass: EMAIL_SENDER_PASSWORD,
     },
+    connectionTimeout: 15_000,
+    greetingTimeout: 15_000,
+    socketTimeout: 30_000,
+    logger: true,
+    debug: true,
   });
+
+  transporter.verify((error, success) => {
+    if (error) {
+      console.error("[SMTP] verify failed", {
+        code: error.code,
+        command: error.command,
+        responseCode: error.responseCode,
+        response: error.response,
+        message: error.message,
+        host: EMAIL_HOST,
+        port: EMAIL_PORT,
+      });
+      return;
+    }
+    console.log("[SMTP] verify ok — ready to send", { success });
+  });
+
+  return transporter;
 }
 
 export const handleEmailConsumerMessage = async ({ message }) => {
