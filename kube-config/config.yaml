@@ -7,8 +7,7 @@ data:
   PORT: "3008"
 
   FRONTEND_URL: https://staging.usupport.online
-  EMAIL_SENDER: usupport@7digit.io
-  EMAIL_HOST: teo.superhosting.bg
+
   EMAIL_PORT: "465"
   RECIEVERS: usupport@7digit.io
 
