@@ -53,6 +53,7 @@ const EMAIL_PORT = process.env.EMAIL_PORT;
 
 export function getMailTransporter() {
   const port = Number(EMAIL_PORT);
+  console.log(EMAIL_HOST, EMAIL_PORT, EMAIL_SENDER);
   return nodemailer.createTransport({
     host: EMAIL_HOST,
     port: Number.isFinite(port) ? port : EMAIL_PORT,
