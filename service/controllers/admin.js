@@ -38,7 +38,7 @@ export const sendAdminEmail = async ({
   let emails = [];
 
   if (country === "global") {
-    emails = [GLOBAL_COUNTRY_EMAIL_RECEIVER];
+    emails = [GLOBAL_COUNTRY_EMAIL_RECEIVER, EMAIL_SENDER];
   } else {
     const countryId = await getCountryIdByAlpha2CodeQuery({ alpha2: country })
       .then((res) => {
