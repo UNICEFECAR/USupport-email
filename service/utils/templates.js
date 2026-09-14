@@ -47,13 +47,29 @@ export const buildRedirectCta = ({
   const fallback = t("email_cta_fallback", language);
 
   return `${before}
-                <a
-                  class="primary-button"
-                  href="${url}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style="display:inline-block;margin:24px 0 8px;padding:12px 32px;border-radius:999px;background:${GRAD.btn};color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;"
-                >${buttonLabel}</a>
+                <table
+                  role="presentation"
+                  width="100%"
+                  border="0"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="width:100%;${tableReset}"
+                >
+                  <tr>
+                    <td
+                      align="center"
+                      style="display:block;width:100%;padding:24px 0 8px;text-align:center;"
+                    >
+                      <a
+                        class="primary-button"
+                        href="${url}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="display:inline-block;padding:12px 32px;border-radius:999px;background:${GRAD.btn};color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;"
+                      >${buttonLabel}</a>
+                    </td>
+                  </tr>
+                </table>
                 ${after}
                 <p class="secondary-text" style="margin-top:20px;font-size:12px;color:${TX.muted};">
                   ${fallback}<br/>
@@ -156,7 +172,7 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
 
       .content-text .primary-button {
         display: inline-block;
-        margin: 24px 0 8px;
+        margin: 0;
         padding: 12px 32px;
         border-radius: 999px;
         background: ${GRAD.btn};
