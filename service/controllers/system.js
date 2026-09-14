@@ -1,6 +1,6 @@
 import { t } from "#translations/index";
 
-import { GeneralTemplate } from "#utils/templates";
+import { GeneralTemplate, buildRedirectCta } from "#utils/templates";
 
 import { getMailTransporter } from "#utils/helperFunctions";
 
@@ -37,10 +37,13 @@ export const sendForgotPasswordEmail = async ({
   const subject = t("system_forgot_password_subject", language);
   const title = t("system_forgot_password_title", language);
   const forgotPasswordLink = `${PLATFORM_URL}/${platform}/${language}/reset-password?rp=${forgotPasswordToken}`;
-  const forgotPasswordLinkAnchor = `<a href=${forgotPasswordLink}>${forgotPasswordLink}</a>`;
-  const text = t("system_forgot_password_text", language, [
-    forgotPasswordLinkAnchor,
-  ]);
+  const text = buildRedirectCta({
+    url: forgotPasswordLink,
+    language,
+    before: t("system_forgot_password_text", language),
+    after: t("system_forgot_password_text_after", language),
+    buttonLabelKey: "email_cta_reset_password",
+  });
 
   let computedHTML = GeneralTemplate(title, text);
 
@@ -72,8 +75,12 @@ export const sendWelcomeEmail = async ({
   const subject = t("system_welcome_subject", language);
   const title = t("system_welcome_title", language);
   const loginLink = `${PLATFORM_URL}/${platform}/${language}`;
-  const loginLinkAnchor = `<a href=${loginLink}>${loginLink}</a>`;
-  const text = t("system_welcome_text", language, [loginLinkAnchor]);
+  const text = buildRedirectCta({
+    url: loginLink,
+    language,
+    before: t("system_welcome_text", language),
+    buttonLabelKey: "email_cta_log_in",
+  });
 
   let computedHTML = GeneralTemplate(title, text);
 
