@@ -59,6 +59,8 @@ jobs:
             echo "  PII_DB_URL_CY: '${{ secrets.PII_DB_URL_CY }}'"
             echo "  CLINICAL_DB_URL_CY: '${{ secrets.CLINICAL_DB_URL_CY }}'"
             echo "  MASTER_DB_URL: '${{ secrets.MASTER_DB_URL }}'"
+            echo "  EMAIL_SENDER: '${{ secrets.EMAIL_SENDER }}'"
+            echo "  EMAIL_HOST: '${{ secrets.EMAIL_HOST }}'"
             echo "  EMAIL_SENDER_PASSWORD: '${{ secrets.EMAIL_SENDER_PASSWORD }}'"
             echo "  AMAZON_S3_BUCKET: '${{ secrets.AMAZON_S3_BUCKET }}'"
             echo "  FRONTEND_URL: '${{ secrets.FRONTEND_URL }}'"

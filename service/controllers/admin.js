@@ -1,4 +1,4 @@
-import { GeneralTemplate } from "#utils/templates";
+import { GeneralTemplate, buildRedirectCta } from "#utils/templates";
 import { getMailTransporter } from "#utils/helperFunctions";
 import { getCountryIdByAlpha2CodeQuery } from "#queries/countries";
 import { getCountryAdminEmails } from "#queries/admins";
@@ -38,7 +38,7 @@ export const sendAdminEmail = async ({
   let emails = [];
 
   if (country === "global") {
-    emails = [GLOBAL_COUNTRY_EMAIL_RECEIVER];
+    emails = [GLOBAL_COUNTRY_EMAIL_RECEIVER, EMAIL_SENDER];
   } else {
     const countryId = await getCountryIdByAlpha2CodeQuery({ alpha2: country })
       .then((res) => {
@@ -99,11 +99,12 @@ export const sendRegistrationNotify = async ({
   const platformLink = `${getPlatformUrl(
     countryLabel
   )}/${adminRole}-admin/${language}/login`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
-  const text = t("admin_registration_notify_text", language, [
-    platformLinkAnchor,
-    password,
-  ]);
+  const text = buildRedirectCta({
+    url: platformLink,
+    language,
+    before: t("admin_registration_notify_text", language, [password]),
+    buttonLabelKey: "email_cta_log_in",
+  });
 
   let computedHTML = GeneralTemplate(title, text);
 

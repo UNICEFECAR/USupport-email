@@ -1,3 +1,5 @@
+import { t } from "#translations/index";
+
 const AMAZON_S3_BUCKET = process.env.AMAZON_S3_BUCKET;
 const EMAIL_LOGO_LIGHT_URL =
   process.env.EMAIL_LOGO_LIGHT_URL || `${AMAZON_S3_BUCKET}/logo-horizontal`;
@@ -33,6 +35,47 @@ const DK = {
 const pageBgStyle = `background-color:${BG.page};background-image:linear-gradient(${BG.page},${BG.page})`;
 const tableReset =
   "border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;border:0";
+
+export const buildRedirectCta = ({
+  url,
+  language,
+  before = "",
+  after = "",
+  buttonLabelKey = "email_cta_view_consultation",
+}) => {
+  const buttonLabel = t(buttonLabelKey, language);
+  const fallback = t("email_cta_fallback", language);
+
+  return `${before}
+                <table
+                  role="presentation"
+                  width="100%"
+                  border="0"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="width:100%;${tableReset}"
+                >
+                  <tr>
+                    <td
+                      align="center"
+                      style="display:block;width:100%;padding:24px 0 8px;text-align:center;"
+                    >
+                      <a
+                        class="primary-button"
+                        href="${url}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="display:inline-block;padding:12px 32px;border-radius:999px;background:${GRAD.btn};color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;"
+                      >${buttonLabel}</a>
+                    </td>
+                  </tr>
+                </table>
+                ${after}
+                <p class="secondary-text" style="margin-top:20px;font-size:12px;color:${TX.muted};">
+                  ${fallback}<br/>
+                  <a class="secondary-link" href="${url}" style="color:${TX.link};font-weight:500;text-decoration:underline;">${url}</a>
+                </p>`;
+};
 
 export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
 <html lang="en">
@@ -129,7 +172,7 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
 
       .content-text .primary-button {
         display: inline-block;
-        margin: 24px 0 8px;
+        margin: 0;
         padding: 12px 32px;
         border-radius: 999px;
         background: ${GRAD.btn};

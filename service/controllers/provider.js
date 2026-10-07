@@ -1,11 +1,13 @@
 import { t } from "#translations/index";
 
-import { GeneralTemplate } from "#utils/templates";
+import { GeneralTemplate, buildRedirectCta } from "#utils/templates";
 
 import {
   getMailTransporter,
   getStartAndEndOfWeek,
 } from "#utils/helperFunctions";
+
+import { getCountryTimezoneByAlpha2Query } from "#queries/countries";
 
 const EMAIL_SENDER = process.env.EMAIL_SENDER;
 const FRONTEND_URL = process.env.FRONTEND_URL;
@@ -32,16 +34,86 @@ export const sendConsultationNotifyBookingEmail = async ({
   language,
   recipientEmail,
   countryLabel,
+  time,
+  country,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
+
+  const timezoneResult = await getCountryTimezoneByAlpha2Query({
+    alpha2: country?.toUpperCase(),
+  }).catch(() => null);
+  const timezone = timezoneResult?.rows?.[0]?.timezone ?? null;
+
+  let formattedDatetimeWithTimezone = "";
+  if (time && timezone) {
+    const date = new Date(time * 1000);
+    const formattedDatetime = new Intl.DateTimeFormat("en", {
+      timeZone: timezone,
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }).format(date);
+
+    const city = timezone.split("/").pop().replace(/_/g, " ");
+    let gmtOffset = "";
+    try {
+      gmtOffset =
+        new Intl.DateTimeFormat("en", {
+          timeZone: timezone,
+          timeZoneName: "shortOffset",
+        })
+          .formatToParts(date)
+          .find((p) => p.type === "timeZoneName")?.value ?? "";
+    } catch {
+      const parts = new Intl.DateTimeFormat("en", {
+        timeZone: timezone,
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        hour12: false,
+      })
+        .formatToParts(date)
+        .reduce((acc, p) => ({ ...acc, [p.type]: p.value }), {});
+      const h = parseInt(parts.hour);
+      const tzDate = new Date(
+        Date.UTC(
+          +parts.year,
+          +parts.month - 1,
+          +parts.day,
+          h === 24 ? 0 : h,
+          +parts.minute
+        )
+      );
+      const totalMinutes = Math.round((tzDate - date) / 60000);
+      const sign = totalMinutes >= 0 ? "+" : "-";
+      const abs = Math.abs(totalMinutes);
+      const oh = Math.floor(abs / 60),
+        om = abs % 60;
+      gmtOffset =
+        om > 0
+          ? `GMT${sign}${oh}:${String(om).padStart(2, "0")}`
+          : `GMT${sign}${oh}`;
+    }
+
+    formattedDatetimeWithTimezone = `${formattedDatetime} (${city}, ${gmtOffset})`;
+  }
 
   const subject = t("provider_consultation_notify_booking_subject", language);
   const title = t("provider_consultation_notify_booking_title", language);
   const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
-  const text = t("provider_consultation_notify_booking_text", language, [
-    platformLinkAnchor,
-  ]);
+  const text = buildRedirectCta({
+    url: platformLink,
+    language,
+    before: t("provider_consultation_notify_booking_text", language, [
+      formattedDatetimeWithTimezone,
+    ]),
+    buttonLabelKey: "email_cta_view_consultation",
+  });
 
   let computedHTML = GeneralTemplate(title, text);
 
@@ -74,10 +146,12 @@ export const sendConsultationNotifyRescheduleEmail = async ({
   );
   const title = t("provider_consultation_notify_reschedule_title", language);
   const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
-  const text = t("provider_consultation_notify_reschedule_text", language, [
-    platformLinkAnchor,
-  ]);
+  const text = buildRedirectCta({
+    url: platformLink,
+    language,
+    before: t("provider_consultation_notify_reschedule_text", language),
+    buttonLabelKey: "email_cta_view_consultation",
+  });
 
   let computedHTML = GeneralTemplate(title, text);
 
@@ -110,10 +184,12 @@ export const sendConsultationNotifyCancellationEmail = async ({
   );
   const title = t("provider_consultation_notify_cancellation_title", language);
   const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
-  const text = t("provider_consultation_notify_cancellation_text", language, [
-    platformLinkAnchor,
-  ]);
+  const text = buildRedirectCta({
+    url: platformLink,
+    language,
+    before: t("provider_consultation_notify_cancellation_text", language),
+    buttonLabelKey: "email_cta_view_consultation",
+  });
 
   let computedHTML = GeneralTemplate(title, text);
 
@@ -136,7 +212,6 @@ export const sendConsultationNotifyCancellationEmail = async ({
 export const sendConsultationConfirmCancellationEmail = async ({
   language,
   recipientEmail,
-  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
@@ -145,11 +220,7 @@ export const sendConsultationConfirmCancellationEmail = async ({
     language
   );
   const title = t("provider_consultation_confirm_cancellation_title", language);
-  const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
-  const text = t("provider_consultation_confirm_cancellation_text", language, [
-    platformLinkAnchor,
-  ]);
+  const text = t("provider_consultation_confirm_cancellation_text", language);
 
   let computedHTML = GeneralTemplate(title, text);
 
@@ -180,11 +251,14 @@ export const sendConsultationRemindStartEmail = async ({
   const subject = t("provider_consultation_remind_start_subject", language);
   const title = t("provider_consultation_remind_start_title", language);
   const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
-  const text = t("provider_consultation_remind_start_text", language, [
-    platformLinkAnchor,
-    minToConsultation,
-  ]);
+  const text = buildRedirectCta({
+    url: platformLink,
+    language,
+    before: t("provider_consultation_remind_start_text", language, [
+      minToConsultation,
+    ]),
+    buttonLabelKey: "email_cta_join_consultation",
+  });
 
   let computedHTML = GeneralTemplate(title, text);
 
@@ -214,10 +288,12 @@ export const sendConsultationHasStartedReminderEmail = async ({
   const subject = t("consultation_started_remind_subject", language);
   const title = t("consultation_started_remind_title", language);
   const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
-  const text = t("consultation_started_remind_text", language, [
-    platformLinkAnchor,
-  ]);
+  const text = buildRedirectCta({
+    url: platformLink,
+    language,
+    before: t("consultation_started_remind_text", language),
+    buttonLabelKey: "email_cta_join_consultation",
+  });
 
   let computedHTML = GeneralTemplate(title, text);
 
@@ -250,10 +326,12 @@ export const sendConsultationConfirmSuggestionEmail = async ({
   );
   const title = t("provider_consultation_confirm_suggestion_title", language);
   const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
-  const text = t("provider_consultation_confirm_suggestion_text", language, [
-    platformLinkAnchor,
-  ]);
+  const text = buildRedirectCta({
+    url: platformLink,
+    language,
+    before: t("provider_consultation_confirm_suggestion_text", language),
+    buttonLabelKey: "email_cta_view_consultation",
+  });
 
   let computedHTML = GeneralTemplate(title, text);
 
@@ -289,12 +367,12 @@ export const sendConsultationNotifySuggestionBookingEmail = async ({
     language
   );
   const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
-  const text = t(
-    "provider_consultation_notify_suggestion_booking_text",
+  const text = buildRedirectCta({
+    url: platformLink,
     language,
-    [platformLinkAnchor]
-  );
+    before: t("provider_consultation_notify_suggestion_booking_text", language),
+    buttonLabelKey: "email_cta_view_consultation",
+  });
 
   let computedHTML = GeneralTemplate(title, text);
 
@@ -317,7 +395,6 @@ export const sendConsultationNotifySuggestionBookingEmail = async ({
 export const sendConsultationNotifySuggestionCancellationEmail = async ({
   language,
   recipientEmail,
-  countryLabel,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
@@ -329,12 +406,9 @@ export const sendConsultationNotifySuggestionCancellationEmail = async ({
     "provider_consultation_notify_suggestion_cancellation_title",
     language
   );
-  const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
   const text = t(
     "provider_consultation_notify_suggestion_cancellation_text",
-    language,
-    [platformLinkAnchor]
+    language
   );
 
   let computedHTML = GeneralTemplate(title, text);
@@ -371,10 +445,12 @@ export const sendAvailabilityRemindAddMoreSlotsEmail = async ({
     language
   );
   const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
-  const text = t("provider_availability_remind_add_more_slots_text", language, [
-    platformLinkAnchor,
-  ]);
+  const text = buildRedirectCta({
+    url: platformLink,
+    language,
+    before: t("provider_availability_remind_add_more_slots_text", language),
+    buttonLabelKey: "email_cta_add_availability",
+  });
 
   let computedHTML = GeneralTemplate(title, text);
 
@@ -405,8 +481,12 @@ export const sendReportWeeklyEmail = async ({
   const subject = t("provider_report_weekly_subject", language);
   const title = t("provider_report_weekly_title", language);
   const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
-  const text = t("provider_report_weekly_text", language, [platformLinkAnchor]);
+  const text = buildRedirectCta({
+    url: platformLink,
+    language,
+    before: t("provider_report_weekly_text", language),
+    buttonLabelKey: "email_cta_view_weekly_report",
+  });
 
   const csvFileName =
     t("provider_report_weekly_subject") +
@@ -448,10 +528,12 @@ export const sendReportMonthlyEmail = async ({
   const subject = t("provider_report_monthly_subject", language);
   const title = t("provider_report_monthly_title", language);
   const platformLink = `${getPlatformUrl(countryLabel)}/provider/${language}`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
-  const text = t("provider_report_monthly_text", language, [
-    platformLinkAnchor,
-  ]);
+  const text = buildRedirectCta({
+    url: platformLink,
+    language,
+    before: t("provider_report_monthly_text", language),
+    buttonLabelKey: "email_cta_view_monthly_report",
+  });
 
   const csvFileName =
     t("provider_report_monthly_subject") +
@@ -496,11 +578,12 @@ export const sendRegistrationNotify = async ({
   const subject = t("provider_registration_notify_subject", language);
   const title = t("provider_registration_notify_title", language);
   const platformLink = `${platformUrl}/provider/${language}/login`;
-  const platformLinkAnchor = `<a href=${platformLink}>${platformLink}</a>`;
-  const text = t("provider_registration_notify_text", language, [
-    platformLinkAnchor,
-    password,
-  ]);
+  const text = buildRedirectCta({
+    url: platformLink,
+    language,
+    before: t("provider_registration_notify_text", language, [password]),
+    buttonLabelKey: "email_cta_log_in",
+  });
 
   let computedHTML = GeneralTemplate(title, text);
 
