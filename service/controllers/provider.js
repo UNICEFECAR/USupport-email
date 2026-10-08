@@ -36,6 +36,7 @@ export const sendConsultationNotifyBookingEmail = async ({
   countryLabel,
   time,
   country,
+  durationMinutes,
 }) => {
   const from = `uSupport <${EMAIL_SENDER}>`;
 
@@ -56,6 +57,19 @@ export const sendConsultationNotifyBookingEmail = async ({
       minute: "2-digit",
       hour12: false,
     }).format(date);
+
+    // Show the whole slot, not only when it starts
+    const formattedEndTime = durationMinutes
+      ? new Intl.DateTimeFormat("en", {
+          timeZone: timezone,
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }).format(new Date((time + durationMinutes * 60) * 1000))
+      : null;
+    const formattedDatetimeRange = formattedEndTime
+      ? `${formattedDatetime} - ${formattedEndTime}`
+      : formattedDatetime;
 
     const city = timezone.split("/").pop().replace(/_/g, " ");
     let gmtOffset = "";
@@ -100,7 +114,7 @@ export const sendConsultationNotifyBookingEmail = async ({
           : `GMT${sign}${oh}`;
     }
 
-    formattedDatetimeWithTimezone = `${formattedDatetime} (${city}, ${gmtOffset})`;
+    formattedDatetimeWithTimezone = `${formattedDatetimeRange} (${city}, ${gmtOffset})`;
   }
 
   const subject = t("provider_consultation_notify_booking_subject", language);
