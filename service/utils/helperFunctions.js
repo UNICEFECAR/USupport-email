@@ -42,7 +42,10 @@ import {
   sendConsultationHasStartedReminderEmail as sendConsultationHasStartedReminderEmailProvider,
 } from "#controllers/provider";
 
-import { sendRegistrationNotify as sendRegistrationNotifyAdmin } from "#controllers/admin";
+import {
+  sendRegistrationNotify as sendRegistrationNotifyAdmin,
+  sendConsultationProblemReportEmail,
+} from "#controllers/admin";
 
 import { checkIfUserAllowedEmailNotifications } from "#queries/user";
 
@@ -94,6 +97,7 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     "provider-registration",
     "login-2fa-request",
     "admin-registration",
+    "admin-consultationProblemReport",
     "register-2fa-request",
     "email-used",
     "availabilityReport",
@@ -235,6 +239,10 @@ export const handleEmailConsumerMessage = async ({ message }) => {
     }
     case "login-2fa-request": {
       sendLogin2FARequest(payload);
+      break;
+    }
+    case "admin-consultationProblemReport": {
+      await sendConsultationProblemReportEmail(payload);
       break;
     }
     case "admin-registration": {

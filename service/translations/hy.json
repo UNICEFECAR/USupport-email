@@ -131,5 +131,15 @@
   "email_cta_view_weekly_report": "Դիտել շաբաթական հաշվետվությունը",
   "email_cta_view_monthly_report": "Դիտել ամենամսյա հաշվետվությունը",
   "email_cta_log_mood": "Գրանցել տրամադրությունը",
-  "email_cta_book_session": "Ամրագրել սեանս"
+  "email_cta_book_session": "Ամրագրել սեանս",
+  "consultation_problem_report_subject": "Խորհրդատվության խնդրի նոր հաղորդում — {1}",
+  "consultation_problem_report_title": "Խորհրդատվության խնդրի հաղորդում",
+  "consultation_problem_report_submitted": "Ուղարկման ժամանակը",
+  "consultation_problem_report_consultation": "Խորհրդատվություն",
+  "consultation_problem_report_reporter": "Ուղարկող",
+  "consultation_problem_report_client": "Հաճախորդ",
+  "consultation_problem_report_provider": "Մասնագետ",
+  "consultation_problem_report_view": "Դիտել ամբողջ հաղորդումը",
+  "consultation_problem_report_rights": "Բոլոր իրավունքները պաշտպանված են։",
+  "consultation_problem_report_reason": "Դուք ստանում եք այս նամակը, քանի որ uSupport-ի երկրի ադմինիստրատոր եք։"
 }

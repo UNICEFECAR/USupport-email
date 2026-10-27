@@ -131,5 +131,15 @@
   "email_cta_view_weekly_report": "View weekly report",
   "email_cta_view_monthly_report": "View monthly report",
   "email_cta_log_mood": "Log your mood",
-  "email_cta_book_session": "Book a session"
+  "email_cta_book_session": "Book a session",
+  "consultation_problem_report_subject": "New consultation problem report — {1}",
+  "consultation_problem_report_title": "Consultation problem report",
+  "consultation_problem_report_submitted": "Submitted at",
+  "consultation_problem_report_consultation": "Consultation",
+  "consultation_problem_report_reporter": "Reporter",
+  "consultation_problem_report_client": "Client",
+  "consultation_problem_report_provider": "Provider",
+  "consultation_problem_report_view": "View full report",
+  "consultation_problem_report_rights": "All rights reserved.",
+  "consultation_problem_report_reason": "You are receiving this email because you are a country administrator for uSupport."
 }

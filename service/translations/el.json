@@ -131,5 +131,15 @@
   "email_cta_view_weekly_report": "Προβολή εβδομαδιαίας αναφοράς",
   "email_cta_view_monthly_report": "Προβολή μηνιαίας αναφοράς",
   "email_cta_log_mood": "Καταγραφή διάθεσης",
-  "email_cta_book_session": "Κράτηση συνεδρίας"
+  "email_cta_book_session": "Κράτηση συνεδρίας",
+  "consultation_problem_report_subject": "Νέα αναφορά προβλήματος συνεδρίας — {1}",
+  "consultation_problem_report_title": "Αναφορά προβλήματος συνεδρίας",
+  "consultation_problem_report_submitted": "Χρόνος υποβολής",
+  "consultation_problem_report_consultation": "Συνεδρία",
+  "consultation_problem_report_reporter": "Αποστολέας",
+  "consultation_problem_report_client": "Πελάτης",
+  "consultation_problem_report_provider": "Ειδικός",
+  "consultation_problem_report_view": "Προβολή πλήρους αναφοράς",
+  "consultation_problem_report_rights": "Με επιφύλαξη παντός δικαιώματος.",
+  "consultation_problem_report_reason": "Λαμβάνετε αυτό το μήνυμα επειδή είστε διαχειριστής χώρας στο uSupport."
 }

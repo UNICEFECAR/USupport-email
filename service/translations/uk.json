@@ -131,5 +131,15 @@
   "email_cta_view_weekly_report": "Переглянути щотижневий звіт",
   "email_cta_view_monthly_report": "Переглянути щомісячний звіт",
   "email_cta_log_mood": "Записати настрій",
-  "email_cta_book_session": "Забронювати сесію"
+  "email_cta_book_session": "Забронювати сесію",
+  "consultation_problem_report_subject": "Нове повідомлення про проблему з консультацією — {1}",
+  "consultation_problem_report_title": "Повідомлення про проблему з консультацією",
+  "consultation_problem_report_submitted": "Час надсилання",
+  "consultation_problem_report_consultation": "Консультація",
+  "consultation_problem_report_reporter": "Відправник",
+  "consultation_problem_report_client": "Клієнт",
+  "consultation_problem_report_provider": "Фахівець",
+  "consultation_problem_report_view": "Відкрити повне повідомлення",
+  "consultation_problem_report_rights": "Усі права захищено.",
+  "consultation_problem_report_reason": "Ви отримали цей лист, оскільки є адміністратором країни в uSupport."
 }

@@ -10,8 +10,12 @@ const pl = require("./pl.json");
 const ro = require("./ro.json");
 const uk = require("./uk.json");
 const el = require("./el.json");
+const ar = require("./ar.json");
+const tr = require("./tr.json");
 
 const translations = {
+  ar,
+  tr,
   hy,
   en,
   kk,
@@ -36,7 +40,7 @@ export const t = (key, language = "en", params = []) => {
   if (!Object.keys(translations).includes(language)) {
     translation = translations["en"][key];
   } else {
-    translation = translations[language][key];
+    translation = translations[language][key] || translations["en"][key];
   }
 
   if (translation) {

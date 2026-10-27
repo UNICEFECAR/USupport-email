@@ -1,0 +1,13 @@
+{
+  "consultation_problem_report_subject": "بلاغ جديد عن مشكلة في استشارة — {1}",
+  "consultation_problem_report_title": "بلاغ مشكلة في استشارة",
+  "consultation_problem_report_submitted": "وقت الإرسال",
+  "consultation_problem_report_consultation": "الاستشارة",
+  "consultation_problem_report_reporter": "مقدّم البلاغ",
+  "consultation_problem_report_client": "المستفيد",
+  "consultation_problem_report_provider": "الأخصائي",
+  "consultation_problem_report_view": "عرض البلاغ الكامل",
+  "consultation_problem_report_rights": "جميع الحقوق محفوظة.",
+  "consultation_problem_report_reason": "تتلقى هذا البريد لأنك مسؤول بلد في uSupport.",
+  "email_cta_fallback": "إذا لم يعمل الزر، يمكنك فتح الرابط التالي."
+}
