@@ -131,5 +131,15 @@
   "email_cta_view_weekly_report": "Апталық есепті көру",
   "email_cta_view_monthly_report": "Айлық есепті көру",
   "email_cta_log_mood": "Көңіл-күйді жазу",
-  "email_cta_book_session": "Сессияға жазылу"
+  "email_cta_book_session": "Сессияға жазылу",
+  "consultation_problem_report_subject": "Консультация мәселесі туралы жаңа хабарлама — {1}",
+  "consultation_problem_report_title": "Консультация мәселесі туралы хабарлама",
+  "consultation_problem_report_submitted": "Жіберілген уақыт",
+  "consultation_problem_report_consultation": "Консультация",
+  "consultation_problem_report_reporter": "Жіберуші",
+  "consultation_problem_report_client": "Клиент",
+  "consultation_problem_report_provider": "Маман",
+  "consultation_problem_report_view": "Толық хабарламаны көру",
+  "consultation_problem_report_rights": "Барлық құқықтар қорғалған.",
+  "consultation_problem_report_reason": "Бұл хатты uSupport ел әкімшісі болғандықтан алып отырсыз."
 }

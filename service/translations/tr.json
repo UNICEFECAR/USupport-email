@@ -1,0 +1,13 @@
+{
+  "consultation_problem_report_subject": "Yeni görüşme sorun bildirimi — {1}",
+  "consultation_problem_report_title": "Görüşme sorun bildirimi",
+  "consultation_problem_report_submitted": "Gönderim zamanı",
+  "consultation_problem_report_consultation": "Görüşme",
+  "consultation_problem_report_reporter": "Bildiren",
+  "consultation_problem_report_client": "Danışan",
+  "consultation_problem_report_provider": "Uzman",
+  "consultation_problem_report_view": "Tam bildirimi görüntüle",
+  "consultation_problem_report_rights": "Tüm hakları saklıdır.",
+  "consultation_problem_report_reason": "Bu e-postayı uSupport ülke yöneticisi olduğunuz için alıyorsunuz.",
+  "email_cta_fallback": "Düğme çalışmazsa aşağıdaki bağlantıyı açabilirsiniz."
+}

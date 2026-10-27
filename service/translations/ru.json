@@ -131,5 +131,15 @@
   "email_cta_view_weekly_report": "Посмотреть еженедельный отчет",
   "email_cta_view_monthly_report": "Посмотреть ежемесячный отчет",
   "email_cta_log_mood": "Записать настроение",
-  "email_cta_book_session": "Записаться на сессию"
+  "email_cta_book_session": "Записаться на сессию",
+  "consultation_problem_report_subject": "Новое сообщение о проблеме с консультацией — {1}",
+  "consultation_problem_report_title": "Сообщение о проблеме с консультацией",
+  "consultation_problem_report_submitted": "Время отправки",
+  "consultation_problem_report_consultation": "Консультация",
+  "consultation_problem_report_reporter": "Отправитель",
+  "consultation_problem_report_client": "Клиент",
+  "consultation_problem_report_provider": "Специалист",
+  "consultation_problem_report_view": "Открыть полное сообщение",
+  "consultation_problem_report_rights": "Все права защищены.",
+  "consultation_problem_report_reason": "Вы получили это письмо, потому что являетесь администратором страны в uSupport."
 }
