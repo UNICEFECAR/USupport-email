@@ -131,5 +131,15 @@
   "email_cta_view_weekly_report": "Zobacz raport tygodniowy",
   "email_cta_view_monthly_report": "Zobacz raport miesięczny",
   "email_cta_log_mood": "Zapisz nastrój",
-  "email_cta_book_session": "Umów sesję"
+  "email_cta_book_session": "Umów sesję",
+  "consultation_problem_report_subject": "Nowe zgłoszenie problemu z konsultacją — {1}",
+  "consultation_problem_report_title": "Zgłoszenie problemu z konsultacją",
+  "consultation_problem_report_submitted": "Data zgłoszenia",
+  "consultation_problem_report_consultation": "Konsultacja",
+  "consultation_problem_report_reporter": "Osoba zgłaszająca",
+  "consultation_problem_report_client": "Klient",
+  "consultation_problem_report_provider": "Specjalista",
+  "consultation_problem_report_view": "Zobacz pełne zgłoszenie",
+  "consultation_problem_report_rights": "Wszelkie prawa zastrzeżone.",
+  "consultation_problem_report_reason": "Otrzymujesz tę wiadomość, ponieważ jesteś administratorem krajowym uSupport."
 }

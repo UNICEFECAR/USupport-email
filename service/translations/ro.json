@@ -131,5 +131,15 @@
   "email_cta_view_weekly_report": "Vizualizați raportul săptămânal",
   "email_cta_view_monthly_report": "Vizualizați raportul lunar",
   "email_cta_log_mood": "Înregistrați starea de spirit",
-  "email_cta_book_session": "Rezervați o sesiune"
+  "email_cta_book_session": "Rezervați o sesiune",
+  "consultation_problem_report_subject": "Raport nou privind o problemă la consultație — {1}",
+  "consultation_problem_report_title": "Raport privind o problemă la consultație",
+  "consultation_problem_report_submitted": "Data trimiterii",
+  "consultation_problem_report_consultation": "Consultație",
+  "consultation_problem_report_reporter": "Expeditor",
+  "consultation_problem_report_client": "Client",
+  "consultation_problem_report_provider": "Specialist",
+  "consultation_problem_report_view": "Vezi raportul complet",
+  "consultation_problem_report_rights": "Toate drepturile rezervate.",
+  "consultation_problem_report_reason": "Primești acest e-mail deoarece ești administrator de țară în uSupport."
 }

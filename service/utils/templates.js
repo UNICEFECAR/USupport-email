@@ -77,8 +77,10 @@ export const buildRedirectCta = ({
                 </p>`;
 };
 
-export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
-<html lang="en">
+export const GeneralTemplate = (title, text, options = {}) => `<!DOCTYPE html>
+<html lang="${options.language || "en"}" dir="${
+  options.language === "ar" ? "rtl" : "ltr"
+}">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -410,8 +412,13 @@ export const GeneralTemplate = (title, text) => `<!DOCTYPE html>
                     TX.muted
                   };"
                 >
-                  <div>You're receiving this email because you have an account with uSupport.</div>
-                  <div style="margin-top:6px;">&copy; ${new Date().getFullYear()} uSupport. All rights reserved.</div>
+                  <div>${
+                    options.footerReason ||
+                    "You're receiving this email because you have an account with uSupport."
+                  }</div>
+                  <div style="margin-top:6px;">&copy; ${new Date().getFullYear()} uSupport. ${
+  options.footerRights || "All rights reserved."
+}</div>
                 </div>
 
               </td>
